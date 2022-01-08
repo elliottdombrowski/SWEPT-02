@@ -46,7 +46,6 @@ a {
 .sweeper-data-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 60%;
   padding: 3rem;
   background: var(--blue-gradient);
@@ -57,13 +56,13 @@ a {
 
 .sweeper-zipcode-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 80%;
+  width: 100%;
 }
 
 .zipcode-input {
   padding: 0.7rem 1rem;
-  width: 100%;
   font-size: 120%;
   background: var(--darkblue);
   border: 2px solid white;
@@ -72,4 +71,10 @@ a {
 
 ::placeholder {
   color: white;
+}
+
+.find-ward {
+  margin-top: 0.7rem;
+  margin-left: 5px;
+  text-decoration: underline;
 }
