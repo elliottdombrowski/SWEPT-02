@@ -51,10 +51,19 @@ a {
   font-family: var(--logo-font);
   font-style: italic;
   font-size: 240%;
+  letter-spacing: 0.1rem;
 }
 
 .nav-item, .login-btn {
   transition: var(--btn-hover);
+}
+
+.nav-logo {
+  text-shadow: 4px 4px 1px black;
+}
+
+.nav-item {
+  text-shadow: 3px 3px 2px var(--deep-darkblue);
 }
 
 .nav-links {
