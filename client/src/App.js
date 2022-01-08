@@ -4,13 +4,16 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navbar from '../src/components/Navbar/Navbar';
+import Sweeper from '../src/pages/Sweeper/Sweeper';
+import FindZipForm from './components/FindZipForm/FindZipForm';
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-      </Router>
+        <Router>
+          <Navbar />
+          <Sweeper />
+        </Router>
     </div>
   );
 }
