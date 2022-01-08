@@ -54,14 +54,14 @@ a {
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
-.sweeper-zipcode-form {
+.sweeper-ward-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
 }
 
-.zipcode-input {
+.ward-input {
   padding: 0.7rem 1rem;
   font-size: 120%;
   background: var(--darkblue);

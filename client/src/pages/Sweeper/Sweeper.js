@@ -1,24 +1,28 @@
 import React, { useEffect, useState } from 'react';
-// import FindZipForm from '../../components/FindZipForm/FindZipForm';
+import FindZipForm from '../../components/FindZipForm/FindZipForm';
 import { Input } from '@chakra-ui/react';
 import './sweeper.css';
 
 const Sweeper = () => {
   const [findZip, setFindZip] = useState(false);
 
+  // useEffect({
+  //   setFindZip(false)
+  // }, [])
+
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-data-wrapper'>
-        <form className='sweeper-zipcode-form'>
+        <form className='sweeper-ward-form'>
           <input
             // value={}
             // onChange={}
             placeholder="Enter your Ward Number!"
-            className='zipcode-input'
+            className='ward-input'
           />
         </form>
 
-        {/* {findZip ? (
+        {findZip ? (
           <FindZipForm />
         ) : (
           <a
@@ -29,8 +33,7 @@ const Sweeper = () => {
           >
             don't know your ward number?
           </a>
-        )} */}
-
+        )}
       </div>
     </div>
   );
