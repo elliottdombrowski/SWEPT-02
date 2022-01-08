@@ -54,3 +54,9 @@ a {
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
+.find-ward {
+  font-family: var(--link-font);
+  margin-top: 0.7rem;
+  margin-left: 5px;
+  text-decoration: underline;
+}

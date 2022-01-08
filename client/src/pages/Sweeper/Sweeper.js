@@ -5,10 +5,7 @@ import './sweeper.css';
 
 const Sweeper = () => {
   const [findZip, setFindZip] = useState(false);
-
-  // useEffect({
-  //   setFindZip(false)
-  // }, [])
+  const changeForm = findZip ? 'zip code' : 'ward';
 
   return (
     <div className='sweeper-wrapper'>
@@ -18,6 +15,15 @@ const Sweeper = () => {
         ) : (
           <FindWardForm />
         )}
+
+        <a 
+          href="#"
+          rel="noopener noreferrer"
+          className='find-ward'
+          onClick={() => setFindZip(true)}
+        >
+          Don't know your {changeForm}?
+        </a>
       </div>
     </div>
   );
