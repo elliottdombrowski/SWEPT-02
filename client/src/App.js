@@ -9,10 +9,10 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Sweeper />
-      </Router>
+        <Router>
+          <Navbar />
+          <Sweeper />
+        </Router>
     </div>
   );
 }

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Input } from '@chakra-ui/react';
 import './sweeper.css';
 
 const Sweeper = () => {
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-data-wrapper'>
-        
+        <form className='sweeper-zipcode-form'>
+          
+        </form>
       </div>
     </div>
   );
