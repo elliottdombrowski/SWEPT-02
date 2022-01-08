@@ -3,7 +3,11 @@ import './sweeper.css';
 
 const Sweeper = () => {
   return (
-    <div>hi</div>
+    <div className='sweeper-wrapper'>
+      <div className='sweeper-data-wrapper'>
+        
+      </div>
+    </div>
   );
 };
 

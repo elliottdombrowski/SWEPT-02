@@ -34,3 +34,8 @@
 a {
   text-decoration: none;
 }
+
+.sweeper-wrapper {
+  background: var(--lightblue);
+  height: 100vh;
+}

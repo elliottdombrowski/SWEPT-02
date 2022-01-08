@@ -96,7 +96,7 @@ a {
 
 .deco-inner {
   height: 2rem;
-  background: white;
+  background: var(--lightblue);
   border-radius: 50px 50px 0 0;
   z-index: 2;
 }
