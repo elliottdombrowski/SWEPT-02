@@ -14,7 +14,6 @@ const Navbar = () => {
         </div>
 
         {/* NAV RIGHT */}
-
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right'>
           <Link to="/snow" className='nav-item nav-links'>
