@@ -7,7 +7,12 @@ const Sweeper = () => {
     <div className='sweeper-wrapper'>
       <div className='sweeper-data-wrapper'>
         <form className='sweeper-zipcode-form'>
-          
+          <input
+            // value={}
+            // onChange={}
+            placeholder="Enter your Zip Code!"
+            className='zipcode-input'
+          />
         </form>
       </div>
     </div>

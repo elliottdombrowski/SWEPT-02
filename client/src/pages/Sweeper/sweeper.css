@@ -36,6 +36,40 @@ a {
 }
 
 .sweeper-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: var(--lightblue);
   height: 100vh;
+}
+
+.sweeper-data-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 15px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.sweeper-zipcode-form {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.zipcode-input {
+  padding: 0.7rem 1rem;
+  width: 100%;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+::placeholder {
+  color: white;
 }
