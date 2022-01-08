@@ -44,7 +44,7 @@ a {
   height: 100vh;
 }
 
-.sweeper-data-wrapper {
+.sweeper-form-wrapper {
   display: flex;
   flex-direction: column;
   width: 40%;

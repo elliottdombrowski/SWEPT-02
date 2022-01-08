@@ -9,7 +9,7 @@ const Sweeper = () => {
 
   return (
     <div className='sweeper-wrapper'>
-      <div className='sweeper-data-wrapper'>
+      <div className='sweeper-form-wrapper'>
         {findZip ? (
           <FindZipForm />
         ) : (
@@ -24,6 +24,10 @@ const Sweeper = () => {
         >
           Don't know your {changeForm}?
         </a>
+      </div>
+
+      <div className='sweeper-data-output-wrapper'>
+        hi there
       </div>
     </div>
   );
