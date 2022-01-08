@@ -2,11 +2,15 @@
   "name": "project-3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "engines": {
     "node": "10.16.0"
@@ -20,6 +24,9 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/elliottdombrowski/Project-3/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   },
   "homepage": "https://github.com/elliottdombrowski/Project-3#readme"
 }
