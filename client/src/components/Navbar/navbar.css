@@ -47,8 +47,9 @@ a {
   background: var(--blue-gradient);
 }
 
-.nav-item {
+.nav-logo {
   font-family: var(--logo-font);
+  font-style: italic;
   font-size: 200%;
   transition: var(--btn-hover);
 }

@@ -8,52 +8,28 @@ const Navbar = () => {
       <header className='navbar-header'>
         {/* NAV LEFT */}
         <div className='nav-left'>
-          <a 
-            href="#"
-            rel="noopener noreferrer"
-            className='nav-item nav-logo'
-          >
-            <Link to='/homepage'>
-              SWEPT!!!
-            </Link>
-          </a>
+          <Link to='/homepage' className='nav-item nav-logo'>
+            SWEPT!!!
+          </Link>
         </div>
 
         {/* NAV RIGHT */}
 
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right'>
-          <a
-            href="#"
-            rel="noopener noreferrer"
-            className='nav-item nav-links'
-          >
-            <Link to="/snow">
-              SNOW
-            </Link>
-          </a>
+          <Link to="/snow" className='nav-item nav-links'>
+            SNOW
+          </Link>
 
           {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
-          <a
-            href="#"
-            rel="noopener noreferrer"
-            className='nav-item nav-links'
-          >
-            <Link to='/me'>
-              PROFILE
-            </Link>
-          </a>
+          <Link to='/me' className='nav-item nav-links'>
+            PROFILE
+          </Link>
 
           <div className='login-btn'>
-            <a
-              href="#"
-              rel="noopener noreferrer"
-              className='nav-item nav-links login-btn-link'
-            >
-              <Link to='/login'>
-                SIGN UP
-              </Link>
-            </a>
+            <Link to='/login' className='nav-item nav-links'>
+              SIGN UP
+            </Link>
           </div>
         </div>
       </header>
