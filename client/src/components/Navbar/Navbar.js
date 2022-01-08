@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './navbar.css';
 
 const Navbar = () => {
@@ -12,7 +13,9 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className='nav-item nav-logo'
           >
-            SWEPT!!!
+            <Link to='/homepage'>
+              SWEPT!!!
+            </Link>
           </a>
         </div>
 
@@ -25,7 +28,9 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className='nav-item nav-links'
           >
-            SNOW
+            <Link to="/snow">
+              SNOW
+            </Link>
           </a>
 
           {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
@@ -34,16 +39,20 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className='nav-item nav-links'
           >
-            PROFILE
+            <Link to='/me'>
+              PROFILE
+            </Link>
           </a>
 
           <div className='login-btn'>
             <a
               href="#"
               rel="noopener noreferrer"
-              className='nav-item nav-links'
+              className='nav-item nav-links login-btn-link'
             >
-              SIGN UP
+              <Link to='/login'>
+                SIGN UP
+              </Link>
             </a>
           </div>
         </div>
