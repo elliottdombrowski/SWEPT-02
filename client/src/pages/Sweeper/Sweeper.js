@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FindZipForm from '../../components/FindZipForm/FindZipForm';
-import { Input } from '@chakra-ui/react';
+import FindWardForm from '../../components/FindWardForm/FindWardForm';
 import './sweeper.css';
 
 const Sweeper = () => {
@@ -13,26 +13,10 @@ const Sweeper = () => {
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-data-wrapper'>
-        <form className='sweeper-ward-form'>
-          <input
-            // value={}
-            // onChange={}
-            placeholder="Enter your Ward Number!"
-            className='ward-input'
-          />
-        </form>
-
         {findZip ? (
           <FindZipForm />
         ) : (
-          <a
-            href='#'
-            rel='noopener noreferrer'
-            className='find-ward'
-            onClick={() => setFindZip(true)}
-          >
-            don't know your ward number?
-          </a>
+          <FindWardForm />
         )}
       </div>
     </div>

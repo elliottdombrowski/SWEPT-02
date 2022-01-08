@@ -46,7 +46,7 @@ a {
 .sweeper-data-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 60%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
@@ -54,3 +54,27 @@ a {
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
+.sweeper-ward-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.ward-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+::placeholder {
+  color: white;
+}
+
+.find-ward {
+  margin-top: 0.7rem;
+  margin-left: 5px;
+  text-decoration: underline;
+}
