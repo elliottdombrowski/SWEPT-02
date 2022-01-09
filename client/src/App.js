@@ -6,15 +6,30 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/Navbar';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import FindZipForm from './components/FindZipForm/FindZipForm';
+import LoginForm from './components/LoginForm/LoginForm';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <div className="App">
-        <Router>
-          <Navbar />
-          <Sweeper />
-        </Router>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+          <Router>
+            <Route exact path='/'>
+              <Navbar />
+              <Sweeper />
+            </Route>
+            
+            <Route exact path='/login'>
+              <Navbar />
+              <LoginForm />
+            </Route>
+          </Router>
+      </div>
+    </ApolloProvider>
   );
 }
 
