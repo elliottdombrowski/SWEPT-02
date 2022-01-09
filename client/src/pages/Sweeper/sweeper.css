@@ -61,3 +61,7 @@ a {
   margin-left: 5px;
   text-decoration: underline;
 }
+
+.sweeper-arrow {
+  margin-left: .5rem;
+}
