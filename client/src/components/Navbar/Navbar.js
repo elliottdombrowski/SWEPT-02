@@ -64,7 +64,6 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
           {mobile.matches ? (
             <Link to='/me' className='nav-item nav-links profile-icon'>
               <div className='login-btn'>
@@ -90,7 +89,6 @@ const Navbar = () => {
               </Link>
             </div>
           )}
-
         </div>
         <div
           className='hamburger'
