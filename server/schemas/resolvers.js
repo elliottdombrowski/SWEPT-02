@@ -1,7 +1,10 @@
 const { User } = require('../models')
 
 
-const resolvers
+const resolvers = {
+    Query: {},
+    Mutation: {}
+};
 
 
 module.exports = resolvers;
