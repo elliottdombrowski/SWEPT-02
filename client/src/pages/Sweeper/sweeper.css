@@ -44,14 +44,15 @@ a {
   height: 100vh;
 }
 
-.sweeper-form-wrapper {
+.sweeper-form-wrapper,
+.sweeper-data-output-wrapper {
   display: flex;
   flex-direction: column;
   width: 40%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
-  border-radius: 15px;
+  border-radius: 30px 30px 10px 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
@@ -64,4 +65,9 @@ a {
 
 .sweeper-arrow {
   margin-left: .5rem;
+}
+
+.sweeper-data-output-wrapper {
+  margin-top: 2rem;
+  border-radius: 10px 10px 30px 30px;
 }
