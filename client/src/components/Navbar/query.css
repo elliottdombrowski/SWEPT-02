@@ -3,6 +3,11 @@
     display: block;
   }
 
+  .nav-right {
+    flex-direction: column-reverse;
+    position: fixed;
+  }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }

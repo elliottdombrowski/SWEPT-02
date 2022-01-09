@@ -4,6 +4,20 @@ import './navbar.css';
 import './query.css';
 
 const Navbar = () => {
+  const mobileMenu = () => {
+    document.getElementById('hamburger').classList.toggle('active');
+    document.getElementsById('nav-right').classList.toggle('active');
+  };
+
+  // const navClick = () => {
+  //   let nav = document.getElementById('nav-right');
+  //   let burger = document.getElementById('hamburger');
+  //   if (nav.classList.contains('active')) {
+  //     nav.classList.remove('active');
+  //     burger.classList.remove('active');
+  //   };
+  // };
+
   return (
     <div className='navbar-wrapper'>
       <header className='navbar-header'>
@@ -16,7 +30,7 @@ const Navbar = () => {
 
         {/* NAV RIGHT */}
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
-        <div className='nav-right'>
+        <div className='nav-right' id='nav-right'>
           <Link to="/snow" className='nav-item nav-links'>
             SNOW
           </Link>
@@ -32,11 +46,15 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className='hamburger'>
-            <span className='bar'></span>
-            <span className='bar'></span>
-            <span className='bar'></span>
-          </div>
+        </div>
+        <div
+          className='hamburger'
+          id="hamburger"
+          onClick={() => mobileMenu()}
+        >
+          <span className='bar'></span>
+          <span className='bar'></span>
+          <span className='bar'></span>
         </div>
       </header>
       <div className='deco'>
