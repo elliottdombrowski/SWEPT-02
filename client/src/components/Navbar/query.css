@@ -33,7 +33,7 @@
   .nav-right {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     bottom: -100%;
@@ -72,6 +72,7 @@
     border: 2px solid white;
     border-radius: 15px;
     width: 100%;
+    margin-bottom: 3rem;
   }
 
   .nav-right-mobile-overlay {
@@ -83,11 +84,26 @@
     bottom: 0;
     left: 0;
     right: 50%;
+    z-index: 1;
   }
 
   .mobile-page-links {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     transition: 0.2s ease-in-out;
+  }
+
+  .profile-icon {
+    margin: 0;
+  }
+
+  .nav-right > a {
+    padding: 0;
+  }
+
+  .login-btn {
+    margin: 0;
+    text-shadow: none;
+    margin-bottom: 2rem;
   }
 }
