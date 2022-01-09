@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import './query.css';
 
 const Navbar = () => {
   return (
@@ -29,6 +30,12 @@ const Navbar = () => {
             <Link to='/login' className='nav-links'>
               SIGN UP
             </Link>
+          </div>
+
+          <div className='hamburger'>
+            <span className='bar'></span>
+            <span className='bar'></span>
+            <span className='bar'></span>
           </div>
         </div>
       </header>
