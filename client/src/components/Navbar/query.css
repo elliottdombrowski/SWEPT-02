@@ -31,15 +31,16 @@
   }
 
   .nav-right {
-    flex-direction: column-reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: fixed;
     bottom: -100%;
     left: 0;
     right: 0;
-    width: 100%;
-    padding: 1.5rem 0;
+    width: 50vw;
+    padding: 1.5rem 25vw;
     background: linear-gradient(to top, var(--darkerblue), var(--darkblue));
     border-top: 2px solid var(--text);
     border-radius: 20px;

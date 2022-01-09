@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import './navbar.css';
 import './query.css';
+
+const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg'/>
 
 const Navbar = () => {
   const mobileMenu = () => {
@@ -9,14 +13,7 @@ const Navbar = () => {
     document.getElementById('navbar-right').classList.toggle('active');
   };
 
-  // const navClick = () => {
-  //   let nav = document.getElementById('nav-right');
-  //   let burger = document.getElementById('hamburger');
-  //   if (nav.classList.contains('active')) {
-  //     nav.classList.remove('active');
-  //     burger.classList.remove('active');
-  //   };
-  // };
+  const mobile = window.matchMedia("(max-width: 768px)");
 
   return (
     <div className='navbar-wrapper'>
@@ -36,9 +33,15 @@ const Navbar = () => {
           </Link>
 
           {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
+          {mobile.matches ? (
+            <Link to='/me' className='nav-item nav-links'>
+              {profile}
+            </Link>
+          ) : (
           <Link to='/me' className='nav-item nav-links'>
             PROFILE
           </Link>
+          )}
 
           <div className='login-btn'>
             <Link to='/login' className='nav-links'>
