@@ -19,14 +19,17 @@ function App() {
     <ApolloProvider client={client}>
       <div className="App">
           <Router>
+            <Navbar />
+
             <Route exact path='/'>
-              <Navbar />
               <Sweeper />
-              <Snow />
             </Route>
             
+            <Route exact path='/snow'>
+              <Snow />
+            </Route>
+
             <Route exact path='/login'>
-              <Navbar />
               <LoginForm />
             </Route>
           </Router>
