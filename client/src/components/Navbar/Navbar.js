@@ -28,9 +28,21 @@ const Navbar = () => {
         {/* NAV RIGHT */}
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right' id='navbar-right'>
-          <Link to="/snow" className='nav-item nav-links'>
-            SNOW
-          </Link>
+          {mobile.matches ? (
+            <div className='nav-right-mobile'>
+              <Link to='/snow' className='nav-item nav-links nav-mobile'>
+                SNOW
+              </Link>
+              
+              <Link to='/snow' className='nav-item nav-links nav-mobile'>
+                SWEEPER
+              </Link>
+            </div>
+          ) : (
+            <Link to="/snow" className='nav-item nav-links'>
+              SNOW
+            </Link>
+          )}
 
           {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
           {mobile.matches ? (
