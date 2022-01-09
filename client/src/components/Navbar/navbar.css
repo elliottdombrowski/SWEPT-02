@@ -102,6 +102,20 @@ a {
   z-index: 2;
 }
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background: var(--text);
+}
+
 /* ANIMATION  */
 .nav-item:hover {
   opacity: .7;

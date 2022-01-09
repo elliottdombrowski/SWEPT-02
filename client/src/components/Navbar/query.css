@@ -1,0 +1,93 @@
+/* ITALIC, LOGO */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap');
+/* REGULAR, NAV LINKS */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&display=swap');
+
+:root {
+  --text: white;
+  --logo-font: 'Kanit', sans-serif;
+  --link-font: 'Mukta', sans-serif;
+  
+  --soft-lightblue: #c8e4f9;
+  --lightblue: #b0def4;
+  --med-lightblue: #8097d1;
+  --med-darkblue: #7079a0;
+  --darkblue: #005178;
+  --darkerblue: #00293c;
+  --deep-darkblue: #474056;
+
+  --primary-lightpink: #ea8aba;
+  --primary-darkpink: #a33f67;
+  --primary-lightorange: #f3872f;
+  --primary-darkorange: #f96700;
+
+  --btn-hover: 0.2s ease-in-out;
+  --blue-gradient: linear-gradient(to right, var(--darkerblue), var(--darkblue))
+}
+
+@media all and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-right {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    width: 50vw;
+    padding: 1.5rem 25vw;
+    background: linear-gradient(to top, var(--darkerblue), var(--darkblue));
+    border-top: 2px solid var(--text);
+    border-radius: 20px;
+    transition: 0.3s;
+    z-index: 2;
+  }
+
+  .nav-right.active {
+    bottom: -1rem;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-right-mobile {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    background: var(--darkblue);
+    border: 2px solid white;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .nav-right-mobile-overlay {
+    position: absolute;
+    background: var(--primary-darkorange);
+    border-radius: 15px;
+    opacity: 0.8;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+  }
+
+  .mobile-page-links {
+    position: relative;
+    z-index: 2;
+    transition: 0.2s ease-in-out;
+  }
+}
