@@ -6,7 +6,7 @@ import './query.css';
 const Navbar = () => {
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
-    document.getElementsById('nav-right').classList.toggle('active');
+    document.getElementById('navbar-right').classList.toggle('active');
   };
 
   // const navClick = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
 
         {/* NAV RIGHT */}
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
-        <div className='nav-right' id='nav-right'>
+        <div className='nav-right' id='navbar-right'>
           <Link to="/snow" className='nav-item nav-links'>
             SNOW
           </Link>
