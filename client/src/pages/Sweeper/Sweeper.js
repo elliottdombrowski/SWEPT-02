@@ -24,7 +24,7 @@ const Sweeper = () => {
           href="#"
           rel="noopener noreferrer"
           className='find-ward'
-          onClick={() => setFindZip(true)}
+          onClick={() => setFindZip(prev => !prev)}
         >
           Don't know your {changeForm}?
           <span className='sweeper-arrow'>{arrow}</span>
