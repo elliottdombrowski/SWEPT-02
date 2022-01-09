@@ -3,16 +3,14 @@ import './findzipform.css';
 
 const FindZipForm = () => {
   return (
-    <div className='findzipform-wrapper'>
-      <form className='zipform-wrapper'>
-        <input
-          // value={}
-          // onChange={}
-          placeholder='Enter your Zip Code!'
-          className='zipform-input'
-        />
-      </form>
-    </div>
+    <form className='zipform-wrapper'>
+      <input
+        // value={}
+        // onChange={}
+        placeholder='Enter your Zip Code!'
+        className='zipform-input'
+      />
+    </form>
   );
 };
 

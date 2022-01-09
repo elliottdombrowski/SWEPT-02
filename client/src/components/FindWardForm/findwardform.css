@@ -35,33 +35,21 @@ a {
   text-decoration: none;
 }
 
-.sweeper-wrapper {
+.sweeper-ward-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 5rem;
-  background: linear-gradient(to top, var(--lightblue), var(--med-lightblue));
-  height: 100vh;
+  justify-content: center;
+  width: 100%;
 }
 
-.sweeper-form-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding: 3rem;
-  background: var(--blue-gradient);
-  border: 2px solid var(--text);
-  border-radius: 15px;
-  box-shadow: 2px 2px 3px var(--deep-darkblue);
+.ward-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
 }
 
-.find-ward {
-  font-family: var(--link-font);
-  margin-top: 0.7rem;
-  margin-left: 5px;
-  text-decoration: underline;
-}
-
-.sweeper-arrow {
-  margin-left: .5rem;
+::placeholder {
+  color: white;
 }
