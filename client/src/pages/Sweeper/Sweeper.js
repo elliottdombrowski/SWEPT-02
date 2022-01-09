@@ -32,7 +32,7 @@ const Sweeper = () => {
       </div>
 
       <div className='sweeper-data-output-wrapper'>
-        hi there
+        hi
       </div>
     </div>
   );

@@ -10,6 +10,13 @@ const FindWardForm = () => {
         placeholder="Enter your Ward Number!"
         className='ward-input'
       />
+
+      <button
+        type="submit"
+        className='ward-input ward-submit'
+      >
+
+      </button>
     </form>
   );
 };

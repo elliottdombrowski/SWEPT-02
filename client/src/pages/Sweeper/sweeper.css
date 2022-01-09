@@ -44,7 +44,8 @@ a {
   height: 100vh;
 }
 
-.sweeper-form-wrapper {
+.sweeper-form-wrapper,
+.sweeper-data-output-wrapper {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -64,4 +65,8 @@ a {
 
 .sweeper-arrow {
   margin-left: .5rem;
+}
+
+.sweeper-data-output-wrapper {
+  margin-top: 5rem;
 }
