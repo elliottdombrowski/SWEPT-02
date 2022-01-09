@@ -6,3 +6,5 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/swept', {
     useCreateIndex: true,
     useFindAndModify: false
 });
+
+module.exports = mongoose.connection;
