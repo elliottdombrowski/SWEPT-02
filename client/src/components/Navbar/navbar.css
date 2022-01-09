@@ -62,7 +62,8 @@ a {
   text-shadow: 4px 4px 1px black;
 }
 
-.nav-item {
+.nav-item,
+.mobile-page-links {
   text-shadow: 3px 3px 2px var(--deep-darkblue);
 }
 

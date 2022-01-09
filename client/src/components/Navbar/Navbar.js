@@ -47,11 +47,11 @@ const Navbar = () => {
         <div className='nav-right' id='navbar-right'>
           {mobile.matches ? (
             <div className='nav-right-mobile'>
-              <Link to='/sweeper' className='nav-item nav-links nav-mobile mobile-page-links mobile-nav-sweeper' id='mobile-nav-sweeper' onClick={() => mobileNavChangePage()}>
+              <Link to='/sweeper' className='nav-links nav-mobile mobile-page-links mobile-nav-sweeper' id='mobile-nav-sweeper' onClick={() => mobileNavChangePage()}>
                 SWEEPER
               </Link>
 
-              <Link to='/snow' className='nav-item nav-links nav-mobile mobile-page-links mobile-nav-snow' id='mobile-nav-snow' onClick={() => mobileNavChangePage()}>
+              <Link to='/snow' className='nav-links nav-mobile mobile-page-links mobile-nav-snow' id='mobile-nav-snow' onClick={() => mobileNavChangePage()}>
                 SNOW
               </Link>
               <div className='nav-right-mobile-overlay' id='nav-overlay'>
@@ -65,8 +65,10 @@ const Navbar = () => {
 
           {/* IMPLEMENT LOGIC TO DISPLAY IF LOGGED IN */}
           {mobile.matches ? (
-            <Link to='/me' className='nav-item nav-links'>
-              {profile}
+            <Link to='/me' className='nav-item nav-links profile-icon'>
+              <div className='login-btn'>
+                {profile} PROFILE
+              </div>
             </Link>
           ) : (
             <Link to='/me' className='nav-item nav-links'>
