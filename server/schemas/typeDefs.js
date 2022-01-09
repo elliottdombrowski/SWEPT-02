@@ -9,6 +9,9 @@ type User {
     orders: [Order]
   }
   
+  type Query {
+    user: User
+  }
   `;
 
 module.exports = typeDefs;
