@@ -46,6 +46,18 @@
   border-radius: 10px;
 }
 
+.zipform-btn {
+  margin-top: 1.2rem;
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.zipform-btn:hover {
+  background: var(--primary-lightorange);
+}
+
 ::placeholder {
   color: white;
 }

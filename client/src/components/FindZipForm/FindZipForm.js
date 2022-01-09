@@ -3,13 +3,23 @@ import './findzipform.css';
 
 const FindZipForm = () => {
   return (
-    <form className='zipform-wrapper'>
+    <form 
+      onSubmit={() => console.log('clicking')} 
+      className='zipform-wrapper'
+    >
       <input
         // value={}
         // onChange={}
         placeholder='Enter your Zip Code!'
         className='zipform-input'
       />
+
+      <button
+        type='submit'
+        className='zipform-input zipform-btn'
+      >
+        Find your schedule!
+      </button>
     </form>
   );
 };
