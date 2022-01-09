@@ -48,6 +48,7 @@ a {
   background: var(--darkblue);
   border: 2px solid white;
   border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .steet-btn {
