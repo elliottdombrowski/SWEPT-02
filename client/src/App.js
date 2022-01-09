@@ -22,9 +22,13 @@ function App() {
             <Route exact path='/'>
               <Navbar />
               <Sweeper />
+            </Route>
+
+            <Route exact path='/snow'>
+              <Navbar />
               <Snow />
             </Route>
-            
+
             <Route exact path='/login'>
               <Navbar />
               <LoginForm />
