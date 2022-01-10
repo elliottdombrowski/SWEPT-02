@@ -9,6 +9,17 @@ import './query.css';
 const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 
 const Navbar = () => {
+  const [switcher, setSwitcher] = useState(false);
+  try {
+    const headerOverlay = document.getElementById('link-switcher');
+    const switchOverlay = document.getElementsByClassName('switch-overlay');
+    switcher ? headerOverlay.classList.add('active') : headerOverlay.classList.remove('active');
+    if (headerOverlay.classList.contains('active')) {
+      switchOverlay.style.right = '0';
+      switchOverlay.style.left = '50%';
+    }
+  } catch {}
+
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
     document.getElementById('navbar-right').classList.toggle('active');
@@ -38,7 +49,7 @@ const Navbar = () => {
       <header className='navbar-header'>
         {/* NAV LEFT */}
         <div className='nav-left'>
-          <Link to='/homepage' className='nav-item nav-logo'>
+          <Link to='/' className='nav-item nav-logo'>
             SWEPT!!!
           </Link>
         </div>
@@ -46,7 +57,7 @@ const Navbar = () => {
         {/* NAV RIGHT */}
         {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right' id='navbar-right'>
-          {mobile.matches ? (
+          {/* {mobile.matches ? (
             <div className='nav-right-mobile'>
               <Link to='/sweeper' className='nav-links nav-mobile mobile-page-links mobile-nav-sweeper' id='mobile-nav-sweeper' onClick={() => mobileNavChangePage()}>
                 SWEEPER
@@ -62,7 +73,28 @@ const Navbar = () => {
             <Link to="/snow" className='nav-item nav-links'>
               SNOW
             </Link>
-          )}
+          )} */}
+          <label className='switch' id='link-switcher'>
+            <input type='checkbox' />
+            <Link 
+              to='/sweeper' 
+              className='slider slider-one nav-item nav-links' 
+              id='sweeper-link' 
+              onClick={() => setSwitcher(false)}
+            >
+              SWEEPER
+            </Link>
+
+            <Link 
+              to='/snow' 
+              className='slider slider-two nav-item nav-links' 
+              id='snow-link'
+              onClick={() => setSwitcher(true)}
+            >
+              SNOW
+            </Link>
+            <div className='switch-overlay' />
+          </label>
 
           {mobile.matches ? (
             <Link to='/me' className='nav-item nav-links profile-icon'>
