@@ -41,10 +41,16 @@ a {
   padding: 3rem;
 }
 
-.homepage-header {
+.homepage-header,
+.homepage-bio {
   width: 100%;
   font-family: var(--logo-font);
   font-size: 180%;
+}
+
+.homepage-bio {
+  width: 60%;
+  margin-top: 3rem;
 }
 
 .swept-header {
