@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 //IMPORTING TEST API CALL
-import { apiKey } from '../../utils/API';
 import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
 

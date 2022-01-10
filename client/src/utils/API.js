@@ -1,7 +1,11 @@
 // TEST 
+const Axios = require('axios');
+
 export const findWardSchedule = (event) => {
   event.preventDefault();
-  console.log('hi, api function');
+  Axios.get('https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=40').then((res) => {
+    console.log(JSON.stringify(res));
+  })
 };
 // TEST 
 
@@ -13,7 +17,7 @@ export const findWardSchedule = (event) => {
 // OLD script.js copied in WITH NO EDITS yet!
 
 //Declares variables.
-// export default apiKey = "kxcdjvcdpzf6bzfix1akdouq";
+// const apiKey = "kxcdjvcdpzf6bzfix1akdouq";
 // var queryURL =
 //   "https://data.cityofchicago.org/resource/wvjp-8m67.json" + apiKey;
 // var userSearch = "";
