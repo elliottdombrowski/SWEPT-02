@@ -136,6 +136,7 @@ a {
 .slider {
   position: absolute;
   cursor: pointer;
+  transition: .4s;
 }
 
 .slider-one,
@@ -150,6 +151,16 @@ a {
 
 .slider-two {
   right: 0;
+}
+
+.switch:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 50%;
+  top: 0;
+  border-radius: 10px;
+  background: var(--primary-darkorange);
 }
 
 /* ANIMATION  */

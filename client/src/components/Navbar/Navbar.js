@@ -9,6 +9,8 @@ import './query.css';
 const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 
 const Navbar = () => {
+  const [switcher, setSwitcher] = useState(false);
+
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
     document.getElementById('navbar-right').classList.toggle('active');
@@ -65,11 +67,11 @@ const Navbar = () => {
           )} */}
           <label className='switch'>
             <input type='checkbox' />
-            <Link to='/sweeper' className='slider slider-one nav-item nav-links'>
+            <Link to='/sweeper' className='slider slider-one nav-item nav-links' id='sweeper-link'>
               SWEEPER
             </Link>
 
-            <Link to='/snow' className='slider slider-two nav-item nav-links'>
+            <Link to='/snow' className='slider slider-two nav-item nav-links' id='snow-link'>
               SNOW
             </Link>
           </label>
