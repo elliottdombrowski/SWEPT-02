@@ -1,33 +1,48 @@
+import { parse } from '@fortawesome/fontawesome-svg-core';
 import React, { useState, useEffect } from 'react';
 //IMPORTING TEST API CALL
 import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
 
 const FindWardForm = () => {
-  const [wardNumber, setWardNunber] = useState('');
+  const [wardNumber, setWardNumber] = useState('');
 
-  const wardNumberInputChange = (event) => {
-    const { target } = event;
-    setWardNunber(target.value);
-  };
-
-  function wardNumberSubmit(event) {
+  const wardNumberSubmit = async (event) => {
     event.preventDefault();
-    console.log(wardNumber);
-    findWardSchedule(event, wardNumber);
 
-    setWardNunber('');
+    if (!wardNumber) {
+      return false;
+    } else if (!parseInt(wardNumber)) {
+      console.log('please enter a ward number');
+      return false;
+    } else if (wardNumber > 50) {
+      console.log('invalid ward number');
+      return false;
+    }
+
+    try {
+      const res = await findWardSchedule(wardNumber);
+
+      if (!res.ok) {
+        throw new Error('something went wrong');
+      }
+    } catch (err) {
+      console.log(err);
+    };
+
+    setWardNumber('');
+    return true;
   };
 
   return (
-    <form 
-      onSubmit={(event) => wardNumberSubmit(event)} 
+    <form
+      onSubmit={(event) => wardNumberSubmit(event)}
       className='sweeper-ward-form'
     >
       <input
         value={wardNumber}
         name='wardNumber'
-        onChange={wardNumberInputChange}
+        onChange={(event) => setWardNumber(event.target.value)}
         placeholder="Enter your Ward Number!"
         className='ward-input'
       />
