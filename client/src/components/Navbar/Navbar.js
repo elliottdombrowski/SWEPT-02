@@ -38,7 +38,7 @@ const Navbar = () => {
       <header className='navbar-header'>
         {/* NAV LEFT */}
         <div className='nav-left'>
-          <Link to='/homepage' className='nav-item nav-logo'>
+          <Link to='/' className='nav-item nav-logo'>
             SWEPT!!!
           </Link>
         </div>
