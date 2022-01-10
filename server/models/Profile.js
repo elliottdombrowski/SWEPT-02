@@ -12,6 +12,10 @@ const profileSchema = new Schema({
         type: string,
         trim: true
     },
+    ward: {
+        type: string,
+        trim: true
+    },
 
 });
 
