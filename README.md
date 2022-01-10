@@ -1,6 +1,6 @@
 # SWEPT!!!
 
-By: Elliott Dombrowski, Justin Kemp & Sadie Sial
+By: Elliott Dombrowski, Justin Kemp, & Sadie Sial
 
 ---
 
