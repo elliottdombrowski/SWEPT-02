@@ -7,24 +7,36 @@ import './findwardform.css';
 const FindWardForm = () => {
   const [wardNumber, setWardNumber] = useState('');
 
-  function wardNumberSubmit(event) {
+  const wardNumberSubmit = async (event) => {
     event.preventDefault();
 
     if (!wardNumber) {
       return false;
+    } else if (!parseInt(wardNumber)) {
+      console.log('please enter a ward number');
+      return false;
+    } else if (wardNumber > 50) {
+      console.log('invalid ward number');
+      return false;
     }
 
-    (!parseInt(wardNumber) || wardNumber > 50) 
-      ? console.log('invalid ward number')
-      : findWardSchedule(event, wardNumber);
+    try {
+      const res = await findWardSchedule(wardNumber);
+
+      if (!res.ok) {
+        throw new Error('something went wrong');
+      }
+    } catch (err) {
+      console.log(err);
+    };
 
     setWardNumber('');
     return true;
   };
 
   return (
-    <form 
-      onSubmit={(event) => wardNumberSubmit(event)} 
+    <form
+      onSubmit={(event) => wardNumberSubmit(event)}
       className='sweeper-ward-form'
     >
       <input
