@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
 //IMPORTING TEST API CALL
 import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
@@ -9,14 +8,13 @@ const FindWardForm = () => {
 
   const wardNumberInputChange = (event) => {
     const { target } = event;
-    const inputValue = target.name;
-    setWardNunber(inputValue);
+    setWardNunber(target.value);
   };
 
   function wardNumberSubmit(event) {
     event.preventDefault();
-    findWardSchedule(event, wardNumber);
     console.log(wardNumber);
+    findWardSchedule(event, wardNumber);
 
     setWardNunber('');
   };
@@ -27,7 +25,8 @@ const FindWardForm = () => {
       className='sweeper-ward-form'
     >
       <input
-        // value={}
+        value={wardNumber}
+        name='wardNumber'
         onChange={wardNumberInputChange}
         placeholder="Enter your Ward Number!"
         className='ward-input'
