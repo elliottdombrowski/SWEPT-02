@@ -137,6 +137,7 @@ a {
   position: absolute;
   cursor: pointer;
   transition: .4s;
+  z-index: 3;
 }
 
 .slider-one,
@@ -153,20 +154,16 @@ a {
   right: 0;
 }
 
-.switch:before {
+.switch-overlay {
   position: absolute;
-  content: "";
   height: 100%;
   width: 50%;
   left: 0;
+  right: 50%;
   top: 0;
   border-radius: 10px;
   background: var(--primary-darkorange);
-}
-
-.switch.active + .switch:before {
-  left: 0;
-  right: 50%;
+  z-index: 2;
 }
 
 /* ANIMATION  */

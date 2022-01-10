@@ -11,10 +11,14 @@ const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 const Navbar = () => {
   const [switcher, setSwitcher] = useState(false);
   try {
-    switcher ? document.getElementById('link-switcher').classList.add('active') : document.getElementById('link-switcher').classList.remove('active');
-  } catch (error) {
-    
-  }
+    const headerOverlay = document.getElementById('link-switcher');
+    const switchOverlay = document.getElementsByClassName('switch-overlay');
+    switcher ? headerOverlay.classList.add('active') : headerOverlay.classList.remove('active');
+    if (headerOverlay.classList.contains('active')) {
+      switchOverlay.style.right = '0';
+      switchOverlay.style.left = '50%';
+    }
+  } catch {}
 
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
@@ -76,7 +80,7 @@ const Navbar = () => {
               to='/sweeper' 
               className='slider slider-one nav-item nav-links' 
               id='sweeper-link' 
-              onClick={() => setSwitcher(prev => !prev)}
+              onClick={() => setSwitcher(false)}
             >
               SWEEPER
             </Link>
@@ -85,10 +89,11 @@ const Navbar = () => {
               to='/snow' 
               className='slider slider-two nav-item nav-links' 
               id='snow-link'
-              onClick={() => setSwitcher(prev => !prev)}
+              onClick={() => setSwitcher(true)}
             >
               SNOW
             </Link>
+            <div className='switch-overlay' />
           </label>
 
           {mobile.matches ? (
