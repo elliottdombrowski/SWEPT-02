@@ -1,9 +1,9 @@
 // TEST 
 const Axios = require('axios');
 
-export const findWardSchedule = (event) => {
+export const findWardSchedule = (event, wardQuery) => {
   event.preventDefault();
-  Axios.get('https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=40').then((res) => {
+  Axios.get(`https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${wardQuery}`).then((res) => {
     console.log(JSON.stringify(res));
   })
 };

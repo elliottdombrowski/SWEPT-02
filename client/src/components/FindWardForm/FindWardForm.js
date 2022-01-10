@@ -5,14 +5,30 @@ import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
 
 const FindWardForm = () => {
+  const [wardNumber, setWardNunber] = useState('');
+
+  const wardNumberInputChange = (event) => {
+    const { target } = event;
+    const inputValue = target.name;
+    setWardNunber(inputValue);
+  };
+
+  function wardNumberSubmit(event) {
+    event.preventDefault();
+    findWardSchedule(event, wardNumber);
+    console.log(wardNumber);
+
+    setWardNunber('');
+  };
+
   return (
     <form 
-      onSubmit={(event) => findWardSchedule(event)} 
+      onSubmit={(event) => wardNumberSubmit(event)} 
       className='sweeper-ward-form'
     >
       <input
         // value={}
-        // onChange={}
+        onChange={wardNumberInputChange}
         placeholder="Enter your Ward Number!"
         className='ward-input'
       />
