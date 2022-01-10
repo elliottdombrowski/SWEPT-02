@@ -10,6 +10,11 @@ const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 
 const Navbar = () => {
   const [switcher, setSwitcher] = useState(false);
+  try {
+    switcher ? document.getElementById('link-switcher').classList.add('active') : document.getElementById('link-switcher').classList.remove('active');
+  } catch (error) {
+    
+  }
 
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
@@ -65,13 +70,23 @@ const Navbar = () => {
               SNOW
             </Link>
           )} */}
-          <label className='switch'>
+          <label className='switch' id='link-switcher'>
             <input type='checkbox' />
-            <Link to='/sweeper' className='slider slider-one nav-item nav-links' id='sweeper-link'>
+            <Link 
+              to='/sweeper' 
+              className='slider slider-one nav-item nav-links' 
+              id='sweeper-link' 
+              onClick={() => setSwitcher(prev => !prev)}
+            >
               SWEEPER
             </Link>
 
-            <Link to='/snow' className='slider slider-two nav-item nav-links' id='snow-link'>
+            <Link 
+              to='/snow' 
+              className='slider slider-two nav-item nav-links' 
+              id='snow-link'
+              onClick={() => setSwitcher(prev => !prev)}
+            >
               SNOW
             </Link>
           </label>
