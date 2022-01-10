@@ -43,36 +43,37 @@ const LoginForm = () => {
 
   return (
     <div className='login-wrapper'>
-      <form className='login-form' onSubmit={handleFormSubmit}>
-        <input
-          type='text'
-          name='email'
-          onChange={handleInputChange}
-          value={loginData.email}
-          required
-          placeholder='Your Email'
-          className='login-input'
-        />
-        
-        <input
-          type='text'
-          name='password'
-          onChange={handleInputChange}
-          value={loginData.password}
-          required
-          placeholder='Your Password'
-          className='login-input'
-        />
+      <div className='login-form-wrapper'>
+        <form className='login-form' onSubmit={handleFormSubmit}>
+          <input
+            type='text'
+            name='email'
+            onChange={handleInputChange}
+            value={loginData.email}
+            required
+            placeholder='Your Email'
+            className='login-input'
+          />
+          
+          <input
+            type='text'
+            name='password'
+            onChange={handleInputChange}
+            value={loginData.password}
+            required
+            placeholder='Your Password'
+            className='login-input'
+          />
 
-        <button
-          disabled={!(loginData.email && loginData.password)}
-          type='submit'
-          className='login-input login-submit-btn'
-        >
-          Log In
-        </button>
-
-      </form>
+          <button
+            disabled={!(loginData.email && loginData.password)}
+            type='submit'
+            className='login-input login-submit-btn'
+          >
+            Log In
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

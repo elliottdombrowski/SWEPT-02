@@ -33,3 +33,52 @@
 a {
   text-decoration: none;
 }
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--lightblue), var(--med-lightblue));
+  height: 100vh;
+}
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.login-submit-btn {
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.login-submit-btn:disabled {
+  background: var(--deep-darkblue);
+}
+
+.login-submit-btn:hover:enabled {
+  background: var(--primary-lightorange);
+}
