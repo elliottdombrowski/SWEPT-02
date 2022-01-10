@@ -124,7 +124,7 @@ a {
   border-radius: 10px;
   width: 200px;
   height: 100%;
-  padding: 0.7rem 0;
+  padding: 0.7rem 1rem;
 }
 
 .switch input {
@@ -147,10 +147,12 @@ a {
 }
 
 .slider-one {
+  margin-left: 6px;
   left: 0;
 }
 
 .slider-two {
+  margin-right: 6px;
   right: 0;
 }
 
