@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/Navbar';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
-import FindZipForm from './components/FindZipForm/FindZipForm';
 import LoginForm from './components/LoginForm/LoginForm';
+import SignupForm from './components/SignupForm/SignupForm';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -30,6 +30,10 @@ function App() {
 
             <Route exact path='/login'>
               <LoginForm />
+            </Route>
+
+            <Route exact path='/signup'>
+              <SignupForm />
             </Route>
           </Router>
       </div>
