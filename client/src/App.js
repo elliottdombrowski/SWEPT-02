@@ -4,6 +4,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navbar from '../src/components/Navbar/Navbar';
+import Homepage from '../src/pages/Homepage/Homepage';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import LoginForm from './components/LoginForm/LoginForm';
@@ -35,6 +36,10 @@ function App() {
           <Router>
             <Navbar />
             <Route exact path='/'>
+              <Homepage />
+            </Route>
+
+            <Route exact path='/sweeper'>
               <Sweeper />
             </Route>
 
