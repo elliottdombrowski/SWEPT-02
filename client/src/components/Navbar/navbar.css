@@ -77,7 +77,8 @@ a {
   flex-direction: row;
 }
 
-.nav-right > a {
+.nav-right > a,
+.switch > a:nth-child(3) {
   padding-left: 1.5rem;
 }
 
@@ -115,6 +116,24 @@ a {
   margin: 5px auto;
   transition: all 0.3s ease-in-out;
   background: var(--text);
+}
+
+.switch {
+  position: relative;
+  background: red;
+  width: 200px;
+  height: 100%;
+  padding: 0.7rem 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
 }
 
 /* ANIMATION  */
