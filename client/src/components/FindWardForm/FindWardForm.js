@@ -1,3 +1,4 @@
+import { parse } from '@fortawesome/fontawesome-svg-core';
 import React, { useState, useEffect } from 'react';
 //IMPORTING TEST API CALL
 import { findWardSchedule } from '../../utils/API';
@@ -8,14 +9,17 @@ const FindWardForm = () => {
 
   function wardNumberSubmit(event) {
     event.preventDefault();
-    (!parseInt(wardNumber) || wardNumber > 50) ? console.log('invalid ward number') : findWardSchedule(event, wardNumber)
-    // if (!parseInt(wardNumber)) {
-    //   console.log('not a number');
-    // } else {
-    //   findWardSchedule(event, wardNumber)
-    // };
+
+    if (!wardNumber) {
+      return false;
+    }
+
+    (!parseInt(wardNumber) || wardNumber > 50) 
+      ? console.log('invalid ward number')
+      : findWardSchedule(event, wardNumber);
 
     setWardNumber('');
+    return true;
   };
 
   return (
