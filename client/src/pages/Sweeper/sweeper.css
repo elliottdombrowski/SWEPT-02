@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 .sweeper-wrapper {
   display: flex;
   flex-direction: column;

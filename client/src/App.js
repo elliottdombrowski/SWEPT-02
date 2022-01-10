@@ -6,11 +6,25 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/Navbar';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
-import FindZipForm from './components/FindZipForm/FindZipForm';
 import LoginForm from './components/LoginForm/LoginForm';
+import SignupForm from './components/SignupForm/SignupForm';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: '/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -30,6 +44,10 @@ function App() {
 
             <Route exact path='/login'>
               <LoginForm />
+            </Route>
+
+            <Route exact path='/signup'>
+              <SignupForm />
             </Route>
           </Router>
       </div>
