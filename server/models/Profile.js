@@ -9,14 +9,17 @@ const profileSchema = new Schema({
         unique: true
     },
     street: {
-        type: string,
+        type: String,
         trim: true
     },
     ward: {
-        type: string,
+        type: Number,
         trim: true
     },
-
+    zip: {
+        type: Number,
+        trim: true
+    },
 });
 
 module.exports = Profile;
