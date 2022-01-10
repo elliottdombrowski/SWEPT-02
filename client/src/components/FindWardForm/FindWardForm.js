@@ -4,19 +4,18 @@ import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
 
 const FindWardForm = () => {
-  const [wardNumber, setWardNunber] = useState('');
-
-  const wardNumberInputChange = (event) => {
-    const { target } = event;
-    setWardNunber(target.value);
-  };
+  const [wardNumber, setWardNumber] = useState('');
 
   function wardNumberSubmit(event) {
     event.preventDefault();
-    console.log(wardNumber);
-    findWardSchedule(event, wardNumber);
+    (!parseInt(wardNumber) || wardNumber > 50) ? console.log('invalid ward number') : findWardSchedule(event, wardNumber)
+    // if (!parseInt(wardNumber)) {
+    //   console.log('not a number');
+    // } else {
+    //   findWardSchedule(event, wardNumber)
+    // };
 
-    setWardNunber('');
+    setWardNumber('');
   };
 
   return (
@@ -27,7 +26,7 @@ const FindWardForm = () => {
       <input
         value={wardNumber}
         name='wardNumber'
-        onChange={wardNumberInputChange}
+        onChange={(event) => setWardNumber(event.target.value)}
         placeholder="Enter your Ward Number!"
         className='ward-input'
       />
