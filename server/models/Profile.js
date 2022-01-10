@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 const User = require('./User')
 
 const profileSchema = new Schema({
@@ -21,5 +21,7 @@ const profileSchema = new Schema({
         trim: true
     },
 });
+
+const Profile = mongoose.model('Profile', User, profileSchema);
 
 module.exports = Profile;
