@@ -65,11 +65,11 @@ const Navbar = () => {
           )} */}
           <label className='switch'>
             <input type='checkbox' />
-            <Link to='/sweeper' className='slider nav-item nav-links'>
+            <Link to='/sweeper' className='slider slider-one nav-item nav-links'>
               SWEEPER
             </Link>
 
-            <Link to='/snow' className='slider nav-item nav-links'>
+            <Link to='/snow' className='slider slider-two nav-item nav-links'>
               SNOW
             </Link>
           </label>

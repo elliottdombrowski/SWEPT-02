@@ -120,7 +120,8 @@ a {
 
 .switch {
   position: relative;
-  background: red;
+  background: var(--darkblue);
+  border-radius: 10px;
   width: 200px;
   height: 100%;
   padding: 0.7rem 0;
@@ -134,6 +135,21 @@ a {
 
 .slider {
   position: absolute;
+  cursor: pointer;
+}
+
+.slider-one,
+.slider-two {
+  top: 0;
+  bottom: 0;
+}
+
+.slider-one {
+  left: 0;
+}
+
+.slider-two {
+  right: 0;
 }
 
 /* ANIMATION  */
