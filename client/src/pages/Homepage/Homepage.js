@@ -28,7 +28,7 @@ const Homepage = () => {
         </h4>
 
         <h5 className='get-started'>
-          Get started now- Enter your zipcode, ward number, or street name!
+          Get started now- <br /> Enter your zipcode, ward number, or street name!
         </h5>
       </div>
     </div>

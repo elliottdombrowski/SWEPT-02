@@ -48,9 +48,14 @@ a {
   font-size: 180%;
 }
 
-.homepage-bio {
+.homepage-bio,
+.get-started {
   width: 60%;
   margin-top: 3rem;
+}
+
+.get-started {
+  width: 80%;
 }
 
 .swept-header {
