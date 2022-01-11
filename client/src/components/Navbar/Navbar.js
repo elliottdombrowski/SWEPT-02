@@ -92,8 +92,8 @@ const Navbar = () => {
 
           {Auth.loggedIn() ? (
             <div className='login-btn'>
-              <Link to='/login' className='nav-links'>
-                LOG IN
+              <Link to='/' className='nav-links'>
+                LOG OUT
               </Link>
             </div>
           ) : (
