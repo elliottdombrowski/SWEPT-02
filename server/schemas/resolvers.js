@@ -1,6 +1,7 @@
 const { User } = require('../models')
 const axios = require('axios');
 const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require('apollo-server-express');
 
 
 const resolvers = {
@@ -37,6 +38,21 @@ const resolvers = {
         } catch (error) {
           console.log(error);
         }
+      },
+
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new AuthenticationError('no user found with this email');
+        }
+
+        const correctPw = await user.isCorrectPassword(password);
+        if (!correctPw) {
+          throw new AuthenticationError('incorrect password.');
+        }
+
+        const token = signToken(user);
+        return { token, user };
       }
     }
 };
