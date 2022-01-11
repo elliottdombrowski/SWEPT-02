@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import SignUpButton from '../SignUpButton/SignUpButton';
 import Auth from '../../utils/auth';
 import './navbar.css';
 import './query.css';
@@ -97,11 +98,7 @@ const Navbar = () => {
               </Link>
             </div>
           ) : (
-            <div className='login-btn'>
-              <Link to='/login' className='nav-links'>
-                SIGN UP
-              </Link>
-            </div>
+            <SignUpButton />
           )}
         </div>
         <div
