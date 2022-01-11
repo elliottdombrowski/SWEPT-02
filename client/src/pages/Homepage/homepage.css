@@ -45,15 +45,27 @@ a {
 }
 
 .homepage-img {
+  position: fixed;
+  top: 13.5rem;
   margin: 3rem 0;
+  z-index: 1;
 }
 
 img {
   height: 20vh;
 }
 
+.homepage-text-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
 .homepage-header {
   text-shadow: var(--homepage-textshadow);
+}
+
+.homepage-bio {
+  margin-top: 20rem;
 }
 
 .homepage-header,
