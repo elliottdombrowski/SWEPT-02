@@ -13,6 +13,13 @@ app.get('/sweeper', (req, res) => {
             '$$app_token': process.env.REACT_APP_SWEEPER
         }
     }
+
+    axios.request(sweeperData).then((response) => {
+        res.json(response.data)
+
+    }).catch((error) => {
+        console.error(error)
+    })
 })
 
 module.exports = router;
