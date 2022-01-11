@@ -1,7 +1,7 @@
 import { parse } from '@fortawesome/fontawesome-svg-core';
 import React, { useState, useEffect } from 'react';
 //IMPORTING TEST API CALL
-import { findWardSchedule } from '../../utils/API';
+// import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
 
 const FindWardForm = () => {
@@ -21,11 +21,11 @@ const FindWardForm = () => {
     }
 
     try {
-      const res = await findWardSchedule(wardNumber);
+      // const res = await findWardSchedule(wardNumber);
 
-      if (!res.ok) {
-        throw new Error('something went wrong');
-      }
+      // if (!res.ok) {
+      //   throw new Error('something went wrong');
+      // }
     } catch (err) {
       console.log(err);
     };
