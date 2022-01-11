@@ -7,7 +7,10 @@ const Homepage = () => {
       <div className='homepage-header'>
         <h1>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
       </div>
-
+      <div className='homepage-img'>
+        <div className='homepage-img-inner'></div>
+        <img src={require('../../assets/minchi.png')}></img>
+      </div>
       <div className='homepage-bio'>
         <h3>
           <i className='swept-header'>SWEPT</i> is a tool for Chicagoans, built by Chicagoans.

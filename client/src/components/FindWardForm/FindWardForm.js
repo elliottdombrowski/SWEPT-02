@@ -21,15 +21,15 @@ const FindWardForm = () => {
       return false;
     }
 
-    try {
-      const res = await findWardSchedule(wardNumber);
+    // try {
+    //   const res = await findWardSchedule(wardNumber);
 
-      if (!res.ok) {
-        throw new Error('something went wrong');
-      }
-    } catch (err) {
-      console.log(err);
-    };
+    //   if (!res.ok) {
+    //     throw new Error('something went wrong');
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // };
 
     setWardNumber('');
     return true;

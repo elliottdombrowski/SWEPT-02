@@ -15,6 +15,7 @@
   --darkblue: #005178;
   --darkerblue: #00293c;
   --deep-darkblue: #474056;
+  --chi-blue: #b5def2;
 
   --primary-lightpink: #ea8aba;
   --primary-darkpink: #a33f67;
@@ -36,16 +37,25 @@ a {
 }
 
 .homepage-wrapper {
-  background: linear-gradient(to top, var(--lightblue), var(--med-lightblue));
+  background: var(--chi-blue);
   height: 100vh;
-  padding: 3rem;
+  padding-top: 3rem;
+}
+
+.homepage-img-inner {
+  background: black;
+  width: 3rem;
+}
+
+img {
+  height: 20vh;
 }
 
 .homepage-header,
 .homepage-bio {
-  width: 100%;
   font-family: var(--logo-font);
   font-size: 180%;
+  padding: 0 3rem;
 }
 
 .homepage-bio,
