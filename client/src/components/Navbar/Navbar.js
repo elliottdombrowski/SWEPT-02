@@ -93,7 +93,11 @@ const Navbar = () => {
 
           {Auth.loggedIn() ? (
             <div className='login-btn'>
-              <Link to='/' className='nav-links'>
+              <Link 
+                to='/' 
+                className='nav-links'
+                onClick={Auth.logout}
+              >
                 LOG OUT
               </Link>
             </div>
