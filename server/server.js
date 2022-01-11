@@ -38,8 +38,9 @@ db.once('open', () => {
   });
 });
 
-app.get('/', (req,res) => {
-  
+
+app.get('/', (req, res) => {
+  res.json('testonDOM')
 })
 
 app.listen(3001, () => console.log(`TestTest ${PORT}!`))
