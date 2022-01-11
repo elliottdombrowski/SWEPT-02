@@ -6,8 +6,7 @@ import Navbar from '../src/components/Navbar/Navbar';
 import Homepage from '../src/pages/Homepage/Homepage';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
-import LoginForm from './components/LoginForm/LoginForm';
-import SignupForm from './components/SignupForm/SignupForm';
+import LoginSignup from './pages/LoginSignup/LoginSignup';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -47,11 +46,7 @@ function App() {
             </Route>
 
             <Route exact path='/login'>
-              <LoginForm />
-            </Route>
-
-            <Route exact path='/signup'>
-              <SignupForm />
+              <LoginSignup />
             </Route>
           </Router>
       </div>
