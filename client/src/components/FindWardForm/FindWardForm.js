@@ -1,5 +1,6 @@
 import { parse } from '@fortawesome/fontawesome-svg-core';
 import React, { useState, useEffect } from 'react';
+import $ from 'jquery';
 //IMPORTING TEST API CALL
 // import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
