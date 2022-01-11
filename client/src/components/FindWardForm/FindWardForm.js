@@ -1,29 +1,32 @@
-import { parse } from '@fortawesome/fontawesome-svg-core';
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import './findwardform.css';
 
 import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
 const FindWardForm = () => {
-  const [wardNumber, setWardNumber] = useState('');
-  const {loading, data} = useQuery(GET_WARD);
+  const wardNumber = useRef('');
+  const [ward, setWard] = useState('');
+  const {loading, data} = useQuery(GET_WARD, {
+    variables: { wardNumber: ward }
+  });
   const wardInfo = data?.getWard || [];
   console.log(wardInfo);
 
   const wardNumberSubmit = async (event) => {
     event.preventDefault();
 
-    if (!wardNumber) {
-      return false;
-    } else if (!parseInt(wardNumber)) {
-      console.log('please enter a ward number');
-      return false;
-    } else if (wardNumber > 50) {
-      console.log('invalid ward number');
-      return false;
-    }
-
+    // if (!wardNumber) {
+    //   return false;
+    // } else if (!parseInt(wardNumber)) {
+    //   console.log('please enter a ward number');
+    //   return false;
+    // } else if (wardNumber > 50) {
+    //   console.log('invalid ward number');
+    //   return false;
+    // }
+    console.log(wardNumber.current.value);
+    setWard(wardNumber.current.value);
     // const { data } = await getWard({
     //   variables: {}
     // })
@@ -37,7 +40,7 @@ const FindWardForm = () => {
     //   console.log(err);
     // };
 
-    setWardNumber('');
+    // setWardNumber('');
     return true;
   };
 
@@ -47,9 +50,10 @@ const FindWardForm = () => {
       className='sweeper-ward-form'
     >
       <input
-        value={wardNumber}
+        // value={wardNumber}
+        ref={wardNumber}
         name='wardNumber'
-        onChange={(event) => setWardNumber(event.target.value)}
+        // onChange={(event) => setWardNumber(event.target.value)}
         placeholder="Enter your Ward Number!"
         className='ward-input'
       />

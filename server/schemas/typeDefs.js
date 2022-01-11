@@ -24,7 +24,7 @@ const typeDefs = gql`
   type Query {
     user: User
 
-    getWard: [Ward]
+    getWard(wardNumber: String): [Ward]
   }
 
   type Mutation {
