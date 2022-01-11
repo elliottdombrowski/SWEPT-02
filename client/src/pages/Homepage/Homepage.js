@@ -8,7 +8,6 @@ const Homepage = () => {
         <h1>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
       </div>
       <div className='homepage-img'>
-        <div className='homepage-img-inner'></div>
         <img src={require('../../assets/minchi.png')}></img>
       </div>
       <div className='homepage-bio'>

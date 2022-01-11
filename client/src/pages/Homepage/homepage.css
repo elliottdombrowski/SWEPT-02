@@ -42,11 +42,6 @@ a {
   padding-top: 3rem;
 }
 
-.homepage-img-inner {
-  background: black;
-  width: 3rem;
-}
-
 img {
   height: 20vh;
 }
@@ -61,11 +56,11 @@ img {
 .homepage-bio,
 .get-started {
   width: 60%;
-  margin-top: 3rem;
 }
 
 .get-started {
   width: 80%;
+  margin-top: 3rem;
 }
 
 .swept-header {
