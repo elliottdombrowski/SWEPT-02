@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
+const cors = require('cors');
 require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server-express');
@@ -20,6 +21,10 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+// api
+const apiRes = require("./api");
+app.use("/api", apiRes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
