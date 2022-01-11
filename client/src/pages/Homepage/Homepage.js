@@ -20,7 +20,8 @@ const Homepage = () => {
           to parking tickets; and <i className='swept-header'>SWEPT</i> is here to help!
           <br />
           We use real time <a 
-            href='#'
+            href='https://data.cityofchicago.org/'
+            target='_blank'
             rel='noopener noreferrer'
             className='chicago-link'
           >
