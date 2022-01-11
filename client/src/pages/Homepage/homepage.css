@@ -84,6 +84,13 @@ h4 {
   transition: .2s ease-in-out;
 }
 
+.homepage-signup {
+  margin: 1rem 0 0 2rem;
+  width: 20%;
+  text-align: center;
+  font-size: 110%;
+}
+
 .chicago-link:hover {
   color: var(--soft-lightblue);
 }

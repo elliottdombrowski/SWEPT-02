@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import './homepage.css';
 
 const Homepage = () => {
@@ -19,7 +20,7 @@ const Homepage = () => {
           If you live in the third largest Metropolitan areas in the U.S, you're no stranger
           to parking tickets; and <i className='swept-header'>SWEPT</i> is here to help!
           <br />
-          We use real time <a 
+          We use real time <a
             href='https://data.cityofchicago.org/'
             target='_blank'
             rel='noopener noreferrer'
@@ -33,6 +34,9 @@ const Homepage = () => {
         <h4 className='get-started'>
           Avoid parking tickets now- <br /> Enter your zipcode, ward number, or street name!
         </h4>
+      </div>
+      <div className='homepage-signup'>
+        <SignUpButton />
       </div>
     </div>
   );
