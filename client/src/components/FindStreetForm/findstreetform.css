@@ -47,12 +47,11 @@ a {
   background: var(--darkblue);
   border: 2px solid white;
   border-radius: 10px;
-  margin-bottom: 2rem;
 }
 
-.steet-btn {
-  margin-top: 1.2rem;
+.street-btn {
   background: var(--primary-darkorange);
+  margin-top: 1.2rem;
   text-align: left;
   font-weight: bold;
   transition: var(--btn-hover);
