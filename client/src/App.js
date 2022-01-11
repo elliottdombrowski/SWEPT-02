@@ -6,6 +6,7 @@ import Navbar from '../src/components/Navbar/Navbar';
 import Homepage from '../src/pages/Homepage/Homepage';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
+import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 
 const httpLink = createHttpLink({
@@ -43,6 +44,10 @@ function App() {
 
             <Route exact path='/snow'>
               <Snow />
+            </Route>
+
+            <Route exact path='/profile'>
+              <Profile />
             </Route>
 
             <Route exact path='/login'>
