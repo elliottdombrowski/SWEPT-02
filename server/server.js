@@ -22,10 +22,13 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+// api
+const apiRes = require("./api");
+app.use("/api", apiRes);
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 };
-
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
@@ -37,4 +40,3 @@ db.once('open', () => {
     console.log(`GQL playground running at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
-
