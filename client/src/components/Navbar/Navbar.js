@@ -85,7 +85,7 @@ const Navbar = () => {
               </div>
             </Link>
           ) : (
-            <Link to='/me' className='nav-item nav-links'>
+            <Link to={Auth.loggedIn() ? ('/me') : ('/login')} className='nav-item nav-links'>
               PROFILE
             </Link>
           )}
