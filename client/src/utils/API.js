@@ -1,15 +1,13 @@
 // TEST 
-const Axios = require('axios');
+// const Axios = require('axios');
 
-export const findWardSchedule = (wardQuery) => {
-  Axios.get(`https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${wardQuery}`).then((res) => {
-    console.log(JSON.stringify(res));
-  })
-};
+// export const findWardSchedule = (wardQuery) => {
+//   Axios.get(`https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${wardQuery}`).then((res) => {
+//     console.log(JSON.stringify(res));
+//   });
+// };
+
 // TEST 
-
-
-
 
 // ajax calls from City of Chicago APIs
 
