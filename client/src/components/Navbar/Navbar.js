@@ -55,25 +55,7 @@ const Navbar = () => {
         </div>
 
         {/* NAV RIGHT */}
-        {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right' id='navbar-right'>
-          {/* {mobile.matches ? (
-            <div className='nav-right-mobile'>
-              <Link to='/sweeper' className='nav-links nav-mobile mobile-page-links mobile-nav-sweeper' id='mobile-nav-sweeper' onClick={() => mobileNavChangePage()}>
-                SWEEPER
-              </Link>
-
-              <Link to='/snow' className='nav-links nav-mobile mobile-page-links mobile-nav-snow' id='mobile-nav-snow' onClick={() => mobileNavChangePage()}>
-                SNOW
-              </Link>
-              <div className='nav-right-mobile-overlay' id='nav-overlay'>
-              </div>
-            </div>
-          ) : (
-            <Link to="/snow" className='nav-item nav-links'>
-              SNOW
-            </Link>
-          )} */}
           <label className='switch' id='link-switcher'>
             <input type='checkbox' />
             <Link 
