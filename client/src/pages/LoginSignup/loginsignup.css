@@ -31,78 +31,10 @@
 * {
   margin: 0;
   padding: 0;
-  color: var(--text);
 }
 
-a {
-  text-decoration: none;
-}
-
-.homepage-wrapper {
+.login-signup-wrapper {
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
   padding-top: 3rem;
-}
-
-.homepage-img {
-  position: fixed;
-  top: 13.5rem;
-  margin: 3rem 0;
-  z-index: 1;
-}
-
-img {
-  height: 20vh;
-}
-
-.homepage-text-wrapper {
-  position: relative;
-  z-index: 2;
-}
-
-.homepage-header {
-  text-shadow: var(--homepage-textshadow);
-}
-
-.homepage-bio {
-  margin-top: 20rem;
-}
-
-.homepage-header,
-.homepage-bio {
-  font-family: var(--logo-font);
-  font-size: 180%;
-  padding: 0 3rem;
-}
-
-.homepage-bio,
-.get-started {
-  width: 60%;
-  text-shadow: var(--homepage-textshadow);
-}
-
-.get-started,
-h4 {
-  width: 80%;
-  margin-top: 3rem;
-}
-
-.swept-header {
-  font-style: italic;
-}
-
-.chicago-link {
-  text-decoration: underline;
-  transition: .2s ease-in-out;
-}
-
-.homepage-signup {
-  margin: 1rem 0 0 2rem;
-  width: 20%;
-  text-align: center;
-  font-size: 110%;
-}
-
-.chicago-link:hover {
-  color: var(--soft-lightblue);
 }

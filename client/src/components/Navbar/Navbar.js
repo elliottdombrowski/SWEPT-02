@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import SignUpButton from '../SignUpButton/SignUpButton';
 import Auth from '../../utils/auth';
 import './navbar.css';
 import './query.css';
@@ -55,25 +56,7 @@ const Navbar = () => {
         </div>
 
         {/* NAV RIGHT */}
-        {/* IMPLEMENT LOGIC TO DISPLAY SWEPT VS SNOW STREETS DEPENDING ON WHAT'S RENDERED */}
         <div className='nav-right' id='navbar-right'>
-          {/* {mobile.matches ? (
-            <div className='nav-right-mobile'>
-              <Link to='/sweeper' className='nav-links nav-mobile mobile-page-links mobile-nav-sweeper' id='mobile-nav-sweeper' onClick={() => mobileNavChangePage()}>
-                SWEEPER
-              </Link>
-
-              <Link to='/snow' className='nav-links nav-mobile mobile-page-links mobile-nav-snow' id='mobile-nav-snow' onClick={() => mobileNavChangePage()}>
-                SNOW
-              </Link>
-              <div className='nav-right-mobile-overlay' id='nav-overlay'>
-              </div>
-            </div>
-          ) : (
-            <Link to="/snow" className='nav-item nav-links'>
-              SNOW
-            </Link>
-          )} */}
           <label className='switch' id='link-switcher'>
             <input type='checkbox' />
             <Link 
@@ -103,23 +86,19 @@ const Navbar = () => {
               </div>
             </Link>
           ) : (
-            <Link to='/me' className='nav-item nav-links'>
+            <Link to={Auth.loggedIn() ? ('/me') : ('/login')} className='nav-item nav-links'>
               PROFILE
             </Link>
           )}
 
           {Auth.loggedIn() ? (
             <div className='login-btn'>
-              <Link to='/login' className='nav-links'>
-                LOG IN
+              <Link to='/' className='nav-links'>
+                LOG OUT
               </Link>
             </div>
           ) : (
-            <div className='login-btn'>
-              <Link to='/login' className='nav-links'>
-                SIGN UP
-              </Link>
-            </div>
+            <SignUpButton />
           )}
         </div>
         <div
