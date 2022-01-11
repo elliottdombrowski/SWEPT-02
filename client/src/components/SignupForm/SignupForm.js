@@ -20,6 +20,7 @@ const LoginForm = () => {
     const { data } = await addUser({
       variables: { ...signupData },
     });
+    console.log(data);
     Auth.login(data.addUser.token);
   };
 
