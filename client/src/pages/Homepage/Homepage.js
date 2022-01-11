@@ -7,7 +7,9 @@ const Homepage = () => {
       <div className='homepage-header'>
         <h1>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
       </div>
-
+      <div className='homepage-img'>
+        <img src={require('../../assets/minchi.png')}></img>
+      </div>
       <div className='homepage-bio'>
         <h3>
           <i className='swept-header'>SWEPT</i> is a tool for Chicagoans, built by Chicagoans.
@@ -18,7 +20,8 @@ const Homepage = () => {
           to parking tickets; and <i className='swept-header'>SWEPT</i> is here to help!
           <br />
           We use real time <a 
-            href='#'
+            href='https://data.cityofchicago.org/'
+            target='_blank'
             rel='noopener noreferrer'
             className='chicago-link'
           >
@@ -27,9 +30,9 @@ const Homepage = () => {
           shouldn't be there!
         </h4>
 
-        <h5 className='get-started'>
-          Get started now- <br /> Enter your zipcode, ward number, or street name!
-        </h5>
+        <h4 className='get-started'>
+          Avoid parking tickets now- <br /> Enter your zipcode, ward number, or street name!
+        </h4>
       </div>
     </div>
   );

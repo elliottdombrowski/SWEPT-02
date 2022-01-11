@@ -15,6 +15,7 @@
   --darkblue: #005178;
   --darkerblue: #00293c;
   --deep-darkblue: #474056;
+  --chi-blue: #b5def2;
 
   --primary-lightpink: #ea8aba;
   --primary-darkpink: #a33f67;
@@ -98,7 +99,7 @@ a {
 
 .deco-inner {
   height: 2rem;
-  background: var(--med-lightblue);
+  background: linear-gradient(to bottom, var(--med-lightblue), var(--chi-blue));
   border-top: 2px solid white;
   border-radius: 50px 50px 0 0;
   z-index: 2;

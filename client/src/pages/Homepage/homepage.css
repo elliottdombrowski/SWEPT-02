@@ -15,11 +15,14 @@
   --darkblue: #005178;
   --darkerblue: #00293c;
   --deep-darkblue: #474056;
+  --chi-blue: #b5def2;
 
   --primary-lightpink: #ea8aba;
   --primary-darkpink: #a33f67;
   --primary-lightorange: #f3872f;
   --primary-darkorange: #f96700;
+
+  --homepage-textshadow: 1px 1px 2px var(--med-lightblue);
 
   --btn-hover: 0.2s ease-in-out;
   --blue-gradient: linear-gradient(to right, var(--darkerblue), var(--darkblue))
@@ -36,28 +39,51 @@ a {
 }
 
 .homepage-wrapper {
-  background: linear-gradient(to top, var(--lightblue), var(--med-lightblue));
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
-  padding: 3rem;
+  padding-top: 3rem;
+}
+
+.homepage-img {
+  margin: 3rem 0;
+}
+
+img {
+  height: 20vh;
+}
+
+.homepage-header {
+  text-shadow: var(--homepage-textshadow);
 }
 
 .homepage-header,
 .homepage-bio {
-  width: 100%;
   font-family: var(--logo-font);
   font-size: 180%;
+  padding: 0 3rem;
 }
 
 .homepage-bio,
 .get-started {
   width: 60%;
-  margin-top: 3rem;
+  text-shadow: var(--homepage-textshadow);
 }
 
-.get-started {
+.get-started,
+h4 {
   width: 80%;
+  margin-top: 3rem;
 }
 
 .swept-header {
   font-style: italic;
+}
+
+.chicago-link {
+  text-decoration: underline;
+  transition: .2s ease-in-out;
+}
+
+.chicago-link:hover {
+  color: var(--soft-lightblue);
 }
