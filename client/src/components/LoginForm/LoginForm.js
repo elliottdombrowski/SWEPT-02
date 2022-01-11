@@ -9,7 +9,6 @@ import './loginform.css';
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-  const [validated] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -19,13 +18,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // const form = event.currentTarget;
-    // if (form.checkValidity() === false) {
-    //   event.preventDefault();
-    //   event.stopPropagation();
-    // }
-
-    try {
+     try {
       const { data } = await login({
         variables: { ...loginData },
       });
