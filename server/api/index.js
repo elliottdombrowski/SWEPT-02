@@ -1,12 +1,18 @@
 // routing
 const express = require('express');
 const router = express.Router();
-const Sweeper = require('./sweeper');
+require('dotenv').config({ path: '../../.env' });
+// const Sweeper = require('./sweeper');
 
-router.get('/sweeper', async (req, res) => {
-    let sweeper = new Sweeper()
-    res.header("Content-Type", 'application/json');
-    res.send(JSON.stringify);
-});
+app.get('/sweeper', (req, res) => {
+    const sweeperData = {
+        method: 'GET',
+        url: 'https://data.cityofchicago.org/resource/wvjp-8m67.json',
+        data: {
+            '$limit': 5000,
+            '$$app_token': process.env.REACT_APP_SWEEPER
+        }
+    }
+})
 
 module.exports = router;
