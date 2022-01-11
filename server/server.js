@@ -22,10 +22,6 @@ server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// api
-const apiRes = require("./api");
-app.use("/api", apiRes);
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 };

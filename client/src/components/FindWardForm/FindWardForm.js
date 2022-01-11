@@ -1,12 +1,15 @@
 import { parse } from '@fortawesome/fontawesome-svg-core';
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery';
-//IMPORTING TEST API CALL
-import { findWardSchedule } from '../../utils/API';
 import './findwardform.css';
+
+import { GET_WARD } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
 
 const FindWardForm = () => {
   const [wardNumber, setWardNumber] = useState('');
+  const {loading, data} = useQuery(GET_WARD);
+  const wardInfo = data?.getWard || [];
+  console.log(wardInfo);
 
   const wardNumberSubmit = async (event) => {
     event.preventDefault();
@@ -21,6 +24,9 @@ const FindWardForm = () => {
       return false;
     }
 
+    // const { data } = await getWard({
+    //   variables: {}
+    // })
     // try {
     //   const res = await findWardSchedule(wardNumber);
 

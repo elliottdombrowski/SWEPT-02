@@ -11,9 +11,20 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
+  type Ward {
+    ward_section_concatenated: String,
+    ward: String,
+    section: String,
+    month_name: String,
+    month_number: String,
+    dates: String,
+  }
   
   type Query {
     user: User
+
+    getWard: [Ward]
   }
 
   type Mutation {
