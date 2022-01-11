@@ -69,7 +69,8 @@ img {
   text-shadow: var(--homepage-textshadow);
 }
 
-.get-started {
+.get-started,
+h4 {
   width: 80%;
   margin-top: 3rem;
 }

@@ -30,9 +30,9 @@ const Homepage = () => {
           shouldn't be there!
         </h4>
 
-        <h5 className='get-started'>
-          Get started now- <br /> Enter your zipcode, ward number, or street name!
-        </h5>
+        <h4 className='get-started'>
+          Avoid parking tickets now- <br /> Enter your zipcode, ward number, or street name!
+        </h4>
       </div>
     </div>
   );
