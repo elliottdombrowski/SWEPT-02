@@ -22,6 +22,8 @@
   --primary-lightorange: #f3872f;
   --primary-darkorange: #f96700;
 
+  --homepage-textshadow: 1px 1px 2px var(--med-lightblue);
+
   --btn-hover: 0.2s ease-in-out;
   --blue-gradient: linear-gradient(to right, var(--darkerblue), var(--darkblue))
 }
@@ -37,13 +39,21 @@ a {
 }
 
 .homepage-wrapper {
-  background: var(--chi-blue);
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
   padding-top: 3rem;
 }
 
+.homepage-img {
+  margin: 3rem 0;
+}
+
 img {
   height: 20vh;
+}
+
+.homepage-header {
+  text-shadow: var(--homepage-textshadow);
 }
 
 .homepage-header,
@@ -56,6 +66,7 @@ img {
 .homepage-bio,
 .get-started {
   width: 60%;
+  text-shadow: var(--homepage-textshadow);
 }
 
 .get-started {
