@@ -5,7 +5,8 @@ export const LOGIN_USER = gql`
     logim(email: $email, password: $password) {
       token
       user {
-        _ids
+        _id
+        username
       }
     }
   }
@@ -17,6 +18,7 @@ export const ADD_USER = gql`
       token
       user {
         _id
+        username
       }
     }
   }

@@ -8,7 +8,7 @@ import '../LoginForm/loginform.css';
 
 const LoginForm = () => {
   const [signupData, setSignupData] = useState({ username: '', email: '', password: '' });
-  const [signup, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -17,15 +17,10 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const mutationRes = await signup({
-      variables: {
-        username: signupData.username,
-        email: signupData.email,
-        password: signupData.password,
-      },
+    const { data } = await addUser({
+      variables: { ...signupData },
     });
-    const token = mutationRes.data.signup.token;
-    Auth.login(token);
+    Auth.login(data.addUser.token);
   };
 
   return (

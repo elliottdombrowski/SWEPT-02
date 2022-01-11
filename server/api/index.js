@@ -4,7 +4,7 @@ const router = express.Router();
 require('dotenv').config({ path: '../../.env' });
 // const Sweeper = require('./sweeper');
 
-app.get('/sweeper', (req, res) => {
+router.get('/sweeper', (req, res) => {
     const sweeperData = {
         method: 'GET',
         url: 'https://data.cityofchicago.org/resource/wvjp-8m67.json',
@@ -16,7 +16,7 @@ app.get('/sweeper', (req, res) => {
 
     axios.request(sweeperData).then((response) => {
         res.json(response.data)
-
+        console.log(response);
     }).catch((error) => {
         console.error(error)
     })
