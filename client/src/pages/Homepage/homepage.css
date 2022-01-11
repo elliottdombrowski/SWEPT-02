@@ -77,3 +77,12 @@ img {
 .swept-header {
   font-style: italic;
 }
+
+.chicago-link {
+  text-decoration: underline;
+  transition: .2s ease-in-out;
+}
+
+.chicago-link:hover {
+  color: var(--soft-lightblue);
+}
