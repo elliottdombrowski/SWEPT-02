@@ -20,6 +20,22 @@ const typeDefs = gql`
     month_number: String,
     dates: String,
   }
+
+  type Zip {
+    ward: ,
+    alderman: String,
+    address: String,
+    city: String,
+    state: String,
+    zipcode: String,
+    ward_phone: String,
+    ward_fax: String,
+    email: String,
+    website: {
+      url: String
+    },
+
+  }
   
   type Query {
     user: User
