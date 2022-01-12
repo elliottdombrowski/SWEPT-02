@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 
-export const GET_WARD = gql `
+// works with the sweeper sched API for 'ward' + 'month_name' + 'month_number'
+export const GET_WARD = gql`
   query getWard($wardNumber: String) {
     getWard(wardNumber: $wardNumber) {
       ward_section_concatenated
@@ -12,8 +13,7 @@ export const GET_WARD = gql `
     }
   }
 `;
-
-export const GET_ZIP = gql `
+export const GET_ZIP = gql`
   query getZip($zipNumber: String) {
     getZip(zipNumber: $zipNumber) {
       ward: String,
