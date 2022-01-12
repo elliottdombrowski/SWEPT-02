@@ -60,9 +60,6 @@ img {
   z-index: 2;
 }
 
-.homepage-header {
-  text-shadow: var(--homepage-textshadow);
-}
 
 .homepage-bio {
   margin-top: 20rem;
@@ -73,6 +70,18 @@ img {
   font-family: var(--logo-font);
   font-size: 180%;
   padding: 0 3rem;
+}
+
+.homepage-header {
+  background: var(--blue-gradient);
+  padding: 1rem 3rem;
+  width: 70%;
+  margin: 0 auto;
+  border: 2px solid var(--text);
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+  text-align: center;
+  text-shadow: var(--homepage-textshadow);
 }
 
 .homepage-bio,
