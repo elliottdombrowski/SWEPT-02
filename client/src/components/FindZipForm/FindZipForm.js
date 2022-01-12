@@ -1,15 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './findzipform.css';
 
+import { GET_ZIP } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+
 const FindZipForm = () => {
+  const zipNumber = useRef("");
+  const [zips, setZips] = useState([]);
+  const { loading, data } = useQuery(GET_ZIP, {
+    variables: { zipNumber: zips }
+  });
+
+  const zipInfo = data?.getZip || [];
+  console.log(zipInfo);
+
+  const zipNumberSubmit = async (event) => {
+    event.preventDefault();
+    console.log(zipNumber.current.value);
+    setZips(zipNumber.current.value)
+  }
   return (
     <form
-      onSubmit={() => console.log('clicking')}
+      onSubmit={(event) => zipNumberSubmit(event)}
       className='zipform-wrapper'
     >
       <input
         // value={}
         // onChange={}
+        ref={zipNumber}
         placeholder='Enter your Zip Code!'
         className='zipform-input'
       />
