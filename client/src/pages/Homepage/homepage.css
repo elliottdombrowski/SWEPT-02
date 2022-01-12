@@ -39,6 +39,9 @@ a {
 }
 
 .homepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
   padding-top: 3rem;
@@ -47,6 +50,7 @@ a {
 .homepage-img {
   position: fixed;
   top: 15rem;
+  left: 0;
   margin: 6em 0;
   z-index: 2;
 }
@@ -57,6 +61,7 @@ img {
 
 .homepage-text-wrapper {
   position: relative;
+  width: 80%;
   z-index: 3;
 }
 
@@ -75,7 +80,6 @@ img {
 .homepage-bio {
   background: var(--blue-gradient);
   padding: 1rem 3rem;
-  width: 84%;
   margin: 0 auto;
   border: 2px solid var(--text);
   border-radius: 30px;
@@ -93,7 +97,6 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 92%;
   background: none;
   border: none;
   margin: 1rem auto 0;
