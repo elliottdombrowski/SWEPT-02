@@ -51,6 +51,31 @@ export default FindZipForm;
 //     console.log(zipNumber.current.value);
 //     setZip(zipNumber.current.value);
 
+//     return true;
+//   };
 
+//   return (
+//     <form
+//       onSubmit={(event) => zipNumberSubmit(event)}
+//       className='zipform-wrapper'
+//     >
+//       <input
+//         // value={}
+//         // onChange={}
+//         ref={zipNumber}
+//         name='zipNumber'
+//         placeholder='Enter your Zip Code!'
+//         className='zipform-input'
+//       />
+
+//       <button
+//         type='submit'
+//         className='zipform-input zipform-btn'
+//       >
+//         Find your schedule!
+//       </button>
+//     </form>
+//   );
+// };
 
 // export default FindZipForm;
