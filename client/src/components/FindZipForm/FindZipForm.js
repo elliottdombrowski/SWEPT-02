@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import React, { useRef, useState } from 'react';
 import './findzipform.css';
-
-import { GET_ZIP } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
 
 const FindZipForm = () => {
   return (
@@ -29,3 +25,23 @@ const FindZipForm = () => {
 };
 
 export default FindZipForm;
+
+
+// sadie did this thing and it's crapola
+// ripped copy and edit from FindWardForm btw
+// // import React, { useState, useEffect } from 'react';
+// import React, { useRef, useState } from 'react';
+// import './findzipform.css';
+
+// import { GET_ZIP } from '../../utils/queries';
+// import { useQuery } from '@apollo/client';
+
+// const FindZipForm = () => {
+//   const zipNumber = useRef('');
+//   const [zip, setZip] = useState('');
+//   const { loading, data } = useQuery(GET_ZIP, {
+//     variables: { zipNumber: zip }
+//   });
+
+
+// export default FindZipForm;
