@@ -13,6 +13,8 @@ export const GET_WARD = gql`
     }
   }
 `;
+
+// works with the ward info API for 'zipcode'
 export const GET_ZIP = gql`
   query getZip($zipNumber: String) {
     getZip(zipNumber: $zipNumber) {
