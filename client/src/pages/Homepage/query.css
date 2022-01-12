@@ -8,11 +8,19 @@
   .homepage-header {
     font-size: 140%;
   }
+  
+  .homepage-img {
+    top: 20.5rem;
+  }
 }
 
-@media all and (max-width: 670px) {
+@media all and (max-width: 667px) {
     .homepage-header {
       font-size: 120%;
+    }
+
+    .homepage-img {
+      top: 20rem;
     }
 }
 
@@ -25,11 +33,25 @@
   .homepage-text-wrapper {
     width: 90%;
   }
+
+  .homepage-img {
+    top: 19.5rem;
+  }
 }
 
 @media all and (max-width: 520px) {
   .homepage-header {
     text-align: center;
     font-size: 90%;
+  }
+
+  img {
+    height: 18vh;
+  }
+}
+
+@media all and (max-width: 438px) {
+  img {
+    height: 15vh;
   }
 }
