@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react';
 import './findstreetform.css';
 
+import { GET_SNOW } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
+
 const FindStreetForm = () => {
   return (
     <form
