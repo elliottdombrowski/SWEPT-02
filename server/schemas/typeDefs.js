@@ -22,8 +22,8 @@ const typeDefs = gql`
   }
 
   type Zip {
-    ward: Integer,
-    zipcode: Integer
+    ward: String,
+    zipcode: String
   }
   
   type Query {

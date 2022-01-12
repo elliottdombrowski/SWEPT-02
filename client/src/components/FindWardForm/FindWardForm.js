@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/client';
 const FindWardForm = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  const {loading, data} = useQuery(GET_WARD, {
+  const { loading, data } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
   const wardInfo = data?.getWard || [];
