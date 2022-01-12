@@ -1,11 +1,12 @@
 {
-  "name": "project-3",
+  "name": "swept-02",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
@@ -16,18 +17,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/elliottdombrowski/Project-3.git"
+    "url": "git+https://github.com/elliottdombrowski/swept-02.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/elliottdombrowski/Project-3/issues"
+    "url": "https://github.com/elliottdombrowski/swept-02/issues"
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
   },
-  "homepage": "https://github.com/elliottdombrowski/Project-3#readme",
+  "homepage": "https://github.com/elliottdombrowski/swept-02#readme",
   "dependencies": {
     "@chakra-ui/react": "^1.7.4",
     "@emotion/react": "^11.7.1",
