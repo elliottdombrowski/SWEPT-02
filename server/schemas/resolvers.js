@@ -30,7 +30,15 @@ const resolvers = {
     },
     // zipcode from *general ward* api
     getZip: async (parents, args, context) => {
+      try {
+        console.log('is this undefined?????', args);
+        if (!args.zipNumber) {
+          return null;
+        }
 
+      } catch (error) {
+        console.log(error);
+      }
       },
 
   },
