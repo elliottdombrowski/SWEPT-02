@@ -52,7 +52,12 @@ const resolvers = {
     },
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
-
+      try {
+        console.log('is this undefined?????', args);
+        if (!args.snowNumber) {
+          return null;
+        }
+       
     },
 
   },
