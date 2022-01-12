@@ -46,9 +46,9 @@ a {
 
 .homepage-img {
   position: fixed;
-  top: 13.5rem;
-  margin: 3rem 0;
-  z-index: 1;
+  top: 15rem;
+  margin: 6em 0;
+  z-index: 2;
 }
 
 img {
@@ -57,34 +57,72 @@ img {
 
 .homepage-text-wrapper {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-.homepage-header {
-  text-shadow: var(--homepage-textshadow);
-}
-
-.homepage-bio {
-  margin-top: 20rem;
+.homepage-bio-wrapper {
+  margin-top: 23rem;
 }
 
 .homepage-header,
-.homepage-bio {
+.homepage-bio-wrapper {
   font-family: var(--logo-font);
   font-size: 180%;
-  padding: 0 3rem;
 }
 
-.homepage-bio,
-.get-started {
-  width: 60%;
+.homepage-header,
+.homepage-secondary-header,
+.homepage-bio {
+  background: var(--blue-gradient);
+  padding: 1rem 3rem;
+  width: 84%;
+  margin: 0 auto;
+  border: 2px solid var(--text);
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+  text-align: left;
   text-shadow: var(--homepage-textshadow);
+}
+
+.homepage-secondary-header {
+  margin-top: 1rem;
+  border-radius: 30px 30px 10px 10px;
+}
+
+.homepage-bio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 92%;
+  background: none;
+  border: none;
+  margin: 1rem auto 0;
+  padding: 0 0;
+  box-shadow: none;
+}
+
+.bio-col-left,
+.bio-col-right {
+  background: var(--blue-gradient);
+  padding: 1rem 3rem;
+  border: 2px solid var(--text);
+}
+
+.bio-col-left {
+  width: 60%;
+  margin-right: 5%;
+  border-radius: 10px 10px 10px 30px;
+}
+
+.bio-col-right {
+  width: 35%;
+  border-radius: 10px 10px 30px 10px;
 }
 
 .get-started,
 h4 {
   width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .swept-header {
@@ -97,10 +135,14 @@ h4 {
 }
 
 .homepage-signup {
-  margin: 1rem 0 0 2rem;
-  width: 20%;
+  margin: 1rem 0 0;
+  width: 50%;
   text-align: center;
-  font-size: 110%;
+  font-size: 70%;
+}
+
+.login-btn {
+  margin: 0;
 }
 
 .chicago-link:hover {
