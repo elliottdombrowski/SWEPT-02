@@ -1,3 +1,35 @@
+@media all and (max-width: 822px) {
+  .homepage-header {
+    font-size: 160%;
+  }
+}
+
 @media all and (max-width: 768px) {
-  
+  .homepage-header {
+    font-size: 140%;
+  }
+}
+
+@media all and (max-width: 670px) {
+    .homepage-header {
+      font-size: 120%;
+    }
+}
+
+@media all and (max-width: 596px) {
+  .homepage-header {
+    padding: 1rem 2rem;
+    font-size: 100%;
+  }
+
+  .homepage-text-wrapper {
+    width: 90%;
+  }
+}
+
+@media all and (max-width: 520px) {
+  .homepage-header {
+    text-align: center;
+    font-size: 90%;
+  }
 }
