@@ -49,9 +49,8 @@ a {
 
 .homepage-img {
   position: fixed;
-  top: 15rem;
+  top: 21rem;
   left: 0;
-  margin: 6em 0;
   z-index: 2;
 }
 
