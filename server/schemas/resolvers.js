@@ -50,6 +50,10 @@ const resolvers = {
         console.log(error);
       }
     },
+    // street name from *snow restriction* api
+    getSnow: async (parents, args, context) => {
+
+    },
 
   },
   Mutation: {
