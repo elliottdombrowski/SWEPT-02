@@ -46,8 +46,10 @@ const resolvers = {
         const zipResponse = await axios.request(zipData)
         // console.log(sweeperResponse.data);
         return zipResponse.data;
-      } 
-      },
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
   },
   Mutation: {
