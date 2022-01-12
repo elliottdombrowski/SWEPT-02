@@ -22,7 +22,7 @@ const typeDefs = gql`
   }
 
   type Zip {
-    ward: ,
+    ward: String,
     alderman: String,
     address: String,
     city: String,
@@ -34,13 +34,14 @@ const typeDefs = gql`
     website: {
       url: String
     },
-
   }
   
   type Query {
     user: User
 
     getWard(wardNumber: String): [Ward]
+
+    
   }
 
   type Mutation {
