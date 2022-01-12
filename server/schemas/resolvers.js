@@ -67,7 +67,10 @@ const resolvers = {
         }
         const snowResponse = await axios.request(snowData)
         // console.log(sweeperResponse.data);
-      
+        return snowResponse.data;
+      } catch (error) {
+        console.log(error);
+      }
     },
 
   },
