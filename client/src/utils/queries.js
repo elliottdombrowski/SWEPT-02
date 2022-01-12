@@ -31,3 +31,13 @@ export const GET_ZIP = gql`
     }
   }
 `;
+// works with the snow restriction parking info API for 'street'
+export const GET_SNOW = gql`
+  query getSnow($snowNumber: String) {
+    getSnow(snowNumber: $snowNumber) {
+      on_street
+      from_stree
+      to_street
+    }
+  }
+`;
