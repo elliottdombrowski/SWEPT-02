@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 // import React, { useRef, useState } from 'react';
 import './findzipform.css';
 
-
+import { GET_ZIP } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
 
 const FindZipForm = () => {
   return (
