@@ -35,6 +35,13 @@ const typeDefs = gql`
       url: String
     },
   }
+
+  type Snow {
+    on_street: String,
+    from_stree: String,
+    to_street: String
+
+  }
   
   type Query {
     user: User
@@ -42,6 +49,8 @@ const typeDefs = gql`
     getWard(wardNumber: String): [Ward]
 
     getZip(zipNumber: String): [Zip]
+
+    getSnow(snowNumber: String): [Snow]
   }
 
   type Mutation {
