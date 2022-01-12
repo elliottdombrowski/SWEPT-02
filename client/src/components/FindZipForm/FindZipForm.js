@@ -42,6 +42,15 @@ export default FindZipForm;
 //   const { loading, data } = useQuery(GET_ZIP, {
 //     variables: { zipNumber: zip }
 //   });
+//   const zipInfo = data?.getZip || [];
+//   console.log(zipInfo);
+
+//   const zipNumberSubmit = async (event) => {
+//     event.preventDefault();
+
+//     console.log(zipNumber.current.value);
+//     setZip(zipNumber.current.value);
+
 
 
 // export default FindZipForm;
