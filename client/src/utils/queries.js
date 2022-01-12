@@ -18,18 +18,16 @@ export const GET_WARD = gql`
 export const GET_ZIP = gql`
   query getZip($zipNumber: String) {
     getZip(zipNumber: $zipNumber) {
-      ward: String,
-      alderman: String,
-      address: String,
-      city: String,
-      state: String,
-      zipcode: String,
-      ward_phone: String,
-      ward_fax: String,
-      email: String,
-      website: {
-        url: String
-      },
+      ward
+      alderman
+      address
+      city
+      state
+      zipcode
+      ward_phone
+      ward_fax
+      email
+      website
     }
   }
 `;
