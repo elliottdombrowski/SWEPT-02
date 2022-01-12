@@ -85,21 +85,44 @@ img {
 }
 
 .homepage-secondary-header {
+  margin-top: 1rem;
   border-radius: 30px 30px 10px 10px;
 }
 
 .homepage-bio {
   display: flex;
   flex-direction: row;
-  width: 50%;
-  margin-top: 1rem;
-  border-radius: 10px 10px 30px 30px;
+  justify-content: space-between;
+  width: 92%;
+  background: none;
+  border: none;
+  margin: 1rem auto 0;
+  padding: 0 0;
+  box-shadow: none;
+}
+
+.bio-col-left,
+.bio-col-right {
+  background: var(--blue-gradient);
+  padding: 1rem 3rem;
+  border: 2px solid var(--text);
+}
+
+.bio-col-left {
+  width: 60%;
+  margin-right: 5%;
+  border-radius: 10px 10px 10px 30px;
+}
+
+.bio-col-right {
+  width: 35%;
+  border-radius: 10px 10px 30px 10px;
 }
 
 .get-started,
 h4 {
   width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .swept-header {

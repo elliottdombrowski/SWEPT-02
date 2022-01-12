@@ -42,6 +42,10 @@ const Homepage = () => {
                 <SignUpButton />
               </div>
             </div>
+
+            <div className='bio-col-right'>
+              
+            </div>
           </div>
         </div>
       </div>
