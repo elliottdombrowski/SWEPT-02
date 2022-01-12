@@ -33,3 +33,31 @@
   padding: 0;
   color: var(--text);
 }
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+}
+
+.profile-info-wrapper,
+.recent-search-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px 30px 10px 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+  margin-bottom: 3rem;
+}
+
+.profile-welcome-header,
+.recent-search-header {
+  text-shadow: var(--homepage-textshadow);
+  text-align: center;
+}
