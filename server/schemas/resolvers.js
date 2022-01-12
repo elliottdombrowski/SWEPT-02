@@ -43,7 +43,10 @@ const resolvers = {
             '$$app_token': process.env.ZIP
           }
         }
-        
+        const zipResponse = await axios.request(zipData)
+        // console.log(sweeperResponse.data);
+        return zipResponse.data;
+      } 
       },
 
   },
