@@ -57,7 +57,17 @@ const resolvers = {
         if (!args.snowNumber) {
           return null;
         }
-       
+        const snowData = {
+          method: 'GET',
+          url: 'https://data.cityofchicago.org/resource/i6k4-giaj.json',
+          data: {
+            '$limit': 5,
+            '$$app_token': process.env.SNOW
+          }
+        }
+        const snowResponse = await axios.request(snowData)
+        // console.log(sweeperResponse.data);
+      
     },
 
   },
