@@ -13,7 +13,7 @@ const Homepage = () => {
           <h1>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
         </div>
         
-        <div className='homepage-bio'>
+        <div className='homepage-bio-wrapper'>
           <h3 className='homepage-secondary-header'>
             <i className='swept-header'>SWEPT</i> is a tool for Chicagoans, built by Chicagoans.
           </h3>
