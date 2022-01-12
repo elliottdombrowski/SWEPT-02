@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import './findstreetform.css';
 
 const FindStreetForm = () => {
   return (
-    <form 
-      onSubmit={() => console.log('clicking')} 
+    <form
+      onSubmit={() => console.log('clicking')}
       className='snow-street-form'
     >
       <input
