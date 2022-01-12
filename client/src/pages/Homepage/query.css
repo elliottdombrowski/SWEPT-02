@@ -5,7 +5,8 @@
 }
 
 @media all and (max-width: 768px) {
-  .homepage-header {
+  .homepage-header,
+  .homepage-bio-wrapper {
     font-size: 140%;
   }
   
@@ -15,7 +16,8 @@
 }
 
 @media all and (max-width: 667px) {
-    .homepage-header {
+    .homepage-header,
+    .homepage-bio-wrapper {
       font-size: 120%;
     }
 
@@ -27,6 +29,10 @@
 @media all and (max-width: 596px) {
   .homepage-header {
     padding: 1rem 2rem;
+  }
+
+  .homepage-header,
+  .homepage-bio-wrapper {
     font-size: 100%;
   }
 
@@ -40,13 +46,22 @@
 }
 
 @media all and (max-width: 520px) {
-  .homepage-header {
+  .homepage-header,
+  .homepage-bio-wrapper {
+    padding: 1rem .5rem;
     text-align: center;
     font-size: 90%;
   }
 
   img {
     height: 18vh;
+  }
+}
+
+@media all and (max-width: 470px) {
+  .homepage-secondary-header {
+    padding: 1rem 1rem;
+    font-size: 140%;
   }
 }
 
