@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+// import React, { useRef, useState } from 'react';
 import './findzipform.css';
+
+
 
 const FindZipForm = () => {
   return (
-    <form 
-      onSubmit={() => console.log('clicking')} 
+    <form
+      onSubmit={() => console.log('clicking')}
       className='zipform-wrapper'
     >
       <input
