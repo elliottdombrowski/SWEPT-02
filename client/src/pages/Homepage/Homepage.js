@@ -14,7 +14,7 @@ const Homepage = () => {
         </div>
         
         <div className='homepage-bio'>
-          <h3>
+          <h3 className='homepage-secondary-header'>
             <i className='swept-header'>SWEPT</i> is a tool for Chicagoans, built by Chicagoans.
           </h3>
 
