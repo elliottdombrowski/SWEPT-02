@@ -46,7 +46,7 @@ function App() {
               <Snow />
             </Route>
 
-            <Route exact path='/profile'>
+            <Route exact path='/me'>
               <Profile />
             </Route>
 
