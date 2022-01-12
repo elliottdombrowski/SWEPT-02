@@ -46,7 +46,7 @@ a {
 
 .homepage-img {
   position: fixed;
-  top: 13.5rem;
+  top: 15rem;
   margin: 6em 0;
   z-index: 2;
 }
@@ -61,7 +61,7 @@ img {
 }
 
 .homepage-bio-wrapper {
-  margin-top: 20rem;
+  margin-top: 23rem;
 }
 
 .homepage-header,
@@ -89,6 +89,9 @@ img {
 }
 
 .homepage-bio {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
   margin-top: 1rem;
   border-radius: 10px 10px 30px 30px;
 }
