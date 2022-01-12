@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import './homepage.css';
+import './query.css';
 
 const Homepage = () => {
   return (
