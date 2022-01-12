@@ -35,10 +35,15 @@ const resolvers = {
         if (!args.zipNumber) {
           return null;
         }
-
-      } catch (error) {
-        console.log(error);
-      }
+        const zipData = {
+          method: 'GET',
+          url: 'https://data.cityofchicago.org/resource/htai-wnw4.json',
+          data: {
+            '$limit': 5,
+            '$$app_token': process.env.ZIP
+          }
+        }
+        
       },
 
   },
