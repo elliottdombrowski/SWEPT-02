@@ -14,10 +14,11 @@ const dataContext = React.createContext()
 const Sweeper = () => {
   const zipNumber = useRef('');
   const [zips, setZips] = useState('');
+
   //SETS ZIP VS WARD FORM
   const [setForm, setFindForm] = useState(false);
   //SETS LINK MESSAGE
-  const changeForm = findZip ? 'zip code' : 'ward';
+  const changeForm = setForm ? 'zip code' : 'ward';
   const { loading, data } = useQuery(GET_ZIP, {
     variables: { zipNumber: zips }
   });
@@ -35,7 +36,7 @@ const Sweeper = () => {
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-form-wrapper'>
-        {findZip ? (
+        {setForm ? (
           <div className='zip-form-wrapper'>
             <form
               onSubmit={(event) => zipNumberSubmit(event)}
