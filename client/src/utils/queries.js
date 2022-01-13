@@ -19,18 +19,11 @@ export const GET_ZIP = gql`
   query getZip($zipNumber: String) {
     getZip(zipNumber: $zipNumber) {
       ward
-      alderman
-      address
-      city
-      state
       zipcode
-      ward_phone
-      ward_fax
-      email
-      website
     }
   }
 `;
+
 // works with the snow restriction parking info API for 'street'
 export const GET_SNOW = gql`
   query getSnow($snowNumber: String) {
