@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
+import StripeContainer from './components/StripeContainer/StripeContainer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,31 +30,34 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [showItem, setShowItem] = useState(false);
+
   return (
     <ApolloProvider client={client}>
       <div className="App">
-          <Router>
-            <Navbar />
-            <Route exact path='/'>
-              <Homepage />
-            </Route>
+        <Router>
+          <Navbar />
+          <Route exact path='/'>
+            <Homepage />
+          </Route>
 
-            <Route exact path='/sweeper'>
-              <Sweeper />
-            </Route>
+          <Route exact path='/sweeper'>
+            <Sweeper />
+          </Route>
 
-            <Route exact path='/snow'>
-              <Snow />
-            </Route>
+          <Route exact path='/snow'>
+            <Snow />
+          </Route>
 
-            <Route exact path='/me'>
-              <Profile />
-            </Route>
+          <Route exact path='/me'>
+            <Profile />
+          </Route>
 
-            <Route exact path='/login'>
-              <LoginSignup />
-            </Route>
-          </Router>
+          <Route exact path='/login'>
+            <LoginSignup />
+          </Route>
+          {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>}
+        </Router>
       </div>
     </ApolloProvider>
   );
