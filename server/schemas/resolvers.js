@@ -71,9 +71,10 @@ const resolvers = {
       } catch (error) {
         console.log(error);
       }
-    },
+    }
 
   },
+
   Mutation: {
     addUser: async (parent, args) => {
       try {

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import FindZipForm from '../../components/FindZipForm/FindZipForm';
 import FindWardForm from '../../components/FindWardForm/FindWardForm';
+// import Display from "../../components/Display/Display";
 import './sweeper.css';
 
 const arrow = <FontAwesomeIcon icon={faArrowUp} />
@@ -30,6 +31,7 @@ const Sweeper = () => {
           <span className='sweeper-arrow'>{arrow}</span>
         </a>
       </div>
+
     </div>
   );
 };

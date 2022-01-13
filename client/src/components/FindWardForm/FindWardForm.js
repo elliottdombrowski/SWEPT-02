@@ -1,18 +1,25 @@
 import React, { useRef, useState } from 'react';
+import Display from "../Display/Display";
+
 import './findwardform.css';
-import "../../pages/Sweeper/sweeper.css";
 
 import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
+
 const FindWardForm = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
+  const [gottenInfo, setGottenInfo] = useState([]);
   const { loading, data } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
   const wardInfo = data?.getWard || [];
-  console.log(wardInfo);
+
+  setGottenInfo((wardInfo))
+  console.log(gottenInfo);
+
+
 
   const wardNumberSubmit = async (event) => {
     event.preventDefault();
@@ -43,11 +50,7 @@ const FindWardForm = () => {
           Find your schedule!
         </button>
       </form>
-      <div className='sweeper-data-output-wrapper'>
-        <h3>12/09/1993</h3>
-        <h2>Month name</h2>
-        <h4>Ward</h4>
-      </div>
+
     </>
   );
 };
