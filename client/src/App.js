@@ -8,7 +8,6 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
-import StripeContainer from './components/StripeContainer/StripeContainer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -55,10 +54,6 @@ function App() {
 
           <Route exact path='/login'>
             <LoginSignup />
-          </Route>
-
-          <Route exact path='/donate'>
-            {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>}
           </Route>
         </Router>
       </div>
