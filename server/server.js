@@ -23,6 +23,36 @@ server.applyMiddleware({ app });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
+
+app.post('/payment', cors(), async (req, res) => {
+  let { amount, id } = req.body;
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount,
+      currency: "USD",
+      description: "Developer donation",
+      payment_method: id,
+      confirm: true
+    });
+    console.log('payment- ', payment)
+    res.json({
+      message: "Payment successful",
+      success: true
+    });
+  } catch (error) {
+    console.log("error ", error)
+    res.json({
+      message: "Payment not successful",
+      success: false
+    })
+  }
+});
+
+//FOR STRIPE PAYMENT
+
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
