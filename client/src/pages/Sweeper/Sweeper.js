@@ -20,7 +20,7 @@ const Sweeper = () => {
           <FindWardForm />
         )}
 
-        <a 
+        <a
           href="#"
           rel="noopener noreferrer"
           className='find-ward'
@@ -29,10 +29,6 @@ const Sweeper = () => {
           Don't know your {changeForm}?
           <span className='sweeper-arrow'>{arrow}</span>
         </a>
-      </div>
-
-      <div className='sweeper-data-output-wrapper'>
-        hi there it works. there's a container here.
       </div>
     </div>
   );
