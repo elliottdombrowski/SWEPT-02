@@ -4,6 +4,8 @@ import './findzipform.css';
 import { GET_ZIP } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
+const dataContext = React.createContext()
+
 const FindZipForm = () => {
   const zipNumber = useRef("");
   const [zips, setZips] = useState("");
