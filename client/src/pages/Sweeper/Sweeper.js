@@ -21,33 +21,41 @@ const Sweeper = () => {
   //SETS LINK MESSAGE
   const changeForm = setForm ? 'zip code' : 'ward';
 
-  //ZIPCODE FORM USEQUERY
-  const { loading: loadingg, data: dataa } = useQuery(GET_ZIP, {
+  //ZIPCODE FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
+  const { loading: zipLoading, data: zipData } = useQuery(GET_ZIP, {
     variables: { zipNumber: zips }
   });
-  const zipInfo = dataa?.getZip || [];
-  console.log(zipInfo);
+  const zipInfo = zipData?.getZip || [];
+  // console.log(zipInfo);
 
-  //WARD FORM USEQUERY
-  const { loading, data } = useQuery(GET_WARD, {
+  //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
+  const { loading: wardLoading, data: wardData } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
-  const wardInfo = data?.getWard || [];
-  console.log(wardInfo);
+  const wardInfo = wardData?.getWard || [];
+  // console.log(wardInfo);
 
   //ZIP FORM SUBMIT
   const zipNumberSubmit = async (event) => {
     event.preventDefault();
-    console.log(zipNumber.current.value);
+    // console.log(zipNumber.current.value);
     setZips(zipNumber.current.value)
     return true;
   };
 
   //WARD FORM SUBMIT
-  const wardNumberSubmit = async (event) => {
+  const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-    console.log(wardNumber.current.value);
+    // console.log(wardNumber.current.value);
     setWard(wardNumber.current.value);
+    
+    if (wardInfo.length > 0) {
+      for (i = 0; i < wardInfo.length; i++) {
+        if (wardInfo[i] == wardNumber) {
+          console.log(wardInfo[i]);
+        } else console.log('nothing here');
+      }
+    }
     return true;
   };
 

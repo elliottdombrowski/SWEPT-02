@@ -86,6 +86,6 @@ button {
   background: var(--primary-lightorange);
 }
 
-::placeholder {
+/* ::placeholder {
   color: white;
-}
+} */
