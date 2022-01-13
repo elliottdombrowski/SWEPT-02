@@ -38,7 +38,7 @@ const PaymentForm = () => {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const res = await axios.post('http://localhost:3000/payment', {
+        const res = await axios.post('http://localhost:3000/donate', {
           amount: 1000,
           id: id
         });
