@@ -21,18 +21,18 @@ const Sweeper = () => {
   //SETS LINK MESSAGE
   const changeForm = setForm ? 'zip code' : 'ward';
 
-  //ZIPCODE FORM USEQUERY
-  const { loading: loadingg, data: dataa } = useQuery(GET_ZIP, {
+  //ZIPCODE FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
+  const { loading: zipLoading, data: zipData } = useQuery(GET_ZIP, {
     variables: { zipNumber: zips }
   });
-  const zipInfo = dataa?.getZip || [];
+  const zipInfo = zipData?.getZip || [];
   console.log(zipInfo);
 
-  //WARD FORM USEQUERY
-  const { loading, data } = useQuery(GET_WARD, {
+  //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
+  const { loading: wardLoading, data: wardData } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
-  const wardInfo = data?.getWard || [];
+  const wardInfo = wardData?.getWard || [];
   console.log(wardInfo);
 
   //ZIP FORM SUBMIT
