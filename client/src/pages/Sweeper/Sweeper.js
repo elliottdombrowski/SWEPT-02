@@ -51,6 +51,11 @@ const Sweeper = () => {
     return true;
   };
 
+  //HANDLING WARD FILTERING HERE FOR NOW. MODULARIZE LATER.
+  const handleWardNumberFilter = (wardInfo) => {
+
+  };
+
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-form-wrapper'>
