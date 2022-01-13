@@ -46,7 +46,16 @@ const FindZipForm = () => {
         </button>
       </form>
       <div>
-
+        {
+          zipInfo.map((info, index) => {
+            return (
+              <div className='sweeper-data-output-wrapper' key={index}>
+                <h4>{info.zipcode} belongs to ward:</h4>
+                <h3>{info.ward}</h3>
+              </div>
+            )
+          })
+        }
       </div>
     </>
   );
