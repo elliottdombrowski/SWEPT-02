@@ -26,34 +26,37 @@ const Sweeper = () => {
     variables: { zipNumber: zips }
   });
   const zipInfo = zipData?.getZip || [];
-  console.log(zipInfo);
+  // console.log(zipInfo);
 
   //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
   const { loading: wardLoading, data: wardData } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
   const wardInfo = wardData?.getWard || [];
-  console.log(wardInfo);
+  // console.log(wardInfo);
 
   //ZIP FORM SUBMIT
   const zipNumberSubmit = async (event) => {
     event.preventDefault();
-    console.log(zipNumber.current.value);
+    // console.log(zipNumber.current.value);
     setZips(zipNumber.current.value)
     return true;
   };
 
   //WARD FORM SUBMIT
-  const wardNumberSubmit = async (event) => {
+  const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-    console.log(wardNumber.current.value);
+    // console.log(wardNumber.current.value);
     setWard(wardNumber.current.value);
+    
+    if (wardInfo.length > 0) {
+      for (i = 0; i < wardInfo.length; i++) {
+        if (wardInfo[i] == wardNumber) {
+          console.log(wardInfo[i]);
+        } else console.log('nothing here');
+      }
+    }
     return true;
-  };
-
-  //HANDLING WARD FILTERING HERE FOR NOW. MODULARIZE LATER.
-  const handleWardNumberFilter = (wardInfo) => {
-
   };
 
   return (
