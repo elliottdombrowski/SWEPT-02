@@ -4,6 +4,8 @@ import './findstreetform.css';
 import { GET_SNOW } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
+const dataContext = React.createContext()
+
 const FindStreetForm = () => {
   const snowNumber = useRef("");
   const [snow, setSnow] = useState("");
