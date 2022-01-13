@@ -25,7 +25,7 @@ const Sweeper = () => {
 
   const zipInfo = data?.getZip || [];
   console.log(zipInfo);
-  
+
   const zipNumberSubmit = async (event) => {
     event.preventDefault();
     console.log(zipNumber.current.value);
@@ -36,44 +36,56 @@ const Sweeper = () => {
   return (
     <div className='sweeper-wrapper'>
       <div className='sweeper-form-wrapper'>
-        {setForm ? (
-          <div className='zip-form-wrapper'>
-            <form
-              onSubmit={(event) => zipNumberSubmit(event)}
-              className='zipform-wrapper'
-            >
-              <input
-                // value={}
-                // onChange={}
-                ref={zipNumber}
-                name='zipNumber'
-                placeholder='Enter your Zip Code!'
-                className='zipform-input'
-              />
+        <div className='zip-form-wrapper'>
+          <form
+            onSubmit={(event) => zipNumberSubmit(event)}
+            className='zipform-wrapper'
+          >
+            {setForm ? (
+              <div className='form-wrapper'>
+                <input
+                  // value={}
+                  // onChange={}
+                  ref={zipNumber}
+                  name='zipNumber'
+                  placeholder='Enter your Zip Code!'
+                  className='zipform-input'
+                />
+              </div>
+            ) : (
+              <div className='form-wrapper'>
+                <input
+                  // value={}
+                  // onChange={}
+                  ref={zipNumber}
+                  name='zipNumber'
+                  placeholder='Enter your Ward Number!'
+                  className='zipform-input'
+                />
+              </div>
+            )}
 
-              <button
-                type='submit'
-                className='zipform-input zipform-btn'
-              >
-                Find your schedule!
-              </button>
-            </form>
-            <div>
-              {
-                zipInfo.map((info, index) => {
-                  return (
-                    <div className='sweeper-data-output-wrapper' key={index}>
-                      <h4>{info.zipcode} belongs to ward:</h4>
-                      <h3>{info.ward}</h3>
-                    </div>
-                  )
-                })
-              }
-            </div>
+
+            <button
+              type='submit'
+              className='zipform-input zipform-btn'
+            >
+              Find your schedule!
+            </button>
+          </form>
+          <div>
+            {
+              zipInfo.map((info, index) => {
+                return (
+                  <div className='sweeper-data-output-wrapper' key={index}>
+                    <h4>{info.zipcode} belongs to ward:</h4>
+                    <h3>{info.ward}</h3>
+                  </div>
+                )
+              })
+            }
           </div>
-        ) : (
-          <FindWardForm />
-        )}
+        </div>
 
         <a
           href="#"
