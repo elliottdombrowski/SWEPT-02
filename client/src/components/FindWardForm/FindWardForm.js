@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-
 import './findwardform.css';
 
 import { GET_WARD } from '../../utils/queries';

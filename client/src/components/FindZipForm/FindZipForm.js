@@ -4,9 +4,11 @@ import './findzipform.css';
 import { GET_ZIP } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 
+const dataContext = React.createContext()
+
 const FindZipForm = () => {
-  const zipNumber = useRef("");
-  const [zips, setZips] = useState("");
+  const zipNumber = useRef('');
+  const [zips, setZips] = useState('');
   const { loading, data } = useQuery(GET_ZIP, {
     variables: { zipNumber: zips }
   });
@@ -18,28 +20,44 @@ const FindZipForm = () => {
     event.preventDefault();
     console.log(zipNumber.current.value);
     setZips(zipNumber.current.value)
-  }
+    return true;
+  };
 
   return (
-    <form
-      onSubmit={(event) => zipNumberSubmit(event)}
-      className='zipform-wrapper'
-    >
-      <input
-        // value={}
-        // onChange={}
-        ref={zipNumber}
-        placeholder='Enter your Zip Code!'
-        className='zipform-input'
-      />
-
-      <button
-        type='submit'
-        className='zipform-input zipform-btn'
+    <>
+      <form
+        onSubmit={(event) => zipNumberSubmit(event)}
+        className='zipform-wrapper'
       >
-        Find your schedule!
-      </button>
-    </form>
+        <input
+          // value={}
+          // onChange={}
+          ref={zipNumber}
+          name='zipNumber'
+          placeholder='Enter your Zip Code!'
+          className='zipform-input'
+        />
+
+        <button
+          type='submit'
+          className='zipform-input zipform-btn'
+        >
+          Find your schedule!
+        </button>
+      </form>
+      <div>
+        {
+          zipInfo.map((info, index) => {
+            return (
+              <div className='sweeper-data-output-wrapper' key={index}>
+                <h4>{info.zipcode} belongs to ward:</h4>
+                <h3>{info.ward}</h3>
+              </div>
+            )
+          })
+        }
+      </div>
+    </>
   );
 };
 
