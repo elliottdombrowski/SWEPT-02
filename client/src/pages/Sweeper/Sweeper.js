@@ -22,19 +22,16 @@ const Sweeper = () => {
   const changeForm = setForm ? 'zip code' : 'ward';
 
   //ZIPCODE FORM USEQUERY
-  setForm 
-    ? { loading, data } = useQuery(GET_ZIP, { variables: { zipNumber: zips}})
-    : { loading, data } = useQuery(GET_WARD, { variables: { wardNumber: ward }}) 
-  // const { loading, data } = useQuery(GET_ZIP, {
-  //   variables: { zipNumber: zips }
-  // });
-  const zipInfo = data?.getZip || [];
+  const { loading: loadingg, data: dataa } = useQuery(GET_ZIP, {
+    variables: { zipNumber: zips }
+  });
+  const zipInfo = dataa?.getZip || [];
   console.log(zipInfo);
 
   //WARD FORM USEQUERY
-  // const { loading, data } = useQuery(GET_WARD, {
-  //   variables: { wardNumber: ward }
-  // });
+  const { loading, data } = useQuery(GET_WARD, {
+    variables: { wardNumber: ward }
+  });
   const wardInfo = data?.getWard || [];
   console.log(wardInfo);
 
