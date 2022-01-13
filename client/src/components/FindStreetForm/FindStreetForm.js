@@ -49,9 +49,7 @@ const FindStreetForm = () => {
           snowInfo.map((info, index) => {
             return (
               <div className='sweeper-data-output-wrapper' key={index}>
-                <h2>On: {info.on_street}</h2>
-                <h3>From: {info.from_stree}</h3>
-                <h3>To: {info.to_street}</h3>
+
               </div>
             )
           })
