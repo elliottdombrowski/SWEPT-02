@@ -49,12 +49,6 @@ button:active {
 	transform: scale(0.99);
 }
 
-.App {
-	margin-left: 25%;
-	margin-top: 5%;
-	margin-right: 25%;
-}
-
 h1,
 h3 {
 	text-align: center;

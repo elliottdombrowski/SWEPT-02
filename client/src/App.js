@@ -56,7 +56,10 @@ function App() {
           <Route exact path='/login'>
             <LoginSignup />
           </Route>
-          {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>}
+
+          <Route exact path='/donate'>
+            {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>}
+          </Route>
         </Router>
       </div>
     </ApolloProvider>
