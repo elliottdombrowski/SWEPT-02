@@ -1,16 +1,31 @@
 import React, { useRef, useState } from 'react';
 import './findstreetform.css';
 
-const FindStreetForm = () => {
+import { GET_SNOW } from '../../utils/queries';
+import { useQuery } from '@apollo/client';
 
+const FindStreetForm = () => {
+  const snowNumber = useRef("");
+  const [snow, setSnow] = useState("");
+  const { loading, data } = useQuery(GET_SNOW, {
+    variables: { snowNumber: snow }
+  });
+  const snowInfo = data?.getSnow || [];
+  console.log(snowInfo);
+
+  const snowNumberSubmit = async (event) => {
+    event.preventDefault();
+    setSnow(snowNumber.current.value)
+  }
   return (
     <form
-      onSubmit={() => console.log('clicking')}
+      onSubmit={(event) => snowNumberSubmit(event)}
       className='snow-street-form'
     >
       <input
         // value={}
         // onChange={}
+        ref={snowNumber}
         placeholder="Enter your Street Name!"
         className='street-input'
       />

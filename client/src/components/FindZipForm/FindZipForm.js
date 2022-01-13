@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './findzipform.css';
 
 import { GET_ZIP } from '../../utils/queries';
@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 
 const FindZipForm = () => {
   const zipNumber = useRef("");
-  const [zips, setZips] = useState([]);
+  const [zips, setZips] = useState("");
   const { loading, data } = useQuery(GET_ZIP, {
     variables: { zipNumber: zips }
   });
@@ -19,6 +19,7 @@ const FindZipForm = () => {
     console.log(zipNumber.current.value);
     setZips(zipNumber.current.value)
   }
+
   return (
     <form
       onSubmit={(event) => zipNumberSubmit(event)}
