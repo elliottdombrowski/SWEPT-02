@@ -18,17 +18,26 @@ const typeDefs = gql`
     section: String,
     month_name: String,
     month_number: String,
-    dates: String,
+    dates: String
   }
 
   type Zip {
     ward: String,
     zipcode: String
   }
+
+  type Snow {
+    on_street: String,
+    from_stree: String,
+    to_street: String
+
+  }
   
   type Query {
     user: User
     getWard(wardNumber: String): [Ward]
+    getZip(zipNumber: String): [Zip]
+    getSnow(snowNumber: String): [Snow]
   }
 
   type Mutation {
