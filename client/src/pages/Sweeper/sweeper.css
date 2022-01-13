@@ -71,6 +71,42 @@ button {
 }
 
 .sweeper-data-output-wrapper {
+  width: 40%;
   margin-top: 2rem;
   border-radius: 10px 10px 30px 30px;
+}
+
+.sweeper-ward-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.zipform-input {
+  width: 100%;
+}
+
+.ward-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.ward-btn {
+  margin-top: 1.2rem;
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.ward-btn:hover {
+  background: var(--primary-lightorange);
+}
+
+::placeholder {
+  color: white;
 }

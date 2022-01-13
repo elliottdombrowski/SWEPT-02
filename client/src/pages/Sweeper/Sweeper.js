@@ -80,25 +80,25 @@ const Sweeper = () => {
           rel="noopener noreferrer"
           className='find-ward'
           onClick={() => setFindForm(prev => !prev)}
-        >
+          >
           Don't know your {changeForm}?
           <span className='sweeper-arrow'>{arrow}</span>
         </a>
       </div>
 
       {/* RENDER DATA HERE */}
-      <div>
-        {
-          zipInfo.map((info, index) => {
-            return (
-              <div className='sweeper-data-output-wrapper' key={index}>
-                <h4>{info.zipcode} belongs to ward:</h4>
-                <h3>{info.ward}</h3>
-              </div>
-            )
-          })
-        }
-      </div>
+          <div className='sweeper-data-output-wrapper'>
+            {
+              zipInfo.map((info, index) => {
+                return (
+                  <div className='sweeper-data-output' key={index}>
+                    <h4>{info.zipcode} belongs to ward:</h4>
+                    <h3>{info.ward}</h3>
+                  </div>
+                )
+              })
+            }
+          </div>
     </div>
   );
 };
