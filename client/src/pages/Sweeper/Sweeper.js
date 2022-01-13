@@ -73,18 +73,6 @@ const Sweeper = () => {
               Find your schedule!
             </button>
           </form>
-          <div>
-            {
-              zipInfo.map((info, index) => {
-                return (
-                  <div className='sweeper-data-output-wrapper' key={index}>
-                    <h4>{info.zipcode} belongs to ward:</h4>
-                    <h3>{info.ward}</h3>
-                  </div>
-                )
-              })
-            }
-          </div>
         </div>
 
         <a
@@ -98,6 +86,19 @@ const Sweeper = () => {
         </a>
       </div>
 
+      {/* RENDER DATA HERE */}
+      <div>
+        {
+          zipInfo.map((info, index) => {
+            return (
+              <div className='sweeper-data-output-wrapper' key={index}>
+                <h4>{info.zipcode} belongs to ward:</h4>
+                <h3>{info.ward}</h3>
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   );
 };
