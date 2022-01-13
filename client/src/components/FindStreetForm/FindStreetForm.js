@@ -7,17 +7,15 @@ import { useQuery } from '@apollo/client';
 const dataContext = React.createContext()
 
 const FindStreetForm = () => {
-  const snowNumber = useRef("");
-  const [snow, setSnow] = useState("");
+  const snowNumber = useRef('');
+  const [snow, setSnow] = useState('');
   const { loading, data } = useQuery(GET_SNOW, {
     variables: { snowNumber: snow }
   });
   const snowInfo = data?.getSnow || [];
-  console.log(snowInfo);
 
   const snowNumberSubmit = async (event) => {
     event.preventDefault();
-    console.log(snowNumber.current.value);
     setSnow(snowNumber.current.value);
     return true;
   };
