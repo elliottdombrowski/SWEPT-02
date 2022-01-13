@@ -17,8 +17,11 @@ const FindStreetForm = () => {
 
   const snowNumberSubmit = async (event) => {
     event.preventDefault();
-    setSnow(snowNumber.current.value)
-  }
+    console.log(wardNumber.current.value);
+    setSnow(snowNumber.current.value);
+    return true;
+  };
+
   return (
     <form
       onSubmit={(event) => snowNumberSubmit(event)}
@@ -28,6 +31,7 @@ const FindStreetForm = () => {
         // value={}
         // onChange={}
         ref={snowNumber}
+        name='zipNumber'
         placeholder="Enter your Street Name!"
         className='street-input'
       />
@@ -39,6 +43,8 @@ const FindStreetForm = () => {
         Find your schedule!
       </button>
     </form>
+
+    
   );
 };
 
