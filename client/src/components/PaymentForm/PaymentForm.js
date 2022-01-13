@@ -48,7 +48,7 @@ const PaymentForm = () => {
           setSuccess(true);
         }
       } catch (error) {
-        console.log("error- ", +error);
+        console.log("error- ", + error);
       }
     } else {
       console.log(error.message);
