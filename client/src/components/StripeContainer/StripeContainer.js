@@ -9,7 +9,7 @@ const stripePromise = loadStripe(PUBLIC_KEY_TEST);
 
 const DonationButton = ({ itemId, amount }) => {
   const handleClick = async (event) => {
-    const stripe = await StripePromise;
+    const stripe = await stripePromise;
     stripe
       .redirectToCheckout({
         lineItems: [{ price: itemId, quantity: 1 }],
