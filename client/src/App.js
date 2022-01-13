@@ -58,7 +58,8 @@ function App() {
           </Route>
 
           <Route exact path='/donate'>
-            {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>}
+            <StripeContainer />
+            {/* {showItem ? <StripeContainer /> : <> <h3>$10.00</h3> <button onClick={() => setShowItem(true)}>DONATE</button> </>} */}
           </Route>
         </Router>
       </div>
