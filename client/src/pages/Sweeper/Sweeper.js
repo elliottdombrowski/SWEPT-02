@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import FindZipForm from '../../components/FindZipForm/FindZipForm';
 import FindWardForm from '../../components/FindWardForm/FindWardForm';
+// import Display from "../../components/Display/Display";
 import './sweeper.css';
 
 const arrow = <FontAwesomeIcon icon={faArrowUp} />
@@ -20,7 +21,7 @@ const Sweeper = () => {
           <FindWardForm />
         )}
 
-        <a 
+        <a
           href="#"
           rel="noopener noreferrer"
           className='find-ward'
@@ -31,9 +32,6 @@ const Sweeper = () => {
         </a>
       </div>
 
-      <div className='sweeper-data-output-wrapper'>
-        hi there it works. there's a container here.
-      </div>
     </div>
   );
 };
