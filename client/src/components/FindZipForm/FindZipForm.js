@@ -33,6 +33,7 @@ const FindZipForm = () => {
           // value={}
           // onChange={}
           ref={zipNumber}
+          name='zipNumber'
           placeholder='Enter your Zip Code!'
           className='zipform-input'
         />
@@ -44,6 +45,9 @@ const FindZipForm = () => {
           Find your schedule!
         </button>
       </form>
+      <div>
+
+      </div>
     </>
   );
 };
