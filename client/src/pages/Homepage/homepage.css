@@ -127,6 +127,12 @@ img {
   border-radius: 10px 10px 10px 10px;
 }
 
+.og-sweeper {
+  display: block;
+  width: 300px;
+  height: 300px;
+}
+
 .get-started,
 h4 {
   width: 80%;

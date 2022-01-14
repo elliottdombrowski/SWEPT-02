@@ -54,6 +54,10 @@ const Homepage = () => {
                   DONATE
                 </Link>
               </div>
+              <img 
+                className='og-sweeper'
+                src={require('../../assets/ogsweeper3.png')}
+              />
             </div>
           </div>
         </div>
