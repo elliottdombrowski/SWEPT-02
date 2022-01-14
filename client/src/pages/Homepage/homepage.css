@@ -69,6 +69,10 @@ img {
   margin-top: 23rem;
 }
 
+.homepage-header {
+  text-shadow: var(--homepage-textshadow);
+}
+
 .homepage-header,
 .homepage-bio-wrapper {
   font-family: var(--logo-font);
@@ -85,7 +89,6 @@ img {
   border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
   text-align: left;
-  text-shadow: var(--homepage-textshadow);
 }
 
 .homepage-secondary-header {
