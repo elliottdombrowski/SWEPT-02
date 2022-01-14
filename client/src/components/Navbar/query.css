@@ -106,4 +106,14 @@
     text-shadow: none;
     margin-bottom: 2rem;
   }
+
+  .switch {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .nav-right.active {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
 }
