@@ -8,6 +8,7 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
+import PaymentComponent from './components/PaymentComponent/PaymentComponent';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -54,6 +55,16 @@ function App() {
 
           <Route exact path='/login'>
             <LoginSignup />
+          </Route>
+
+          <Route exact path='/payments'>
+            <div>
+              <PaymentComponent
+                keys={{
+                  stripe: "pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE"
+                }}
+              />
+            </div>
           </Route>
         </Router>
       </div>
