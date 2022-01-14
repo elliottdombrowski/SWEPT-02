@@ -6,26 +6,26 @@ import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import './query.css';
 
-const arrow = <FontAwesomeIcon icon={faArrowUp} />
+// const arrow = <FontAwesomeIcon icon={faArrowUp} />
 
-const dataContext = React.createContext()
+// const dataContext = React.createContext()
 
 const Sweeper = () => {
   const zipNumber = useRef('');
   const wardNumber = useRef('');
-  const [zips, setZips] = useState('');
+  // const [zips, setZips] = useState('');
   const [ward, setWard] = useState('');
 
   //SETS ZIP VS WARD FORM
-  const [setForm, setFindForm] = useState(false);
+  // const [setForm, setFindForm] = useState(false);
   //SETS LINK MESSAGE
-  const changeForm = setForm ? 'zip code' : 'ward';
+  // const changeForm = setForm ? 'zip code' : 'ward';
 
   //ZIPCODE FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
-  const { loading: zipLoading, data: zipData } = useQuery(GET_ZIP, {
-    variables: { zipNumber: zips }
-  });
-  const zipInfo = zipData?.getZip || [];
+  // const { loading: zipLoading, data: zipData } = useQuery(GET_ZIP, {
+  //   variables: { zipNumber: zips }
+  // });
+  // const zipInfo = zipData?.getZip || [];
   // console.log(zipInfo);
 
   //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
@@ -36,12 +36,12 @@ const Sweeper = () => {
   // console.log(wardInfo);
 
   //ZIP FORM SUBMIT
-  const zipNumberSubmit = async (event) => {
-    event.preventDefault();
-    // console.log(zipNumber.current.value);
-    setZips(zipNumber.current.value)
-    return true;
-  };
+  // const zipNumberSubmit = async (event) => {
+  //   event.preventDefault();
+  //   // console.log(zipNumber.current.value);
+  //   setZips(zipNumber.current.value)
+  //   return true;
+  // };
 
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
@@ -63,7 +63,7 @@ const Sweeper = () => {
     <div className='sweeper-wrapper'>
       <div className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
-          {setForm ? (
+          {/* {setForm ? (
             <form
               onSubmit={(event) => zipNumberSubmit(event)}
               className='zipform-wrapper'
@@ -83,7 +83,7 @@ const Sweeper = () => {
                 Find your schedule!
               </button>
             </form>
-          ) : (
+          ) : ( */}
             <form
               onSubmit={(event) => wardNumberSubmit(event)}
               className='zipform-wrapper'
@@ -103,10 +103,10 @@ const Sweeper = () => {
                 Find your schedule!
               </button>
             </form>
-          )}
+          {/* )} */}
         </div>
 
-        <a
+        {/* <a
           href="#"
           rel="noopener noreferrer"
           className='find-ward'
@@ -114,11 +114,11 @@ const Sweeper = () => {
         >
           Don't know your {changeForm}?
           <span className='sweeper-arrow'>{arrow}</span>
-        </a>
+        </a> */}
       </div>
 
       {/* RENDER DATA HERE */}
-      {setForm ? (
+      {/* {setForm ? (
         <div className='sweeper-data-output-wrapper'>
           {
             zipInfo.map((info, index) => {
@@ -131,7 +131,7 @@ const Sweeper = () => {
             })
           }
         </div>
-      ) : (
+      ) : ( */}
         <div className='sweeper-data-output-wrapper'>
           {
             wardInfo.map((info, index) => {
@@ -145,7 +145,7 @@ const Sweeper = () => {
             })
           }
         </div>
-      )}
+      {/* )} */}
 
     </div>
   );
