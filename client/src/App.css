@@ -316,40 +316,22 @@ h4 {
   border-radius: 10px 10px 30px 30px;
 }
 
-.sweeper-ward-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.sweeper-data-output {
   width: 100%;
+  margin-bottom: 3rem;
+  border-bottom: 2px solid var(--text);
 }
 
-.zipform-input {
-  width: 100%;
-}
-
-.ward-input {
-  padding: 0.7rem 1rem;
-  font-size: 120%;
-  background: var(--darkblue);
-  border: 2px solid white;
-  border-radius: 10px;
-}
-
-.ward-btn {
-  margin-top: 1.2rem;
-  background: var(--primary-darkorange);
-  text-align: left;
-  font-weight: bold;
-  transition: var(--btn-hover);
-}
-
-.ward-btn:hover {
-  background: var(--primary-lightorange);
+.save-btn {
+  font-family: var(--link-font);
+  font-size: 170%;
+  border: 2px solid var(--text);
+  margin: 1rem 0;
 }
 
 /* END SWEEPER  */
 
-/* ZIP FORM  */
+/* SWEEPER FORM  */
 
 .zipform-wrapper {
   display: flex;
