@@ -46,8 +46,26 @@ app.post('/stripe', async (req, res) => {
 });
 
 app.post('/confirm-payment', async (req, res) => {
-  
-})
+  const paymentType = String(req.body.payment_type);
+
+  if (paymentType == 'stripe') {
+    const clientid = String(req.body.payment_id);
+    stripe.paymentIntents.retrieve(
+      clientid,
+      function(err, paymentIntent) {
+        if (err) {
+          console.log(err);
+        }
+        if (paymentIntent.status === 'succeeded') {
+          console.log('confirmed stripe payment:' + clientid);
+          res.json({ success: true });
+        } else {
+          res.json({ success: false });
+        }
+      }
+    );
+  }
+});
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
