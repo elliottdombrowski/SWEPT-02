@@ -118,6 +118,9 @@ img {
 }
 
 .bio-col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 35%;
   border-radius: 10px 10px 10px 10px;
 }
@@ -146,6 +149,13 @@ h4 {
 
 .login-btn {
   margin: 0;
+}
+
+.donate-btn {
+  text-align: center;
+  width: 70%;
+  padding: 0.2rem 0;
+  font-family: var(--link-font);
 }
 
 .chicago-link:hover {
