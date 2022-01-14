@@ -72,7 +72,10 @@ const resolvers = {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
+    user: async (parent, { userId }) => {
+      return User.findOne({ _id: userId });
+    },
 
   },
 
