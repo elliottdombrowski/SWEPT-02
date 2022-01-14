@@ -6,8 +6,21 @@ const { AuthenticationError } = require('apollo-server-express');
 const lookupWard = (zip) => {
 
   // Hit city zip lookup
-
-  return 14
+  const zipData = {
+    method: 'GET',
+    url: `https://data.cityofchicago.org/resource/htai-wnw4.json`,
+    data: {
+      '$limit': 5,
+      '$$app_token': process.env.ZIP
+    }
+  }
+  const zipResponse = await axios.request(zipData);
+  for (i = 0; i < zipResponse.length; i++) {
+    if (zip === zipResponse.zipcode) {
+      return zipresponse.zipcode;
+    }
+  }
+  // return 14
 }
 
 
