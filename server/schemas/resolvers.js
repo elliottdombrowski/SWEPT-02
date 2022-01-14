@@ -8,18 +8,19 @@ const lookupWard = async (zip) => {
   // Hit city zip lookup
   const zipData = {
     method: 'GET',
-    url: `https://data.cityofchicago.org/resource/htai-wnw4.json`,
+    url: `https://data.cityofchicago.org/resource/htai-wnw4.json?zipcode=${zip}`,
     data: {
       '$limit': 5,
       '$$app_token': process.env.ZIP
     }
   }
   const zipResponse = await axios.request(zipData);
-  console.log('full zip response- ', zipResponse.data);
-  for (i = 0; i < zipResponse.length; i++) {
-    if (zip === zipResponse.data.zipcode) {
-      console.log('zip response- ', zipResponse.data.zipcode);
-      return zipResponse.data.zipcode;
+  console.log('full response ', zipResponse.data);
+  // console.log('full zip response- ', zipResponse.data[0].zipcode);
+  for (i = 0; i < zipResponse.data.length; i++) {
+    if (zip === zipResponse.data[i].zipcode) {
+      console.log('zip response- ', zipResponse.data[i].zipcode);
+      return zipResponse.data[i].ward;
     }
   }
   // return 14
@@ -36,7 +37,8 @@ const resolvers = {
           return null;
         }
         if (args.wardNumber.length == 5) {
-          args.wardNumber = lookupWard(args.wardNumber);
+          args.wardNumber = await lookupWard(args.wardNumber);
+          console.log('looking up zipcode with ward ', args.wardNumber);
         }
         const sweeperData = {
           method: 'GET',
