@@ -1,12 +1,12 @@
-*,
+/* *,
 *:before,
 *:after {
     box-sizing: border-box;
-}
+} */
 
-form {
+/* form { */
     /* max-width: 800px; */
-    margin: auto;
+    /* margin: auto;
     font-size: 18px;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
@@ -51,9 +51,9 @@ button:hover {
 
 button[disabled] {
     opacity: 0.6;
-}
+} */
 
-input {
+/* input {
     display: block;
     border: none;
     font-size: 18px;
@@ -87,20 +87,20 @@ input::placeholder {
 
 .result {
     color: #666ee8;
-}
+} */
 
 /* 
 The StripeElement class is applied to the Element container by default.
 More info: https://stripe.com/docs/stripe-js/reference#element-options
 */
 
-.StripeElement,
+/* .StripeElement,
 .StripeElementIdeal,
 .StripeElementFpx {
     display: block;
-    margin: 10px 0 20px 0;
+    margin: 10px 0 20px 0; */
     /* max-width: 500px; */
-    width: 100%;
+    /* width: 100%;
     padding: 10px 14px;
     box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px,
         rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
@@ -125,4 +125,4 @@ More info: https://stripe.com/docs/stripe-js/reference#element-options
 .StripeElementIdeal,
 .StripeElementFpx {
     padding: 0;
-}
+} */

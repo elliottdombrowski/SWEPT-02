@@ -4,6 +4,7 @@ import CreditCardForm from "../CreditCardForm/CreditCardForm";
 import { useHistory } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import '../elements.css';
+import './paymentcomponent.css';
 
 //config of fonts for the stripe prebuilt elements
 const ELEMENTS_OPTIONS = {
