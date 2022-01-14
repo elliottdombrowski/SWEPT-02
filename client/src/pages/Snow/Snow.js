@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import FindStreetForm from '../../components/FindStreetForm/FindStreetForm';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './snow.css';
-import FindStreetForm from '../../components/FindStreetForm/FindStreetForm';
+import './query.css';
 
 const Snow = () => {
   

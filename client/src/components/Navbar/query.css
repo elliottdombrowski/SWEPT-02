@@ -40,12 +40,25 @@
     left: 0;
     right: 0;
     width: 100vw;
-    padding: 1.5rem 25vw;
+    padding: 1.5rem 15vw;
     background: linear-gradient(to top, var(--darkerblue), var(--darkblue));
     border-top: 2px solid var(--text);
     border-radius: 20px;
     transition: 0.3s;
     z-index: 4;
+  }
+
+  .slider-one {
+    margin-left: 3rem;
+  }
+
+  .slider-two {
+    margin-right: 3rem;
+  }
+
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 1rem;
   }
 
   .nav-right.active {

@@ -42,7 +42,11 @@ app.post('/stripe', async (req, res) => {
     amount: userPrice,
     currency: 'usd'
   });
-  res.json({client_secret: intent.client_secret, intent_id:intent.id})
+  res.json({client_secret: intent.client_secret, intent_id:intent.id});
+});
+
+app.post('/confirm-payment', async (req, res) => {
+  
 })
 
 if (process.env.NODE_ENV === 'production') {
