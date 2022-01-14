@@ -10,6 +10,8 @@ import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import PaymentComponent from '../src/components/PaymentComponent/PaymentComponent';
 
+import './App.css';
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
