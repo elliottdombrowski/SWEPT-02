@@ -39,13 +39,13 @@
     bottom: -100%;
     left: 0;
     right: 0;
-    width: 50vw;
+    width: 100vw;
     padding: 1.5rem 25vw;
     background: linear-gradient(to top, var(--darkerblue), var(--darkblue));
     border-top: 2px solid var(--text);
     border-radius: 20px;
     transition: 0.3s;
-    z-index: 2;
+    z-index: 4;
   }
 
   .nav-right.active {
