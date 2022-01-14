@@ -30,7 +30,6 @@ const typeDefs = gql`
     on_street: String,
     from_stree: String,
     to_street: String
-
   }
   
   type Query {
