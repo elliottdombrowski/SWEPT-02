@@ -4,7 +4,6 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { GET_ZIP } from '../../utils/queries';
 import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
-import './sweeper.css';
 import './query.css';
 
 const arrow = <FontAwesomeIcon icon={faArrowUp} />

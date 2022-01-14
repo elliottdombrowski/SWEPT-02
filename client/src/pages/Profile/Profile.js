@@ -4,13 +4,11 @@ import { useQuery } from '@apollo/client';
 
 import { QUERY_SINGLE_USER } from '../../utils/queries';
 
-import './profile.css';
-
 const Profile = () => {
   const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_USER, {
-    variables: { userId: userId },
+    // variables: { userId: userId },
   });
 
   const user = data?.user || {};

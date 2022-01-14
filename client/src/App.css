@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* HOMEPAGE  */
 
 .homepage-wrapper {
@@ -185,3 +189,227 @@ h4 {
 }
 
 /* END LOGIN / SIGNUP WRAPPER  */
+
+
+/* LOGIN FORM  */
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+}
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.login-submit-btn {
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.login-submit-btn:disabled {
+  background: var(--deep-darkblue);
+}
+
+.login-submit-btn:hover:enabled {
+  background: var(--primary-lightorange);
+}
+
+/* END LOGIN FORM  */
+
+/* PROFILE  */
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+}
+
+.profile-info-wrapper,
+.recent-search-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px 30px 10px 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+  margin-bottom: 3rem;
+}
+
+.profile-welcome-header,
+.recent-search-header {
+  text-shadow: var(--homepage-textshadow);
+  text-align: center;
+}
+
+/* END PROFILE  */
+
+/* SWEEPER  */
+
+.sweeper-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+}
+
+.sweeper-form-wrapper,
+.sweeper-data-output-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px 30px 10px 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.find-ward {
+  font-family: var(--link-font);
+  margin-top: 0.7rem;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
+.sweeper-arrow {
+  margin-left: .5rem;
+}
+
+.sweeper-data-output-wrapper {
+  width: 40%;
+  margin-top: 2rem;
+  border-radius: 10px 10px 30px 30px;
+}
+
+.sweeper-ward-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.zipform-input {
+  width: 100%;
+}
+
+.ward-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.ward-btn {
+  margin-top: 1.2rem;
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.ward-btn:hover {
+  background: var(--primary-lightorange);
+}
+
+/* END SWEEPER  */
+
+/* ZIP FORM  */
+
+.zipform-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.zipform-input {
+  padding: 0.7rem 1rem;
+  font-size: 120%;
+  background: var(--darkblue);
+  border: 2px solid white;
+  border-radius: 10px;
+}
+
+.zipform-btn {
+  margin-top: 1.2rem;
+  background: var(--primary-darkorange);
+  text-align: left;
+  font-weight: bold;
+  transition: var(--btn-hover);
+}
+
+.zipform-btn:hover {
+  background: var(--primary-lightorange);
+}
+
+::placeholder {
+  color: white;
+}
+
+/* END ZIP FORM  */
+
+/* SNOW FORM  */
+
+.snow-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+}
+
+.snow-form-wrapper,
+.snow-data-output-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 30px 30px 10px 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.snow-data-output-wrapper {
+  margin-top: 2rem;
+  border-radius: 10px 10px 30px 30px;
+}
+
+/* END SNOW FORM  */
