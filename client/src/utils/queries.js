@@ -36,8 +36,8 @@ export const GET_SNOW = gql`
 `;
 
 export const QUERY_SINGLE_USER = gql`
-  query singleUser($userId: ID!) {
-    user(userId: $userId) {
+  query singleUser {
+    singleUser {
       _id
       username
       email
