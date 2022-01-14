@@ -3,9 +3,11 @@ const axios = require('axios');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
+//HANDLE ZIPCODE LOOKUP FROM WARD FORM
+//TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
 const lookupWard = async (zip) => {
   console.log('hitting lookupWard ', zip);
-  // Hit city zip lookup
+  // HIT CITY ZIPCODE API W/ 5 CHARACTER WARD INPUT
   const zipData = {
     method: 'GET',
     url: `https://data.cityofchicago.org/resource/htai-wnw4.json?zipcode=${zip}`,
@@ -16,15 +18,14 @@ const lookupWard = async (zip) => {
   }
   const zipResponse = await axios.request(zipData);
   console.log('full response ', zipResponse.data);
-  // console.log('full zip response- ', zipResponse.data[0].zipcode);
+  //FOR EACH RESPONSE, CHECK IF API DATA ZIPCODE MATCHES INPUT
   for (i = 0; i < zipResponse.data.length; i++) {
     if (zip === zipResponse.data[i].zipcode) {
       console.log('zip response- ', zipResponse.data[i].zipcode);
       return zipResponse.data[i].ward;
     }
   }
-  // return 14
-}
+};
 
 
 const resolvers = {
@@ -36,6 +37,8 @@ const resolvers = {
         if (!args.wardNumber) {
           return null;
         }
+        //IF WARD NUMBER INPUT == 5 CHARACTERS, ASSUME IT'S A ZIPCODE
+        //AND CALL LOOKUPWARD WITH WARD NUMBER INPUT AS PARAMETER
         if (args.wardNumber.length == 5) {
           args.wardNumber = await lookupWard(args.wardNumber);
           console.log('looking up zipcode with ward ', args.wardNumber);
