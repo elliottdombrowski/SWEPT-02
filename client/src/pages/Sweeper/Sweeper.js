@@ -17,14 +17,6 @@ const Sweeper = () => {
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
     setWard(wardNumber.current.value);
-
-    if (wardInfo.length > 0) {
-      for (i = 0; i < wardInfo.length; i++) {
-        if (wardInfo[i] == wardNumber) {
-          console.log(wardInfo[i]);
-        } else console.log('nothing here');
-      }
-    }
     return true;
   };
 
@@ -49,7 +41,6 @@ const Sweeper = () => {
               Find your schedule!
             </button>
           </form>
-          {/* )} */}
         </div>
       </div>
       {loading ? (
