@@ -123,7 +123,6 @@ img {
 .bio-col-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   width: 35%;
   border-radius: 10px 10px 10px 10px;
 }
