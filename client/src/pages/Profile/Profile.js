@@ -7,7 +7,7 @@ import { QUERY_SINGLE_USER } from '../../utils/queries';
 import './profile.css';
 
 const Profile = () => {
-  const { userId } = useParams();
+  const { username: userParam } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_USER, {
     variables: { userId: userId },
