@@ -34,7 +34,7 @@ const typeDefs = gql`
   }
   
   type Query {
-    user: User
+    user(userId: ID!): User
     getWard(wardNumber: String): [Ward]
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
