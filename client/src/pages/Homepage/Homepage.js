@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import './homepage.css';
 import './query.css';
@@ -45,7 +46,18 @@ const Homepage = () => {
             </div>
 
             <div className='bio-col-right'>
-              
+              <div className='col-right-inner'>
+                <h4>Donate and buy the <i className='swept-header'>SWEPT</i> devs a coffee!</h4>
+              </div>
+              <div className='login-btn donate-btn'>
+                <Link to='/payments'>
+                  DONATE
+                </Link>
+              </div>
+              <img 
+                className='og-sweeper'
+                src={require('../../assets/ogsweeper3.png')}
+              />
             </div>
           </div>
         </div>

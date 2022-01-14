@@ -1,3 +1,16 @@
+@media all and (max-width: 999px) {
+  .homepage-bio {
+    flex-direction: column;
+  }
+  
+  .bio-col-left,
+  .bio-col-right {
+    width: 100%;
+    margin: 0;
+    border-radius: 10px;
+  }
+}
+
 @media all and (max-width: 822px) {
   .homepage-header {
     font-size: 160%;
@@ -12,17 +25,6 @@
   
   .homepage-img {
     top: 20.5rem;
-  }
-
-  .homepage-bio {
-    flex-direction: column;
-  }
-
-  .bio-col-left,
-  .bio-col-right {
-    width: 100%;
-    margin: 0;
-    border-radius: 10px;
   }
 }
 

@@ -69,6 +69,10 @@ img {
   margin-top: 23rem;
 }
 
+.homepage-header {
+  text-shadow: var(--homepage-textshadow);
+}
+
 .homepage-header,
 .homepage-bio-wrapper {
   font-family: var(--logo-font);
@@ -82,15 +86,14 @@ img {
   padding: 1rem 3rem;
   margin: 0 auto;
   border: 2px solid var(--text);
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
   text-align: left;
-  text-shadow: var(--homepage-textshadow);
 }
 
 .homepage-secondary-header {
   margin-top: 1rem;
-  border-radius: 30px 30px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .homepage-bio {
@@ -114,12 +117,20 @@ img {
 .bio-col-left {
   width: 60%;
   margin-right: 5%;
-  border-radius: 10px 10px 10px 30px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .bio-col-right {
+  display: flex;
+  flex-direction: column;
   width: 35%;
-  border-radius: 10px 10px 30px 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.og-sweeper {
+  display: block;
+  width: 300px;
+  height: 300px;
 }
 
 .get-started,
@@ -146,6 +157,14 @@ h4 {
 
 .login-btn {
   margin: 0;
+}
+
+.donate-btn {
+  text-align: center;
+  width: 70%;
+  padding: 0.2rem 0;
+  margin: 1rem 0;
+  font-family: var(--link-font);
 }
 
 .chicago-link:hover {
