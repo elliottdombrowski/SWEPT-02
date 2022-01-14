@@ -8,7 +8,7 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
-import PaymentComponent from './components/PaymentComponent/PaymentComponent';
+import PaymentComponent from '../src/components/PaymentComponent/PaymentComponent';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
