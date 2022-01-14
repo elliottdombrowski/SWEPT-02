@@ -3,8 +3,8 @@ const axios = require('axios');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
-const lookupWard = (zip) => {
-
+const lookupWard = async (zip) => {
+  console.log('hitting lookupWard ', zip);
   // Hit city zip lookup
   const zipData = {
     method: 'GET',
@@ -15,9 +15,11 @@ const lookupWard = (zip) => {
     }
   }
   const zipResponse = await axios.request(zipData);
+  console.log('full zip response- ', zipResponse.data);
   for (i = 0; i < zipResponse.length; i++) {
-    if (zip === zipResponse.zipcode) {
-      return zipresponse.zipcode;
+    if (zip === zipResponse.data.zipcode) {
+      console.log('zip response- ', zipResponse.data.zipcode);
+      return zipResponse.data.zipcode;
     }
   }
   // return 14
