@@ -4,7 +4,7 @@ import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 import './loginform.css';
-
+import './query.css';
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
