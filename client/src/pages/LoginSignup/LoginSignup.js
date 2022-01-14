@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import SignupForm from '../../components/SignupForm/SignupForm';
-import './loginsignup.css';
 
 const LoginSignup = () => {
   const [switchAuthForm, setSwitchAuthForm] = useState(false);

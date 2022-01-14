@@ -176,4 +176,12 @@ h4 {
 /* END HOMEPAGE  */
 
 
+/* LOGIN / SIGNUP WRAPPER  */
 
+.login-signup-wrapper {
+  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  height: 100vh;
+  padding-top: 3rem;
+}
+
+/* END LOGIN / SIGNUP WRAPPER  */
