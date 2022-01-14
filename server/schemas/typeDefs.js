@@ -34,10 +34,11 @@ const typeDefs = gql`
   }
   
   type Query {
-    user(userId: ID!): User
+    users: [User]
     getWard(wardNumber: String): [Ward]
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
+    singleUser: User
   }
 
   type Mutation {
