@@ -1,0 +1,6 @@
+@media all and (max-width: 768px) {
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 85%;
+  }
+}
