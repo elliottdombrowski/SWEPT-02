@@ -26,7 +26,8 @@
     "url": "https://github.com/elliottdombrowski/swept-02/issues"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.15"
   },
   "homepage": "https://github.com/elliottdombrowski/swept-02#readme",
   "dependencies": {
