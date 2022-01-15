@@ -25,6 +25,26 @@ const lookupWard = async (zip) => {
   }
 };
 
+//CONVERT STREET INPUT W/ REGEX
+const streetInputHandler = (street) => {
+  street = street.toUpperCase();
+  street = street.replace(/^SOUTH/, 'S');
+  street = street.replace(/^NORTH/, 'N');
+  street = street.replace(/^WEST/, 'W');
+  street = street.replace(/^EAST/, 'E');
+
+  street = street.replace(/AVENUE$/, 'AVE');
+  street = street.replace(/STREET$/, 'ST');
+  street = street.replace(/ROAD$/, 'RD');
+  street = street.replace(/DRIVE$/, 'DR');
+  street = street.replace(/BOULEVARD$/, 'BLVD');
+  street = street.replace(/PARKWAY$/, 'PKWY');
+  street = street.replace(/SOUTHBOUND$/, 'SB');
+  street = street.replace(/NORTHBOUND$/, 'NB');
+  street = street.replace(/PLACE$/, 'PL');
+  return street;
+};
+
 const resolvers = {
   Query: {
     // ward from *sweeper scheule* api
@@ -92,44 +112,38 @@ const resolvers = {
         console.log(error);
       }
     },
-    // zipcode from *general ward* api
-    getZip: async (parents, args, context) => {
-      try {
-        console.log('is this undefined?????', args);
-        if (!args.zipNumber) {
-          return null;
-        }
-        const zipData = {
-          method: 'GET',
-          url: 'https://data.cityofchicago.org/resource/htai-wnw4.json',
-          data: {
-            '$limit': 5,
-            '$$app_token': process.env.ZIP
-          }
-        }
-        const zipResponse = await axios.request(zipData)
-        return zipResponse.data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
       try {
-        console.log('is this undefined?????', args);
-        if (!args.snowNumber) {
+        let snowArgs = streetInputHandler(args.snowNumber);
+
+        if (!snowArgs) {
           return null;
         }
+
         const snowData = {
           method: 'GET',
-          url: 'https://data.cityofchicago.org/resource/i6k4-giaj.json',
+          url: `https://data.cityofchicago.org/resource/i6k4-giaj.json`,
           data: {
             '$limit': 5,
             '$$app_token': process.env.SNOW
           }
         }
-        const snowResponse = await axios.request(snowData)
-        return snowResponse.data;
+        const snowResponse = await axios.request(snowData);
+        
+        //DECLARE RESPONSE ARRAY FOR MATCHES
+        let responseArr = [];
+        
+        for (i = 0; i < snowResponse.data.length; i++) {
+          if (snowResponse.data[i].on_street.includes(snowArgs)) {
+            responseArr.push(snowResponse.data[i]);
+          }
+        }
+
+        return responseArr;
+
+        // console.log('load ', snowResponse.data);
+        // return snowResponse.data;
       } catch (error) {
         console.log(error);
       }

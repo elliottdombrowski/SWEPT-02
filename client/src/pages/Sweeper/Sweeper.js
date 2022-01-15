@@ -9,7 +9,7 @@ const Sweeper = () => {
   const [ward, setWard] = useState('');
   const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
-  //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
+  //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
