@@ -20,12 +20,38 @@ SWEPT 2.0 is a mobile-first, web application that informs users of where summer 
 
 # Getting Started
 
+## Technology Stack
+
+The application was built using the MERN stack using MongoDB, Express.js, React, Node.js.
+
+|           Client          |            Server              |
+| ------------------------- | ------------------------------ |
+| apollo/client: ^3.5.6     | apollo-server-express: ^2.12.0 |
+| chakra-ui/react: ^1.7.4   | axios: ^0.24.0                 |
+| axios: ^0.24.0            | bcrypt: ^5.0.1                 |
+| graphql: ^16.2.0          | cors: ^2.8.5                   |
+| jquery: ^3.6.0            | dotenv: ^10.0.0                |
+| jwt-decode: ^3.1.2        | express: ^4.17.2               |
+| luxon: ^UPDATE            | graphql: ^15.8.0               |
+| react: ^17.0.2            | jquery: ^3.6.0                 |
+| react-dom: ^17.0.2        | jsonwebtoken: ^8.5.1           |
+| react-router-dom: ^5.2.0  | mongoose: ^5.9.7               |
+| react-scripts: 5.0.0      | stripe: ^8.197.0               |
+| web-vitals: ^2.1.3        |                                |
+   
+   
 ## Installing
 
 - How & where to download the program
 - any modifications needed to be made to files or folders
 
 ## Executing program
+
+## Links
+
+Heroku deployed site: [SWEPT](http://swept.herokuapp.com/)
+GitHub repo link 
+Presentation link
 
 ## Version History
 
