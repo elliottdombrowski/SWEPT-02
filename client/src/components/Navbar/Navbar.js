@@ -15,6 +15,11 @@ const Navbar = () => {
     document.getElementById('hamburger').classList.toggle('active');
     document.getElementById('navbar-right').classList.toggle('active');
   };
+  
+  window.onscroll = () => {
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('navbar-right').classList.remove('active');
+  };
 
   // let switchOverlay = document.getElementsByClassName('switch-overlay');
 
