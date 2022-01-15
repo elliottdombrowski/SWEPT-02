@@ -34,9 +34,6 @@ const lookupWard = async (zip) => {
   //       'There is no tag associated with this id, please try again.',
   //   });
 
-  // display current month
-
-
 };
 
 
