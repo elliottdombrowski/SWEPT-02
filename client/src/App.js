@@ -9,7 +9,6 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
-import PaymentComponent from '../src/components/PaymentComponent/PaymentComponent';
 
 import './App.css';
 
@@ -45,15 +44,6 @@ function App() {
           <Route exact path='/snow' component={Snow} />
           <Route exact path='/me' component={Profile} />
           <Route exact path='/login' component={LoginSignup} />
-          <Route exact path='/payments'>
-            <div>
-              <PaymentComponent
-                keys={{
-                  stripe: "pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE"
-                }}
-              />
-            </div>
-          </Route>
           <Footer />
         </Router>
       </div>
