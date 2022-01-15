@@ -55,9 +55,8 @@ const resolvers = {
         const centralTime = DateTime.local().setZone('America/Chicago');
         let currMonth = centralTime.toLocaleString({ month: 'long' }).toUpperCase();
         let currDay = centralTime.toLocaleString({ day: 'numeric' }).toUpperCase();
-
         let currMonthTest = 'JUNE';
-        let currDayTest = '1';
+        let currDayTest = '23';
 
         //IF NO WARD # FOUND, RETURN
         if (!args.wardNumber) {
@@ -78,12 +77,17 @@ const resolvers = {
         }
         const sweeperResponse = await axios.request(sweeperData);
 
-        // for (let i = 0; i < sweeperResponse.data.length; i++) {
-        //   if (currMonthTest == sweeperResponse.data[i].month_name && currDayTest == sweeperResponse.data[i].dates.split(',')) {
-        //     console.log('it works- ', sweeperResponse.data[i]);
-        //   }
-        // }
+        let arr = [];
+        for (let i = 0; i < sweeperResponse.data.length; i++) {
+          console.log('dates ', sweeperResponse.data[i].dates.split(','));
+          console.log('month ', sweeperResponse.data[i].month_name);
+          if (currMonthTest == sweeperResponse.data[i].month_name && sweeperResponse.data[i].dates.split(',').includes(currDayTest)) {
+            console.log('it works- ', sweeperResponse.data[i]);
+            arr.push(sweeperResponse.data[i]);
+          }
+        }
 
+        return arr;
         // for (let i = 0; i < sweeperResponse.data.length; i++) {
         //   if (currMonthTest == sweeperResponse.data[i].month_name) {
         //     let currDay = sweeperResponse.data[i].dates.split(',');
@@ -91,7 +95,6 @@ const resolvers = {
         //   }
         // }
 
-        return sweeperResponse.data;
       } catch (error) {
         console.log(error);
       }
