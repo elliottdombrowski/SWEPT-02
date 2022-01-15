@@ -7,7 +7,6 @@ const { DateTime } = require('luxon');
 //HANDLE ZIPCODE LOOKUP FROM WARD FORM
 //TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
 const lookupWard = async (zip) => {
-  // console.log('hitting lookupWard ', zip);
   // HIT CITY ZIPCODE API W/ 5 CHARACTER WARD INPUT
   const zipData = {
     method: 'GET',
@@ -18,13 +17,11 @@ const lookupWard = async (zip) => {
     }
   }
   const zipResponse = await axios.request(zipData);
-  // console.log('full response ', zipResponse.data);
   //FOR EACH RESPONSE, CHECK IF API DATA ZIPCODE MATCHES INPUT
 
   // try {
   for (i = 0; i < zipResponse.data.length; i++) {
     if (zip === zipResponse.data[i].zipcode) {
-      // console.log('zip response- ', zipResponse.data[i].zipcode);
       return zipResponse.data[i].ward;
     }
   }
@@ -59,7 +56,7 @@ const resolvers = {
         let currDate = centralTime.toLocaleString({ month: 'long', day: 'numeric' }).toUpperCase();
         console.log(currDate);
 
-        // console.log('is this undefined?', args);
+        //IF NO WARD # FOUND, RETURN
         if (!args.wardNumber) {
           return null;
         }
@@ -67,7 +64,6 @@ const resolvers = {
         //AND CALL LOOKUPWARD WITH WARD NUMBER INPUT AS PARAMETER
         if (args.wardNumber.length == 5) {
           args.wardNumber = await lookupWard(args.wardNumber);
-          // console.log('looking up zipcode with ward ', args.wardNumber);
         }
         const sweeperData = {
           method: 'GET',
@@ -99,7 +95,6 @@ const resolvers = {
           }
         }
         const zipResponse = await axios.request(zipData)
-        // console.log(sweeperResponse.data);
         return zipResponse.data;
       } catch (error) {
         console.log(error);
@@ -121,7 +116,6 @@ const resolvers = {
           }
         }
         const snowResponse = await axios.request(snowData)
-        // console.log(sweeperResponse.data);
         return snowResponse.data;
       } catch (error) {
         console.log(error);
