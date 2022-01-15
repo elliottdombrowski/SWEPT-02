@@ -38,6 +38,10 @@ const streetInputHandler = (street) => {
   street = street.replace(/ROAD$/, 'RD');
   street = street.replace(/DRIVE$/, 'DR');
   street = street.replace(/BOULEVARD$/, 'BLVD');
+  street = street.replace(/PARKWAY$/, 'PKWY');
+  street = street.replace(/SOUTHBOUND$/, 'SB');
+  street = street.replace(/NORTHBOUND$/, 'NB');
+  street = street.replace(/PLACE$/, 'PL');
   return street;
 };
 
