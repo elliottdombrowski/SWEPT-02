@@ -99,6 +99,11 @@ const resolvers = {
         if (!args.snowNumber) {
           return null;
         }
+        //CHECK IF INPUT IS LONGER THAN 3 CHARACTERS (EXLUDE N/W/S/E, AVE, ST, etc)
+        if (args.snowNumber.length > 3) {
+          console.log('longer than 3');
+        }
+
         const snowData = {
           method: 'GET',
           url: `https://data.cityofchicago.org/resource/i6k4-giaj.json?on_street=${args.snowNumber.toUpperCase()}`,
