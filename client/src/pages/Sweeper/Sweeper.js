@@ -10,7 +10,7 @@ const Sweeper = () => {
   const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
-  const { loading, data} = useQuery(GET_WARD, {
+  const { loading, data } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
   });
   const wardInfo = data?.getWard || [];
@@ -54,7 +54,7 @@ const Sweeper = () => {
               return (
                 <div className='sweeper-data-output' key={index}>
                   <h3>Dates: {info.dates}</h3>
-                  <h4>Month Date: {info.month_name}</h4>
+                  <h4>Month: {info.month_name}</h4>
                   <h2>Ward: {info.ward}</h2>
                   <button className='login-btn save-btn'>{saveBtn}</button>
                 </div>
