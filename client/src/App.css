@@ -399,6 +399,7 @@ h4 {
   padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
+  font-family: var(--link-font);
 }
 
 .snow-form-wrapper,
