@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
-import './query.css';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
@@ -34,7 +33,7 @@ const Sweeper = () => {
             <input
               ref={wardNumber}
               name='wardNumber'
-              placeholder='Enter your Ward Number!'
+              placeholder='Enter your Ward Number or Zipcode!'
               className='zipform-input'
             />
             <button

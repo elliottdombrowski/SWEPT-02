@@ -1,6 +1,12 @@
-@media all and (max-width: 868px) {
+@media all and (max-width: 915px) {
   .login-signup-inner {
     width: 60%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .login-signup-inner {
+    width: 70%;
   }
 }
 

@@ -305,7 +305,7 @@ h4 {
 .sweeper-data-output-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
@@ -325,7 +325,7 @@ h4 {
 }
 
 .sweeper-data-output-wrapper {
-  width: 40%;
+  width: 50%;
   margin-top: 2rem;
   border-radius: 10px;
 }
@@ -395,7 +395,7 @@ h4 {
 .snow-data-output-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
@@ -408,4 +408,39 @@ h4 {
   border-radius: 10px;
 }
 
+@media all and (max-width: 915px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 60%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 668px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 468px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 95%;
+  }
+}
 /* END SNOW FORM  */
