@@ -95,22 +95,47 @@ const resolvers = {
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
       try {
-        console.log('is this undefined?????', args);
-        if (!args.snowNumber) {
+        let snowArgs = args.snowNumber.toUpperCase();
+        console.log('is this undefined?????', snowArgs);
+
+        if (!snowArgs) {
           return null;
         }
 
         const snowData = {
           method: 'GET',
-          url: `https://data.cityofchicago.org/resource/i6k4-giaj.json?on_street=${args.snowNumber.toUpperCase()}`,
+          url: `https://data.cityofchicago.org/resource/i6k4-giaj.json`,
           data: {
             '$limit': 5,
             '$$app_token': process.env.SNOW
           }
         }
-        const snowResponse = await axios.request(snowData)
-        console.log('load ', snowResponse.data);
-        return snowResponse.data;
+        const snowResponse = await axios.request(snowData);
+        
+        //DECLARE RESPONSE ARRAY FOR MATCHES
+        let responseArr = [];
+        
+        for (i = 0; i < snowResponse.data.length; i++) {
+          if (snowResponse.data[i].on_street.includes(snowArgs)) {
+            responseArr.push(snowResponse.data[i]);
+            console.log('response ', responseArr);
+          }
+        }
+        
+        // const getStreet = {
+        //   method: 'GET',
+        //   url: `https://data.cityofchicago.org/resource/i6k4-giaj.json?on_street${responseArr}`,
+        //   data: {
+        //     '$limit': 5,
+        //     '$$app_token': process.env.SNOW
+        //   }
+        // }
+
+        // const getStreetResponse = await axios.request(getStreet);
+        return responseArr;
+
+        // console.log('load ', snowResponse.data);
+        // return snowResponse.data;
       } catch (error) {
         console.log(error);
       }
