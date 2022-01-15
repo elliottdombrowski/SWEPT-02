@@ -25,6 +25,22 @@ const lookupWard = async (zip) => {
   }
 };
 
+//CONVERT STREET INPUT W/ REGEX
+const streetInputHandler = (street) => {
+  street = street.toUpperCase();
+  street = street.replace(/^SOUTH/, 'S');
+  street = street.replace(/^NORTH/, 'N');
+  street = street.replace(/^WEST/, 'W');
+  street = street.replace(/^EAST/, 'E');
+
+  street = street.replace(/AVENUE$/, 'AVE');
+  street = street.replace(/STREET$/, 'ST');
+  street = street.replace(/ROAD$/, 'RD');
+  street = street.replace(/DRIVE$/, 'DR');
+  street = street.replace(/BOULEVARD$/, 'BLVD');
+  return street;
+};
+
 const resolvers = {
   Query: {
     // ward from *sweeper scheule* api
@@ -95,8 +111,7 @@ const resolvers = {
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
       try {
-        let snowArgs = args.snowNumber.toUpperCase();
-        console.log('is this undefined?????', snowArgs);
+        let snowArgs = streetInputHandler(args.snowNumber);
 
         if (!snowArgs) {
           return null;
@@ -118,20 +133,9 @@ const resolvers = {
         for (i = 0; i < snowResponse.data.length; i++) {
           if (snowResponse.data[i].on_street.includes(snowArgs)) {
             responseArr.push(snowResponse.data[i]);
-            console.log('response ', responseArr);
           }
         }
-        
-        // const getStreet = {
-        //   method: 'GET',
-        //   url: `https://data.cityofchicago.org/resource/i6k4-giaj.json?on_street${responseArr}`,
-        //   data: {
-        //     '$limit': 5,
-        //     '$$app_token': process.env.SNOW
-        //   }
-        // }
 
-        // const getStreetResponse = await axios.request(getStreet);
         return responseArr;
 
         // console.log('load ', snowResponse.data);
