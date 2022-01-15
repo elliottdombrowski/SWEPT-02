@@ -92,27 +92,6 @@ const resolvers = {
         console.log(error);
       }
     },
-    // zipcode from *general ward* api
-    getZip: async (parents, args, context) => {
-      try {
-        console.log('is this undefined?????', args);
-        if (!args.zipNumber) {
-          return null;
-        }
-        const zipData = {
-          method: 'GET',
-          url: 'https://data.cityofchicago.org/resource/htai-wnw4.json',
-          data: {
-            '$limit': 5,
-            '$$app_token': process.env.ZIP
-          }
-        }
-        const zipResponse = await axios.request(zipData)
-        return zipResponse.data;
-      } catch (error) {
-        console.log(error);
-      }
-    },
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
       try {
