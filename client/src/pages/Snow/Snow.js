@@ -8,17 +8,20 @@ import './query.css';
 const Snow = () => {
   const snowNumber = useRef('');
   const [snow, setSnow] = useState('');
+  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+
+  //SNOW / STREET FORM USERQUERY
   const { loading, data } = useQuery(GET_SNOW, {
     variables: { snowNumber: snow }
   });
   const snowInfo = data?.getSnow || [];
 
+  //SNOW / STREET FORM SUBMIT
   const snowNumberSubmit = async (event) => {
     event.preventDefault();
     setSnow(snowNumber.current.value);
     return true;
   };
-  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   return (
     <div className='sweeper-wrapper'>
