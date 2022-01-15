@@ -1,16 +1,16 @@
 /* ITALIC, LOGO */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap");
 /* REGULAR, NAV LINKS */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&display=swap");
 /* SERIF FONT FOR BODY */
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&family=Spectral&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&family=Spectral&display=swap");
 
 :root {
   --text: white;
-  --logo-font: 'Kanit', sans-serif;
-  --link-font: 'Mukta', sans-serif;
-  --serif-font: 'Spectral', serif;
-  
+  --logo-font: "Kanit", sans-serif;
+  --link-font: "Mukta", sans-serif;
+  --serif-font: "Spectral", serif;
+
   --soft-lightblue: #c8e4f9;
   --lightblue: #b0def4;
   --med-lightblue: #8097d1;
@@ -28,7 +28,11 @@
   --homepage-textshadow: 1px 1px 2px var(--med-lightblue);
 
   --btn-hover: 0.2s ease-in-out;
-  --blue-gradient: linear-gradient(to right, var(--darkerblue), var(--darkblue))
+  --blue-gradient: linear-gradient(
+    to right,
+    var(--darkerblue),
+    var(--darkblue)
+  );
 }
 
 * {
@@ -52,7 +56,11 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 100%;
   padding: 3rem 0;
 }
@@ -155,7 +163,7 @@ h4 {
 
 .chicago-link {
   text-decoration: underline;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .homepage-signup {
@@ -183,14 +191,17 @@ h4 {
 
 /* END HOMEPAGE  */
 
-
 /* LOGIN / SIGNUP WRAPPER  */
 
 .login-signup-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 85vh;
   padding: 8rem 0;
 }
@@ -227,7 +238,11 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding-top: 5rem;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 100vh;
 }
 
@@ -269,7 +284,11 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding-top: 5rem;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 85vh;
 }
 
@@ -301,7 +320,11 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding-top: 8rem;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 85vh;
   font-family: var(--link-font);
 }
@@ -326,7 +349,7 @@ h4 {
 }
 
 .sweeper-arrow {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .sweeper-data-output-wrapper {
@@ -346,11 +369,12 @@ h4 {
 }
 
 .save-btn {
-  font-family: var(--link-font);
-  font-size: 120%;
-  width: 30%;
+  width: 50%;
   border: 2px solid var(--text);
   margin: 1rem 0;
+  padding: 0.2rem 0;
+  font-family: var(--link-font);
+  font-size: 110%;
 }
 
 /* END SWEEPER  */
@@ -397,7 +421,11 @@ h4 {
   flex-direction: column;
   align-items: center;
   padding-top: 8rem;
-  background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
+  background: linear-gradient(
+    to top,
+    var(--med-lightblue),
+    var(--chi-blue) 20%
+  );
   height: 85vh;
   font-family: var(--link-font);
 }
@@ -453,6 +481,12 @@ h4 {
   .recent-search-wrapper {
     width: 70%;
   }
+
+  .save-btn {
+    width: 35%;
+    padding: 0;
+    font-size: 110%;
+  }
 }
 
 @media all and (max-width: 668px) {
@@ -496,7 +530,7 @@ h4 {
   .homepage-bio {
     flex-direction: column;
   }
-  
+
   .bio-col-left,
   .bio-col-right {
     width: 100%;
@@ -520,21 +554,21 @@ h4 {
   .homepage-bio-wrapper {
     font-size: 140%;
   }
-  
+
   .homepage-img {
     top: 20.5rem;
   }
 }
 
 @media all and (max-width: 667px) {
-    .homepage-header,
-    .homepage-bio-wrapper {
-      font-size: 120%;
-    }
+  .homepage-header,
+  .homepage-bio-wrapper {
+    font-size: 120%;
+  }
 
-    .homepage-img {
-      top: 20rem;
-    }
+  .homepage-img {
+    top: 20rem;
+  }
 }
 
 @media all and (max-width: 596px) {
@@ -558,7 +592,7 @@ h4 {
 @media all and (max-width: 520px) {
   .homepage-header,
   .homepage-bio-wrapper {
-    padding: 1rem .5rem;
+    padding: 1rem 0.5rem;
     text-align: center;
     font-size: 100%;
   }
@@ -586,7 +620,6 @@ h4 {
     padding: 1rem 1rem;
     font-size: 135%;
   }
-
 }
 
 @media all and (max-width: 438px) {
