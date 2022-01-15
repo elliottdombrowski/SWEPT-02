@@ -54,7 +54,7 @@ const Sweeper = () => {
               return (
                 <div className='sweeper-data-output' key={index}>
                   <h3>Dates: {info.dates}</h3>
-                  <h4>Month_Date: {info.month_name}</h4>
+                  <h4>Month Date: {info.month_name}</h4>
                   <h2>Ward: {info.ward}</h2>
                   <button className='login-btn save-btn'>{saveBtn}</button>
                 </div>
