@@ -63,13 +63,20 @@ v 1.0 Mobile Display
 
 |               Initial Display               |                Results Display                |
 | :-----------------------------------------: | :-------------------------------------------: |
-| ![Screenshot](assets/images/mobilehome.png) | ![Screenshot](assets/images/mobileresult.png) |
+| ![Screenshot-mobile-1](client/src/assets/swept1-0_mobile_screenshot1.png) | ![Screenshot-mobile-2](client/src/assets/swept1-0_mobile_screenshot2.png) |
 
 ```
 v 1.0 Desktop Display
 ```
 
-![Screenshot](assets/images/desktophome.png)
+| Initial Display |
+| :------: |
+| ![Screenshot-desktop-1](client/src/assets/swept1-0_full_screenshot1.png) |   
+
+| Results Display |
+| :------: |
+| ![Screenshot-desktop-2](client/src/assets/swept1-0_full_screenshot2.png) | 
+
 
 <br>
 
