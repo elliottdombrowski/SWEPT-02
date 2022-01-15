@@ -431,6 +431,16 @@ h4 {
   }
 }
 
+/* FOOTER  */
+
+.footer-wrapper {
+  height: 5rem;
+  background: var(--blue-gradient);
+  border-top: 2px solid var(--text);
+}
+
+/* END FOOTER  */
+
 /* FORM QUERIES  */
 
 @media all and (max-width: 768px) {
