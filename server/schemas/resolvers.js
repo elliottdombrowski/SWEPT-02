@@ -2,11 +2,12 @@ const { User } = require('../models')
 const axios = require('axios');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
+const { DateTime } = require('luxon');
 
 //HANDLE ZIPCODE LOOKUP FROM WARD FORM
 //TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
 const lookupWard = async (zip) => {
-  console.log('hitting lookupWard ', zip);
+  // console.log('hitting lookupWard ', zip);
   // HIT CITY ZIPCODE API W/ 5 CHARACTER WARD INPUT
   const zipData = {
     method: 'GET',
@@ -17,13 +18,13 @@ const lookupWard = async (zip) => {
     }
   }
   const zipResponse = await axios.request(zipData);
-  console.log('full response ', zipResponse.data);
+  // console.log('full response ', zipResponse.data);
   //FOR EACH RESPONSE, CHECK IF API DATA ZIPCODE MATCHES INPUT
 
   // try {
   for (i = 0; i < zipResponse.data.length; i++) {
     if (zip === zipResponse.data[i].zipcode) {
-      console.log('zip response- ', zipResponse.data[i].zipcode);
+      // console.log('zip response- ', zipResponse.data[i].zipcode);
       return zipResponse.data[i].ward;
     }
   }
@@ -53,7 +54,12 @@ const resolvers = {
     // ward from *sweeper scheule* api
     getWard: async (parent, args, context) => {
       try {
-        console.log('is this undefined?', args);
+        //FOR NOW, PRINTING OUT FULL DATE/TIME
+        const centralTime = DateTime.local().setZone('America/Chicago');
+        let currDate = centralTime.toLocaleString({ month: 'long', day: 'numeric' }).toUpperCase();
+        console.log(currDate);
+
+        // console.log('is this undefined?', args);
         if (!args.wardNumber) {
           return null;
         }
@@ -61,7 +67,7 @@ const resolvers = {
         //AND CALL LOOKUPWARD WITH WARD NUMBER INPUT AS PARAMETER
         if (args.wardNumber.length == 5) {
           args.wardNumber = await lookupWard(args.wardNumber);
-          console.log('looking up zipcode with ward ', args.wardNumber);
+          // console.log('looking up zipcode with ward ', args.wardNumber);
         }
         const sweeperData = {
           method: 'GET',

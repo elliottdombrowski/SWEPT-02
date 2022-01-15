@@ -22,6 +22,7 @@
     "graphql": "^15.8.0",
     "jquery": "^3.6.0",
     "jsonwebtoken": "^8.5.1",
+    "luxon": "^2.3.0",
     "mongoose": "^5.9.7",
     "stripe": "^8.197.0"
   },
