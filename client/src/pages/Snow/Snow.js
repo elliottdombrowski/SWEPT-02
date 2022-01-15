@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import Auth from '../../utils/auth';
 import { GET_SNOW } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './query.css';
 
@@ -30,14 +29,11 @@ const Snow = () => {
             className='zipform-wrapper'
           >
             <input
-              // value={}
-              // onChange={}
               ref={snowNumber}
-              name='snowNumber'
-              placeholder="Enter your Street Name!"
+              name='wardNumber'
+              placeholder='Enter your Street Name!'
               className='zipform-input'
             />
-
             <button
               type='submit'
               className='zipform-input zipform-btn'
@@ -46,26 +42,26 @@ const Snow = () => {
             </button>
           </form>
         </div>
-        {loading ? (
-          <div>loading...</div>
-        ) : (
-          <div className='sweeper-data-output-wrapper'>
-            {
-              snowInfo.map((info, index) => {
-                return (
-                  <div className='sweeper-data-output' key={index}>
-                    <h2>On: {info.on_street}</h2>
-                    <h3>From: {info.from_stree}</h3>
-                    <h3>To: {info.to_street}</h3>
-                    <button className='login-btn save-btn'>{saveBtn}</button>
-                  </div>
-                )
-              })
-            }
-          </div>
-        )}
       </div>
-    </div>
+      {loading ? (
+        <div>loading...</div>
+      ) : (
+        <div className='sweeper-data-output-wrapper'>
+          {
+            snowInfo.map((info, index) => {
+              return (
+                <div className='sweeper-data-output' key={index}>
+                  <h4>Month: {info.month_name}</h4>
+                  <h3>Dates: {info.dates}</h3>
+                  <h2>Ward: {info.ward}</h2>
+                  <button className='login-btn save-btn'>{saveBtn}</button>
+                </div>
+              )
+            })
+          }
+        </div>
+      )}
+    </div >
   );
 };
 
