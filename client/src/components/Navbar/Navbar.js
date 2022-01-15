@@ -10,44 +10,40 @@ import './query.css';
 const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 
 const Navbar = () => {
-  const [switcher, setSwitcher] = useState(false);
-  try {
-    const headerOverlay = document.getElementById('link-switcher');
-    const switchOverlay = document.getElementsByClassName('switch-overlay');
-    switcher ? headerOverlay.classList.add('active') : headerOverlay.classList.remove('active');
-    if (headerOverlay.classList.contains('active')) {
-      switchOverlay.style.right = '0';
-      switchOverlay.style.left = '50%';
-    }
-  } catch {}
-
+  const mobile = window.matchMedia("(max-width: 768px)");
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
     document.getElementById('navbar-right').classList.toggle('active');
   };
-
-  const mobileNavChangePage = () => {
-    document.getElementById('mobile-nav-snow').classList.toggle('active');
-    document.getElementById('mobile-nav-sweeper').classList.toggle('active');
-    const overlay = document.getElementById('nav-overlay');
-
-    if (document.getElementById('mobile-nav-snow').classList.contains('active')) {
-      overlay.style.right = '0';
-      overlay.style.left = '50%';
-      document.getElementById('mobile-nav-sweeper').classList.remove('active');
-    }
-    if (document.getElementById('mobile-nav-sweeper').classList.contains('active')) {
-      overlay.style.left = '0';
-      overlay.style.right = '50%';
-      document.getElementById('mobile-nav-snow').classList.remove('active');
-    }
+  
+  //CLOSE NAV MENU ON SCROLL
+  window.onscroll = () => {
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('navbar-right').classList.remove('active');
   };
+  //CLOSE NAV MENU IF USER CLICKS ANYWHERE OUTSIDE OF NAV CONTAINER
+  window.onclick = (event) => {
+    if (event.target !== document.getElementById('hamburger') && event.target !== document.getElementById('bar1') && event.target !== document.getElementById('bar2') && event.target !== document.getElementById('bar3')) {
+      document.getElementById('hamburger').classList.remove('active');
+      document.getElementById('navbar-right').classList.remove('active');
+    }
+  }
 
-  const mobile = window.matchMedia("(max-width: 768px)");
+  // let switchOverlay = document.getElementsByClassName('switch-overlay');
+
+  const setOverlayLeft = () => {
+    // switchOverlay.style.left = '0';
+    // switchOverlay.style.right = '50%';
+  }
+  
+  const setOverlayRight = () => {
+    // switchOverlay.style.left = '50%';
+    // switchOverlay.style.right = '0';
+  }
 
   return (
     <div className='navbar-wrapper'>
-      <header className='navbar-header'>
+      <header className='navbar-header' id='navbar-header' >
         {/* NAV LEFT */}
         <div className='nav-left'>
           <Link to='/' className='nav-item nav-logo'>
@@ -59,24 +55,24 @@ const Navbar = () => {
         <div className='nav-right' id='navbar-right'>
           <label className='switch' id='link-switcher'>
             <input type='checkbox' />
-            <Link 
-              to='/sweeper' 
-              className='slider slider-one nav-item nav-links' 
-              id='sweeper-link' 
-              onClick={() => setSwitcher(false)}
+            <Link
+              to='/sweeper'
+              className='slider slider-one nav-item nav-links'
+              id='sweeper-link'
+              onClick={setOverlayLeft}
             >
               SWEEPER
             </Link>
 
-            <Link 
-              to='/snow' 
-              className='slider slider-two nav-item nav-links' 
+            <Link
+              to='/snow'
+              className='slider slider-two nav-item nav-links'
               id='snow-link'
-              onClick={() => setSwitcher(true)}
+              onClick={setOverlayRight}
             >
               SNOW
             </Link>
-            <div className='switch-overlay' />
+            <div className='switch-overlay' id='switch-overlay' />
           </label>
 
           {mobile.matches ? (
@@ -93,8 +89,8 @@ const Navbar = () => {
 
           {Auth.loggedIn() ? (
             <div className='login-btn mobile-login'>
-              <Link 
-                to='/' 
+              <Link
+                to='/'
                 className='nav-links'
                 onClick={Auth.logout}
               >
@@ -110,9 +106,9 @@ const Navbar = () => {
           id="hamburger"
           onClick={() => mobileMenu()}
         >
-          <span className='bar'></span>
-          <span className='bar'></span>
-          <span className='bar'></span>
+          <span className='bar' id='bar1'></span>
+          <span className='bar' id='bar2'></span>
+          <span className='bar' id='bar3'></span>
         </div>
       </header>
       <div className='deco'>

@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar/Navbar';
+import Footer from '../src/components/Footer/Footer';
 import Homepage from '../src/pages/Homepage/Homepage';
 import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
@@ -39,26 +40,11 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <Route exact path='/'>
-            <Homepage />
-          </Route>
-
-          <Route exact path='/sweeper'>
-            <Sweeper />
-          </Route>
-
-          <Route exact path='/snow'>
-            <Snow />
-          </Route>
-
-          <Route exact path='/me'>
-            <Profile />
-          </Route>
-
-          <Route exact path='/login'>
-            <LoginSignup />
-          </Route>
-
+          <Route exact path='/' component={Homepage} />
+          <Route exact path='/sweeper' component={Sweeper} />
+          <Route exact path='/snow' component={Snow} />
+          <Route exact path='/me' component={Profile} />
+          <Route exact path='/login' component={LoginSignup} />
           <Route exact path='/payments'>
             <div>
               <PaymentComponent
@@ -68,6 +54,7 @@ function App() {
               />
             </div>
           </Route>
+          <Footer />
         </Router>
       </div>
     </ApolloProvider>
