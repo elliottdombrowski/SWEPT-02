@@ -471,6 +471,13 @@ h4 {
   }
 }
 
+@media all and (max-width: 520px) {
+  .zipform-input,
+  .street-input {
+    font-size: 100%;
+  }
+}
+
 @media all and (max-width: 468px) {
   .sweeper-form-wrapper,
   .sweeper-data-output-wrapper,
@@ -479,6 +486,7 @@ h4 {
   .login-signup-inner,
   .profile-info-wrapper,
   .recent-search-wrapper {
+    padding: 3rem 1.5rem;
     width: 95%;
   }
 }
