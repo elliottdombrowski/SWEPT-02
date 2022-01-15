@@ -2,11 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,700&display=swap');
 /* REGULAR, NAV LINKS */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&display=swap');
+/* SERIF FONT FOR BODY */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Mukta:wght@500&family=Spectral&display=swap');
 
 :root {
   --text: white;
   --logo-font: 'Kanit', sans-serif;
   --link-font: 'Mukta', sans-serif;
+  --serif-font: 'Spectral', serif;
   
   --soft-lightblue: #c8e4f9;
   --lightblue: #b0def4;
@@ -115,6 +118,7 @@ img {
 
 .bio-col-left,
 .bio-col-right {
+  /* font-family: var(--serif-font); */
   background: var(--blue-gradient);
   padding: 1rem 3rem;
   border: 2px solid var(--text);
@@ -299,6 +303,7 @@ h4 {
   padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
+  font-family: var(--link-font);
 }
 
 .sweeper-form-wrapper,
