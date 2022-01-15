@@ -53,8 +53,11 @@ const resolvers = {
       try {
         //FOR NOW, PRINTING OUT FULL DATE/TIME
         const centralTime = DateTime.local().setZone('America/Chicago');
-        let currDate = centralTime.toLocaleString({ month: 'long', day: 'numeric' }).toUpperCase();
-        console.log(currDate);
+        let currMonth = centralTime.toLocaleString({ month: 'long' }).toUpperCase();
+        let currDay = centralTime.toLocaleString({ day: 'numeric' }).toUpperCase();
+
+        let currMonthTest = 'JUNE';
+        let currDayTest = '1';
 
         //IF NO WARD # FOUND, RETURN
         if (!args.wardNumber) {
@@ -73,7 +76,14 @@ const resolvers = {
             '$$app_token': process.env.SWEEPER
           }
         }
-        const sweeperResponse = await axios.request(sweeperData)
+        const sweeperResponse = await axios.request(sweeperData);
+
+        for (let i = 0; i < sweeperResponse.data.length; i++) {
+          if (currMonthTest == sweeperResponse.data[i].month_name && currDayTest == sweeperResponse.data[i].dates.split(',')) {
+            console.log('it works- ', sweeperResponse.data[i]);
+          }
+        }
+
         return sweeperResponse.data;
       } catch (error) {
         console.log(error);
