@@ -78,11 +78,18 @@ const resolvers = {
         }
         const sweeperResponse = await axios.request(sweeperData);
 
-        for (let i = 0; i < sweeperResponse.data.length; i++) {
-          if (currMonthTest == sweeperResponse.data[i].month_name && currDayTest == sweeperResponse.data[i].dates.split(',')) {
-            console.log('it works- ', sweeperResponse.data[i]);
-          }
-        }
+        // for (let i = 0; i < sweeperResponse.data.length; i++) {
+        //   if (currMonthTest == sweeperResponse.data[i].month_name && currDayTest == sweeperResponse.data[i].dates.split(',')) {
+        //     console.log('it works- ', sweeperResponse.data[i]);
+        //   }
+        // }
+
+        // for (let i = 0; i < sweeperResponse.data.length; i++) {
+        //   if (currMonthTest == sweeperResponse.data[i].month_name) {
+        //     let currDay = sweeperResponse.data[i].dates.split(',');
+        //     for (i = 0; i < sweeperResponse.data[i])
+        //   }
+        // }
 
         return sweeperResponse.data;
       } catch (error) {
