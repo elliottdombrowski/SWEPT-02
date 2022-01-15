@@ -54,9 +54,17 @@ const resolvers = {
         //FOR NOW, PRINTING OUT FULL DATE/TIME
         const centralTime = DateTime.local().setZone('America/Chicago');
         let currMonth = centralTime.toLocaleString({ month: 'long' }).toUpperCase();
-        let currDay = centralTime.toLocaleString({ day: 'numeric' }).toUpperCase();
+        let currDay = centralTime.toLocaleString({ day: 'numeric' });
+        let dateArr = [];
         let currMonthTest = 'JUNE';
         let currDayTest = '23';
+        let dateTestArr = ['20', '21', '22', '23', '24', '25'];
+
+        for (i = 0; i < 7; i++) {
+          dateArr.push((parseInt(currDayTest) + i).toString());
+        }
+        dateTestArr = dateArr;
+        console.log('date test ', dateTestArr);
 
         //IF NO WARD # FOUND, RETURN
         if (!args.wardNumber) {
@@ -79,22 +87,15 @@ const resolvers = {
 
         let arr = [];
         for (let i = 0; i < sweeperResponse.data.length; i++) {
-          console.log('dates ', sweeperResponse.data[i].dates.split(','));
-          console.log('month ', sweeperResponse.data[i].month_name);
-          if (currMonthTest == sweeperResponse.data[i].month_name && sweeperResponse.data[i].dates.split(',').includes(currDayTest)) {
-            console.log('it works- ', sweeperResponse.data[i]);
-            arr.push(sweeperResponse.data[i]);
+          if (currMonthTest == sweeperResponse.data[i].month_name) {
+            const findMatch = sweeperResponse.data[i].dates.split(',').filter(event => dateTestArr.includes(event));
+            if (findMatch.length > 0) {
+              arr.push(sweeperResponse.data[i]);
+            }
           }
         }
 
         return arr;
-        // for (let i = 0; i < sweeperResponse.data.length; i++) {
-        //   if (currMonthTest == sweeperResponse.data[i].month_name) {
-        //     let currDay = sweeperResponse.data[i].dates.split(',');
-        //     for (i = 0; i < sweeperResponse.data[i])
-        //   }
-        // }
-
       } catch (error) {
         console.log(error);
       }
