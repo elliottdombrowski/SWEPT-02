@@ -13,11 +13,9 @@ const typeDefs = gql`
   }
 
   type Ward {
-    ward_section_concatenated: String,
     ward: String,
     section: String,
     month_name: String,
-    month_number: String,
     dates: String
   }
 
