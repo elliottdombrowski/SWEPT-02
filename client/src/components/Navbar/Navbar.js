@@ -16,10 +16,18 @@ const Navbar = () => {
     document.getElementById('navbar-right').classList.toggle('active');
   };
   
+  //CLOSE NAV MENU ON SCROLL
   window.onscroll = () => {
     document.getElementById('hamburger').classList.remove('active');
     document.getElementById('navbar-right').classList.remove('active');
   };
+  //CLOSE NAV MENU IF USER CLICKS ANYWHERE OUTSIDE OF NAV CONTAINER
+  window.onclick = (event) => {
+    if (event.target !== document.getElementById('hamburger') && event.target !== document.getElementById('bar1') && event.target !== document.getElementById('bar2') && event.target !== document.getElementById('bar3')) {
+      document.getElementById('hamburger').classList.remove('active');
+      document.getElementById('navbar-right').classList.remove('active');
+    }
+  }
 
   // let switchOverlay = document.getElementsByClassName('switch-overlay');
 
@@ -35,7 +43,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar-wrapper'>
-      <header className='navbar-header'>
+      <header className='navbar-header' id='navbar-header' >
         {/* NAV LEFT */}
         <div className='nav-left'>
           <Link to='/' className='nav-item nav-logo'>
@@ -98,9 +106,9 @@ const Navbar = () => {
           id="hamburger"
           onClick={() => mobileMenu()}
         >
-          <span className='bar'></span>
-          <span className='bar'></span>
-          <span className='bar'></span>
+          <span className='bar' id='bar1'></span>
+          <span className='bar' id='bar2'></span>
+          <span className='bar' id='bar3'></span>
         </div>
       </header>
       <div className='deco'>
