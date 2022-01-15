@@ -101,13 +101,14 @@ const resolvers = {
         }
         const snowData = {
           method: 'GET',
-          url: 'https://data.cityofchicago.org/resource/i6k4-giaj.json',
+          url: `https://data.cityofchicago.org/resource/i6k4-giaj.json?on_street=${args.snowNumber.toUpperCase()}`,
           data: {
             '$limit': 5,
             '$$app_token': process.env.SNOW
           }
         }
         const snowResponse = await axios.request(snowData)
+        console.log('load ', snowResponse.data);
         return snowResponse.data;
       } catch (error) {
         console.log(error);
