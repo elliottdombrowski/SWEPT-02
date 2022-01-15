@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
 // snowSchema (best to keep seperate probs)
 const snowSchema = new Schema({
