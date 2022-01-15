@@ -22,8 +22,6 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='login-wrapper'>
-      <div className='login-form-wrapper'>
         <form className='login-form' onSubmit={handleFormSubmit}>
           <input
             type='text'
@@ -63,8 +61,6 @@ const LoginForm = () => {
             Sign Up
           </button>
         </form>
-      </div>
-    </div>
   );
 }
 

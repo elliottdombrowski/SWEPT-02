@@ -99,7 +99,7 @@ img {
 
 .homepage-secondary-header {
   margin-top: 1rem;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 .homepage-bio {
@@ -123,14 +123,14 @@ img {
 .bio-col-left {
   width: 60%;
   margin-right: 5%;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 .bio-col-right {
   display: flex;
   flex-direction: column;
   width: 35%;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 .og-sweeper {
@@ -183,13 +183,38 @@ h4 {
 /* LOGIN / SIGNUP WRAPPER  */
 
 .login-signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
-  height: 100vh;
-  padding-top: 3rem;
+  height: 90vh;
+  padding: 8rem 0;
+}
+
+.login-signup-inner {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  padding: 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.login-signup-form-switcher {
+  font-family: var(--link-font);
+  font-style: italic;
+  margin-left: 6px;
+  transition: var(--btn-hover);
+}
+
+.login-signup-form-switcher:hover {
+  color: var(--med-darkblue);
+  text-decoration: underline;
 }
 
 /* END LOGIN / SIGNUP WRAPPER  */
-
 
 /* LOGIN FORM  */
 
@@ -200,17 +225,6 @@ h4 {
   padding-top: 5rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
-}
-
-.login-form-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding: 3rem;
-  background: var(--blue-gradient);
-  border: 2px solid var(--text);
-  border-radius: 30px;
-  box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
 .login-form {
@@ -263,7 +277,7 @@ h4 {
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
-  border-radius: 30px 30px 10px 10px;
+  border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
   margin-bottom: 3rem;
 }
@@ -282,7 +296,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
 }
@@ -291,11 +305,11 @@ h4 {
 .sweeper-data-output-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
-  border-radius: 30px 30px 10px 10px;
+  border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
@@ -311,9 +325,9 @@ h4 {
 }
 
 .sweeper-data-output-wrapper {
-  width: 40%;
+  width: 50%;
   margin-top: 2rem;
-  border-radius: 10px 10px 30px 30px;
+  border-radius: 10px;
 }
 
 .sweeper-data-output {
@@ -372,7 +386,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5rem;
+  padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
   height: 100vh;
 }
@@ -381,17 +395,52 @@ h4 {
 .snow-data-output-wrapper {
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   padding: 3rem;
   background: var(--blue-gradient);
   border: 2px solid var(--text);
-  border-radius: 30px 30px 10px 10px;
+  border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
 .snow-data-output-wrapper {
   margin-top: 2rem;
-  border-radius: 10px 10px 30px 30px;
+  border-radius: 10px;
 }
 
+@media all and (max-width: 915px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 60%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 70%;
+  }
+}
+
+@media all and (max-width: 668px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 468px) {
+  .sweeper-form-wrapper,
+  .sweeper-data-output-wrapper,
+  .snow-form-wrapper,
+  .snow-data-output-wrapper {
+    width: 95%;
+  }
+}
 /* END SNOW FORM  */

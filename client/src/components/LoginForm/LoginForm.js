@@ -3,8 +3,6 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
-import './query.css';
-
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -35,8 +33,6 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='login-wrapper'>
-      <div className='login-form-wrapper'>
         <form className='login-form' onSubmit={handleFormSubmit}>
           <input
             type='text'
@@ -66,8 +62,6 @@ const LoginForm = () => {
             Log In
           </button>
         </form>
-      </div>
-    </div>
   );
 }
 

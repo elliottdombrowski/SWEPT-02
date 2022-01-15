@@ -1,11 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { GET_WARD } from '../../utils/queries';
 import { useQuery } from '@apollo/client';
-import './query.css';
+import Auth from '../../utils/auth';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
+  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //WARD FORM USEQUERY - RENAME KEYWORDS TO USE BOTH QUERIES
   const { loading, data} = useQuery(GET_WARD, {
@@ -31,7 +33,7 @@ const Sweeper = () => {
             <input
               ref={wardNumber}
               name='wardNumber'
-              placeholder='Enter your Ward Number!'
+              placeholder='Enter your Ward Number or Zipcode!'
               className='zipform-input'
             />
             <button
@@ -54,7 +56,7 @@ const Sweeper = () => {
                   <h3>Dates: {info.dates}</h3>
                   <h4>Month_Date: {info.month_name}</h4>
                   <h2>Ward: {info.ward}</h2>
-                  <button className='login-btn save-btn'>Save</button>
+                  <button className='login-btn save-btn'>{saveBtn}</button>
                 </div>
               )
             })
