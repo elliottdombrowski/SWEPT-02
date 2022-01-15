@@ -2,11 +2,11 @@ const { User } = require('../models')
 const axios = require('axios');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
+const { DateTime } = require('luxon');
 
 //HANDLE ZIPCODE LOOKUP FROM WARD FORM
 //TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
 const lookupWard = async (zip) => {
-  console.log('hitting lookupWard ', zip);
   // HIT CITY ZIPCODE API W/ 5 CHARACTER WARD INPUT
   const zipData = {
     method: 'GET',
@@ -17,51 +17,50 @@ const lookupWard = async (zip) => {
     }
   }
   const zipResponse = await axios.request(zipData);
-  console.log('full response ', zipResponse.data);
   //FOR EACH RESPONSE, CHECK IF API DATA ZIPCODE MATCHES INPUT
-
-  // try {
   for (i = 0; i < zipResponse.data.length; i++) {
     if (zip === zipResponse.data[i].zipcode) {
-      console.log('zip response- ', zipResponse.data[i].zipcode);
       return zipResponse.data[i].ward;
     }
   }
-  // } catch(error) => {
-  //   console.log(err);
-  //   res.status(500).json({
-  //     message:
-  //       'There is no tag associated with this id, please try again.',
-  //   });
-
 };
-
-// cont lookupSnow = async () => {
-//   const snowData = {
-//     method: 'GET',
-//     url: `https://data.cityofchicago.org/resource/htai-wnw4.json?=${zip}`,
-//     data: {
-//       '$limit': 5,
-//       '$$app_token': process.env.SNOW
-//     }
-//   }
-// }
-
 
 const resolvers = {
   Query: {
     // ward from *sweeper scheule* api
     getWard: async (parent, args, context) => {
       try {
-        console.log('is this undefined?', args);
+        //GRAB CURRENT CST TIME
+        const centralTime = DateTime.local().setZone('America/Chicago');
+        //GRAB CURRENT MONTH AND DAY AS SEPARATE VARIABLES.
+        //PARSE MONTH TO UPPERCASE TO MATCH API FORMAT
+        let currMonth = centralTime.toLocaleString({ month: 'long' }).toUpperCase();
+        let currDay = centralTime.toLocaleString({ day: 'numeric' });
+        let dateArr = [];
+        //DECLARING TESTING ARRAYS
+        //THERE'S NO STREET SWEEPING IN THE WINTER. DUH.
+        let currMonthTest = 'AUGUST';
+        let currDayTest = '23';
+        let dateTestArr = ['20', '21', '22', '23', '24', '25'];
+
+        //FOR CURRENT DATE, PUSH DATE + 1 TO DATE ARRAY TO CHECK FULL WEEK
+        //PARSE DATE TO INT TO ADD, THEN PARSE TO STRING
+        for (i = 0; i < 7; i++) {
+          dateArr.push((parseInt(currDayTest) + i).toString());
+        }
+
+        //FOR TESTING PURPOSES.
+        dateTestArr = dateArr;
+
+        //IF NO WARD # FOUND, RETURN
         if (!args.wardNumber) {
           return null;
         }
+
         //IF WARD NUMBER INPUT == 5 CHARACTERS, ASSUME IT'S A ZIPCODE
         //AND CALL LOOKUPWARD WITH WARD NUMBER INPUT AS PARAMETER
         if (args.wardNumber.length == 5) {
           args.wardNumber = await lookupWard(args.wardNumber);
-          console.log('looking up zipcode with ward ', args.wardNumber);
         }
         const sweeperData = {
           method: 'GET',
@@ -71,8 +70,24 @@ const resolvers = {
             '$$app_token': process.env.SWEEPER
           }
         }
-        const sweeperResponse = await axios.request(sweeperData)
-        return sweeperResponse.data;
+        const sweeperResponse = await axios.request(sweeperData);
+
+        //DECLARE EMPTY ARRAY FOR MATCHED RESPONSES
+        let responseArr = [];
+        //FOR EACH RECORD IN SWEEPERDATA, CHECK IF CURRENT MONTH MATCHES API'S MONTH_NAME FIELD
+        for (let i = 0; i < sweeperResponse.data.length; i++) {
+          if (currMonthTest == sweeperResponse.data[i].month_name) {
+            //ONCE A MONTH_NAME MATCH IS FOUND, CHECK IF MONTH/WARD MATCH INCLUDES CURRENT DATES
+            const findMatch = sweeperResponse.data[i].dates.split(',').filter(event => dateTestArr.includes(event));
+
+            //IF ONE OR MORE MATCH IS FOUND, PUSH TO RESPONSE ARRAY
+            if (findMatch.length > 0) {
+              responseArr.push(sweeperResponse.data[i]);
+            }
+          }
+        }
+        //RETURN RESPONSE ARRAY TO CLIENT
+        return responseArr;
       } catch (error) {
         console.log(error);
       }
@@ -93,7 +108,6 @@ const resolvers = {
           }
         }
         const zipResponse = await axios.request(zipData)
-        // console.log(sweeperResponse.data);
         return zipResponse.data;
       } catch (error) {
         console.log(error);
@@ -115,7 +129,6 @@ const resolvers = {
           }
         }
         const snowResponse = await axios.request(snowData)
-        // console.log(sweeperResponse.data);
         return snowResponse.data;
       } catch (error) {
         console.log(error);
