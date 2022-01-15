@@ -16,16 +16,16 @@ const Navbar = () => {
     document.getElementById('navbar-right').classList.toggle('active');
   };
 
-  let switchOverlay = document.getElementsByClassName('switch-overlay');
+  // let switchOverlay = document.getElementsByClassName('switch-overlay');
 
   const setOverlayLeft = () => {
-    switchOverlay.style.left = '0';
-    switchOverlay.style.right = '50%';
+    // switchOverlay.style.left = '0';
+    // switchOverlay.style.right = '50%';
   }
   
   const setOverlayRight = () => {
-    switchOverlay.style.left = '50%';
-    switchOverlay.style.right = '0';
+    // switchOverlay.style.left = '50%';
+    // switchOverlay.style.right = '0';
   }
 
   return (
