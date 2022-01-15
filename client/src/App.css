@@ -191,7 +191,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
-  height: 90vh;
+  height: 85vh;
   padding: 8rem 0;
 }
 
@@ -270,7 +270,7 @@ h4 {
   align-items: center;
   padding-top: 5rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
-  height: 100vh;
+  height: 85vh;
 }
 
 .profile-info-wrapper,
@@ -302,7 +302,7 @@ h4 {
   align-items: center;
   padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
-  height: 100vh;
+  height: 85vh;
   font-family: var(--link-font);
 }
 
@@ -398,7 +398,7 @@ h4 {
   align-items: center;
   padding-top: 8rem;
   background: linear-gradient(to top, var(--med-lightblue), var(--chi-blue) 20%);
-  height: 100vh;
+  height: 85vh;
   font-family: var(--link-font);
 }
 
