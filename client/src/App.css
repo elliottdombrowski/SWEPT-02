@@ -435,6 +435,10 @@ h4 {
   .snow-data-output-wrapper {
     width: 85%;
   }
+
+  .homepage-text-wrapper {
+    width: 90%;
+  }
 }
 
 @media all and (max-width: 468px) {
@@ -457,6 +461,10 @@ h4 {
     width: 100%;
     margin: 0;
     border-radius: 10px;
+  }
+
+  .bio-col-right {
+    margin-top: 1rem;
   }
 }
 
@@ -501,10 +509,6 @@ h4 {
     font-size: 120%;
   }
 
-  .homepage-text-wrapper {
-    width: 90%;
-  }
-
   .homepage-img {
     top: 19.5rem;
   }
@@ -516,6 +520,10 @@ h4 {
     padding: 1rem .5rem;
     text-align: center;
     font-size: 100%;
+  }
+
+  .homepage-text-wrapper {
+    width: 95%;
   }
 
   .homepage-secondary-header {
