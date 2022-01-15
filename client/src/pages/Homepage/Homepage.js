@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
-import './query.css';
 
 const Homepage = () => {
   return (
@@ -46,7 +45,7 @@ const Homepage = () => {
 
             <div className='bio-col-right'>
               <div className='col-right-inner'>
-                <h4>Donate and buy the <i className='swept-header'>SWEPT</i> devs a coffee!</h4>
+                <h4>Save money on parking tickets? Donate and buy the <i className='swept-header'>SWEPT</i> devs a coffee!</h4>
               </div>
               <div className='login-btn donate-btn'>
                 <Link to='/payments'>
