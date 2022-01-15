@@ -18,33 +18,12 @@ const lookupWard = async (zip) => {
   }
   const zipResponse = await axios.request(zipData);
   //FOR EACH RESPONSE, CHECK IF API DATA ZIPCODE MATCHES INPUT
-
-  // try {
   for (i = 0; i < zipResponse.data.length; i++) {
     if (zip === zipResponse.data[i].zipcode) {
       return zipResponse.data[i].ward;
     }
   }
-  // } catch(error) => {
-  //   console.log(err);
-  //   res.status(500).json({
-  //     message:
-  //       'There is no tag associated with this id, please try again.',
-  //   });
-
 };
-
-// cont lookupSnow = async () => {
-//   const snowData = {
-//     method: 'GET',
-//     url: `https://data.cityofchicago.org/resource/htai-wnw4.json?=${zip}`,
-//     data: {
-//       '$limit': 5,
-//       '$$app_token': process.env.SNOW
-//     }
-//   }
-// }
-
 
 const resolvers = {
   Query: {
