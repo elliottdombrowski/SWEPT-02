@@ -413,7 +413,9 @@ h4 {
   .sweeper-data-output-wrapper,
   .snow-form-wrapper,
   .snow-data-output-wrapper,
-  .login-signup-inner {
+  .login-signup-inner,
+  .profile-info-wrapper,
+  .recent-search-wrapper {
     width: 60%;
   }
 }
@@ -425,7 +427,9 @@ h4 {
   .sweeper-data-output-wrapper,
   .snow-form-wrapper,
   .snow-data-output-wrapper,
-  .login-signup-inner {
+  .login-signup-inner,
+  .profile-info-wrapper,
+  .recent-search-wrapper {
     width: 70%;
   }
 }
@@ -435,7 +439,9 @@ h4 {
   .sweeper-data-output-wrapper,
   .snow-form-wrapper,
   .snow-data-output-wrapper,
-  .login-signup-inner {
+  .login-signup-inner,
+  .profile-info-wrapper,
+  .recent-search-wrapper {
     width: 85%;
   }
 
@@ -449,7 +455,9 @@ h4 {
   .sweeper-data-output-wrapper,
   .snow-form-wrapper,
   .snow-data-output-wrapper,
-  .login-signup-inner {
+  .login-signup-inner,
+  .profile-info-wrapper,
+  .recent-search-wrapper {
     width: 95%;
   }
 }
