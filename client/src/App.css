@@ -206,6 +206,12 @@ h4 {
   font-family: var(--link-font);
   font-style: italic;
   margin-left: 6px;
+  transition: var(--btn-hover);
+}
+
+.login-signup-form-switcher:hover {
+  color: var(--med-darkblue);
+  text-decoration: underline;
 }
 
 /* END LOGIN / SIGNUP WRAPPER  */
