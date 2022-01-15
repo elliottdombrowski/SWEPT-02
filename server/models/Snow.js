@@ -14,9 +14,9 @@ const snowSchema = new Schema({
     to_street: {
         type: String,
         required: true
-    },
+    }
 })
 
-
+const Snow = mongoose.model('Snow', snowSchema);
 
 module.exports = Snow;
