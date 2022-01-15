@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // sweeperSchema
-const sweeperSweeper = new Schema({
+const sweeperSchema = new Schema({
     ward: {
         type: String,
         required: true
@@ -22,6 +22,6 @@ const sweeperSweeper = new Schema({
 });
 
 
-const Sweeper = mongoose.model('Sweeper', userSchema);
+const Sweeper = mongoose.model('Sweeper', sweeperSchema);
 
 module.exports = Sweeper;
