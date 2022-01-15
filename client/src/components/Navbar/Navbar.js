@@ -29,6 +29,8 @@ const Navbar = () => {
     }
   }
 
+  //trying to get heroku to re-run build
+  
   // let switchOverlay = document.getElementsByClassName('switch-overlay');
 
   const setOverlayLeft = () => {
