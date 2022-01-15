@@ -40,26 +40,11 @@ function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <Route exact path='/'>
-            <Homepage />
-          </Route>
-
-          <Route exact path='/sweeper'>
-            <Sweeper />
-          </Route>
-
-          <Route exact path='/snow'>
-            <Snow />
-          </Route>
-
-          <Route exact path='/me'>
-            <Profile />
-          </Route>
-
-          <Route exact path='/login'>
-            <LoginSignup />
-          </Route>
-
+          <Route exact path='/' component={Homepage} />
+          <Route exact path='/sweeper' component={Sweeper} />
+          <Route exact path='/snow' component={Snow} />
+          <Route exact path='/me' component={Profile} />
+          <Route exact path='/login' component={LoginSignup} />
           <Route exact path='/payments'>
             <div>
               <PaymentComponent
