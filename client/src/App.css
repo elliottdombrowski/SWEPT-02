@@ -522,6 +522,11 @@ h4 {
     font-size: 100%;
   }
 
+  .bio-col-left,
+  .bio-col-right {
+    padding: 1rem;
+  }
+
   .homepage-text-wrapper {
     width: 95%;
   }
@@ -540,11 +545,16 @@ h4 {
     padding: 1rem 1rem;
     font-size: 135%;
   }
+
 }
 
 @media all and (max-width: 438px) {
   img {
-    height: 15vh;
+    height: 18vh;
+  }
+
+  .homepage-bio-wrapper {
+    margin-top: 15rem;
   }
 }
 
