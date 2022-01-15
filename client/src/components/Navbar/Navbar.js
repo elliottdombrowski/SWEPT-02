@@ -92,7 +92,7 @@ const Navbar = () => {
           )}
 
           {Auth.loggedIn() ? (
-            <div className='login-btn'>
+            <div className='login-btn mobile-login'>
               <Link 
                 to='/' 
                 className='nav-links'

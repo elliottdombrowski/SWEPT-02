@@ -58,7 +58,7 @@
 
   .profile-icon,
   .login-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 3rem;
   }
 
   .nav-right.active {
@@ -128,5 +128,85 @@
   .nav-right.active {
     padding-top: 2rem;
     padding-bottom: 4rem;
+  }
+}
+
+@media all and (max-width: 630px) {
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 2rem;
+  }
+
+  .slider-one {
+    margin-left: 3.5rem;
+  }
+}
+
+@media all and (max-width: 570px) {
+  .slider-one {
+    margin-left: 3rem;
+  }
+}
+
+@media all and (max-width: 540px) {
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 1.5rem;
+  }
+}
+
+@media all and (max-width: 510px) {
+  .slider-one {
+    margin-left: 2.5rem;
+  }
+}
+
+@media all and (max-width: 475px) {
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .slider-one {
+    margin-left: 1.8rem;
+  }
+
+  .slider-two {
+    margin-right: 2.1rem;
+  }
+}
+
+@media all and (max-width: 430px) {
+  .slider-one {
+    margin-left: 1.5rem;
+  }
+
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 0.6rem;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .slider-one {
+    margin-left: 1.1rem;
+  }
+
+  .slider-two {
+    margin-right: 1.4rem;
+  }
+
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 0.4rem;
+  }
+}
+
+@media all and (max-width: 370px) {
+  .profile-icon,
+  .login-btn {
+    padding: 0.5rem 0.2rem;
   }
 }
