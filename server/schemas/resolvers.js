@@ -36,6 +36,17 @@ const lookupWard = async (zip) => {
 
 };
 
+// cont lookupSnow = async () => {
+//   const snowData = {
+//     method: 'GET',
+//     url: `https://data.cityofchicago.org/resource/htai-wnw4.json?=${zip}`,
+//     data: {
+//       '$limit': 5,
+//       '$$app_token': process.env.SNOW
+//     }
+//   }
+// }
+
 
 const resolvers = {
   Query: {
