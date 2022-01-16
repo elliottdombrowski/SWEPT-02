@@ -329,7 +329,8 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  height: 85vh;
+  min-height: 85vh;
+  max-height: 100%;
   font-family: var(--link-font);
 }
 
@@ -637,6 +638,23 @@ h4 {
 }
 
 /* PORTRAIT QUERIES  */
+
+@media all and (max-height: 520px) {
+  .navbar-header,
+  .footer-wrapper {
+    height: 4rem;
+  }
+
+  .sweeper-wrapper {
+    height: 100%;
+    padding-top: 1rem;
+  }
+
+  .login-signup-wrapper {
+    height: 100%;
+    padding: 0rem 2rem 2rem 0;
+  }
+}
 
 @media all and (max-height: 375px) {
   .navbar-header,
