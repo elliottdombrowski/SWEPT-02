@@ -358,6 +358,7 @@ h4 {
 
 .sweeper-data-output-wrapper {
   width: 50%;
+  margin-bottom: 3rem;
   margin-top: 2rem;
   border-radius: 10px;
 }
@@ -632,5 +633,24 @@ h4 {
 @media all and (max-width: 415px) {
   .homepage-secondary-header {
     font-size: 130%;
+  }
+}
+
+/* PORTRAIT QUERIES  */
+
+@media all and (max-height: 375px) {
+  .navbar-header,
+  .footer-wrapper {
+    height: 3.5rem;
+  }
+
+  .sweeper-wrapper {
+    height: 100%;
+    padding-top: 1rem;
+  }
+
+  .login-signup-wrapper {
+    height: 100%;
+    padding: 0rem 1rem 1rem 0;
   }
 }
