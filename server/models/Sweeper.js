@@ -20,7 +20,8 @@ const sweeperSchema = new Schema({
         required: true
     },
     user: {
-        type: 
+        type: String,
+        required: true
     }
 });
 
