@@ -18,6 +18,9 @@ const sweeperSchema = new Schema({
     dates: {
         type: String,
         required: true
+    },
+    user: {
+        type: 
     }
 });
 
