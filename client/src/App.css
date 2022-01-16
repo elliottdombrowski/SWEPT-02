@@ -639,7 +639,15 @@ h4 {
 
 /* PORTRAIT QUERIES  */
 
-@media all and (max-height: 520px) {
+@media all and (max-height: 620px) {
+  .sweeper-wrapper,
+  .login-signup-wrapper {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media all and (max-height: 500px) {
   .navbar-header,
   .footer-wrapper {
     height: 4rem;
