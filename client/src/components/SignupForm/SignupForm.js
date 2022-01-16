@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
+import { validateEmail } from '../../utils/helpers';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
   const [signupData, setSignupData] = useState({ username: '', email: '', password: '' });
+  const [err, setErr] = useState('');
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -14,6 +16,15 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    if (!validateEmail(signupData.email)) {
+      setErr('Invalid Email');
+      return false;
+    }
+    if (signupData.password.length < 5) {
+      setErr('Password must be at least 5 characters');
+      return false;
+    }
+
     const { data } = await addUser({
       variables: { ...signupData },
     });
@@ -60,6 +71,7 @@ const LoginForm = () => {
           >
             Sign Up
           </button>
+          <p>{err}</p>
         </form>
   );
 }
