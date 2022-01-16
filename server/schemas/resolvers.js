@@ -186,11 +186,13 @@ const resolvers = {
       return { token, user };
     },
 
+    // save the sweeper sched search results
     saveSweeper: async (parent, { ward, section, month_name, dates, zipcode }) => {
       console.log(ward, section, month_name, dates, zipcode, user)
       const newSweeper = newSweeper({
         ward, section, month_name, dates, zipcode, user
       });
+      // save if exact response met
       newSweeper.save()
         .then((response) => {
           return response;
