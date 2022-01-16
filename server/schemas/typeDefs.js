@@ -27,7 +27,8 @@ const typeDefs = gql`
   type Snow {
     on_street: String,
     from_stree: String,
-    to_street: String
+    to_street: String,
+    restrict_t: String
   }
   
   type Query {
