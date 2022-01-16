@@ -7,7 +7,7 @@ const snowSchema = new Schema({
         type: String,
         required: true
     },
-    // 'stree' ON PURPOSE due to API error
+    // 'stree' ON PURPOSE due to API typo
     from_stree: {
         type: String,
         required: true
