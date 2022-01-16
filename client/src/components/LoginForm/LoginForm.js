@@ -19,6 +19,7 @@ const LoginForm = () => {
       const { data } = await login({
         variables: { ...loginData },
       });
+      // save user id to local storage for db match + store
       localStorage.setItem('uuid', data.login.user._id)
 
       Auth.login(data.login.token);
