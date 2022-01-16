@@ -22,7 +22,10 @@ const sweeperSchema = new Schema({
     user: {
         type: String,
         required: true
-    }
+    },
+    zipcode: {
+        type: String
+    },
 });
 
 
