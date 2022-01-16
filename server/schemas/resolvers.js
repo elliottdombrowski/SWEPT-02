@@ -115,6 +115,8 @@ const resolvers = {
     // street name from *snow restriction* api
     getSnow: async (parents, args, context) => {
       try {
+        //ASSIGN ARGUMENT/INPUT TO A VARIABLE THAT CALLS STREETINPUTHANDLER
+        //CONVERTS ARGUMENT TO FORMAT MATCHING API 
         let snowArgs = streetInputHandler(args.snowNumber);
 
         if (!snowArgs) {
@@ -133,7 +135,8 @@ const resolvers = {
         
         //DECLARE RESPONSE ARRAY FOR MATCHES
         let responseArr = [];
-        
+        //FOR EACH RECORD IN FULL API RESPONSE, FIND WHERE USER INPUT MATCHES 
+        //THEN PUSH TO RESPONSE ARR AND RETURN BACK TO CLIENT
         for (i = 0; i < snowResponse.data.length; i++) {
           if (snowResponse.data[i].on_street.includes(snowArgs)) {
             responseArr.push(snowResponse.data[i]);
@@ -141,9 +144,6 @@ const resolvers = {
         }
 
         return responseArr;
-
-        // console.log('load ', snowResponse.data);
-        // return snowResponse.data;
       } catch (error) {
         console.log(error);
       }
