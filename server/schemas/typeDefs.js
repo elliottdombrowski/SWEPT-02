@@ -5,9 +5,6 @@ const typeDefs = gql`
     _id: ID
     username: String!
     email: String!
-    savedWard: [Ward]
-    savedZip: [Zip]
-    savedSnow: [Snow]
   }
 
   type Auth {
@@ -33,12 +30,6 @@ const typeDefs = gql`
     to_street: String,
     restrict_t: String
   }
-
-  input UserInput {
-    ward: [String]
-    zipcode: [String]
-    on_street: [String]
-  }
   
   type Query {
     users: [User]
@@ -52,9 +43,6 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    savedWard(input: UserInput): User
-    savedZip(input: UserInput ): User
-    savedSnow(input: UserInput ): User
   }
   `;
 
