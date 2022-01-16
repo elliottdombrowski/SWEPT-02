@@ -1,6 +1,6 @@
 const { User, Sweeper } = require('../models')
 const axios = require('axios');
-const { signToken } = require('../utils/auth');
+const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 const { DateTime } = require('luxon');
 
