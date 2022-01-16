@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-import { validateEmail, checkPassword } from '../../utils/helpers';
+import { validateEmail } from '../../utils/helpers';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
@@ -17,7 +17,7 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (!validateEmail(signupData.email)) {
-      setErr('Invalid Email!');
+      setErr('Please enter a valid Email!');
       return false;
     }
     if (signupData.password.length < 5) {
