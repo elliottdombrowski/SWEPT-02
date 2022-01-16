@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
-import { validateEmail } from '../../utils/helpers';
+import { validateEmail, checkPassword } from '../../utils/helpers';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
