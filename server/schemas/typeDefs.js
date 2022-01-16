@@ -7,7 +7,7 @@ const typeDefs = gql`
     email: String!
     savedWard: [Ward]
     savedZip: [Zip]
-    saved: []
+    savedSnow: [Snow]
   }
 
   type Auth {
