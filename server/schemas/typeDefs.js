@@ -33,6 +33,12 @@ const typeDefs = gql`
     to_street: String,
     restrict_t: String
   }
+
+  input UserInput {
+    ward: [String]
+    zipcode: [String]
+    on_street: [String]
+  }
   
   type Query {
     users: [User]
@@ -46,7 +52,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    savedWard(: ): User
+    savedWard(input: UserInput): User
     savedZip(: ): User
     savedSnow(: ): User
   }
