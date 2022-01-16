@@ -191,7 +191,7 @@ const resolvers = {
       const newSweeper = newSweeper({
         ward, section, month_name, dates, zipcode, user
       });
-      newSweeper.save()
+      newSweeper.create()
         .then((response) => {
           return response;
         })
