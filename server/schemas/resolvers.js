@@ -195,6 +195,10 @@ const resolvers = {
         .then((response) => {
           return response;
         })
+        // otherwise catch w/ error
+        .catch((err) => {
+          return err;
+        })
     }
   }
 };
