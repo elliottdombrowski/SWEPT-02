@@ -130,10 +130,10 @@ const resolvers = {
           }
         }
         const snowResponse = await axios.request(snowData);
-        
+
         //DECLARE RESPONSE ARRAY FOR MATCHES
         let responseArr = [];
-        
+
         for (i = 0; i < snowResponse.data.length; i++) {
           if (snowResponse.data[i].on_street.includes(snowArgs)) {
             responseArr.push(snowResponse.data[i]);
@@ -184,6 +184,10 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+
+    saveSweepe: async (parent, { ward, section, month_name, dates, zipcode }) => {
+
     }
   }
 };
