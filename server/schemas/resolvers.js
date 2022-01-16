@@ -186,8 +186,8 @@ const resolvers = {
       return { token, user };
     },
 
-    saveSweepe: async (parent, { ward, section, month_name, dates, zipcode }) => {
-
+    saveSweeper: async (parent, { ward, section, month_name, dates, zipcode }) => {
+      console.log(ward, section, month_name, dates, zipcode, user)
     }
   }
 };
