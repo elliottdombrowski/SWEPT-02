@@ -7,6 +7,7 @@ import Auth from '../../utils/auth';
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
+  const [err, setErr] = useState('');
   const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //WARD FORM USEQUERY
@@ -18,7 +19,13 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
+    setErr('');
     setWard(wardNumber.current.value);
+
+    // if (!wardInfo.length) {
+    //   setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+    // }
+
     return true;
   };
 
@@ -42,6 +49,7 @@ const Sweeper = () => {
             >
               Find your schedule!
             </button>
+            <p className='error-msg'>{err}</p>
           </form>
         </div>
       </div>

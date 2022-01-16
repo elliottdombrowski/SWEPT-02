@@ -408,6 +408,11 @@ h4 {
   background: var(--primary-lightorange);
 }
 
+.error-msg {
+  padding-top: 0.5rem;
+  margin: 0 auto;
+}
+
 ::placeholder {
   color: white;
 }
