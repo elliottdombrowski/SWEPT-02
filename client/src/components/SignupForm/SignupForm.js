@@ -17,11 +17,11 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     if (!validateEmail(signupData.email)) {
-      setErr('Invalid Email');
+      setErr('Invalid Email!');
       return false;
     }
     if (signupData.password.length < 5) {
-      setErr('Password must be at least 5 characters');
+      setErr('Password must be at least 5 characters!');
       return false;
     }
 
@@ -31,9 +31,10 @@ const LoginForm = () => {
     console.log(data);
     Auth.login(data.addUser.token);
   };
-
+  
   return (
-        <form className='login-form' onSubmit={handleFormSubmit}>
+    <form className='login-form' onSubmit={handleFormSubmit}>
+          <p className='error-msg'>{err}</p>
           <input
             type='text'
             name='username'
@@ -71,7 +72,6 @@ const LoginForm = () => {
           >
             Sign Up
           </button>
-          <p>{err}</p>
         </form>
   );
 }

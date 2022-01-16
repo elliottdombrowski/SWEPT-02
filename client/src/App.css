@@ -409,8 +409,9 @@ h4 {
 }
 
 .error-msg {
-  padding-top: 0.5rem;
-  margin: 0 auto;
+  font-family: var(--link-font);
+  padding: 0.2rem 0;
+  margin-left: 5px;
 }
 
 ::placeholder {
