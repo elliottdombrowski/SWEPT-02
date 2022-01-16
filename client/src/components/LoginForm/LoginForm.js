@@ -15,10 +15,11 @@ const LoginForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-     try {
+    try {
       const { data } = await login({
         variables: { ...loginData },
       });
+      localStorage.setItem('uuid', data.login.user._id)
 
       Auth.login(data.login.token);
     } catch (err) {
@@ -33,35 +34,35 @@ const LoginForm = () => {
   };
 
   return (
-        <form className='login-form' onSubmit={handleFormSubmit}>
-          <input
-            type='text'
-            name='email'
-            onChange={handleInputChange}
-            value={loginData.email}
-            required
-            placeholder='Your Email'
-            className='login-input'
-          />
-          
-          <input
-            type='text'
-            name='password'
-            onChange={handleInputChange}
-            value={loginData.password}
-            required
-            placeholder='Your Password'
-            className='login-input'
-          />
+    <form className='login-form' onSubmit={handleFormSubmit}>
+      <input
+        type='text'
+        name='email'
+        onChange={handleInputChange}
+        value={loginData.email}
+        required
+        placeholder='Your Email'
+        className='login-input'
+      />
 
-          <button
-            disabled={!(loginData.email && loginData.password)}
-            type='submit'
-            className='login-input login-submit-btn'
-          >
-            Log In
-          </button>
-        </form>
+      <input
+        type='text'
+        name='password'
+        onChange={handleInputChange}
+        value={loginData.password}
+        required
+        placeholder='Your Password'
+        className='login-input'
+      />
+
+      <button
+        disabled={!(loginData.email && loginData.password)}
+        type='submit'
+        className='login-input login-submit-btn'
+      >
+        Log In
+      </button>
+    </form>
   );
 }
 
