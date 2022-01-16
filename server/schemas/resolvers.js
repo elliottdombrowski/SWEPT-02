@@ -191,6 +191,10 @@ const resolvers = {
       const newSweeper = newSweeper({
         ward, section, month_name, dates, zipcode, user
       });
+      newSweeper.save()
+        .then((response) => {
+          return response;
+        })
     }
   }
 };
