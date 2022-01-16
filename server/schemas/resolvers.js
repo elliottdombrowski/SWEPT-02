@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Sweeper } = require('../models')
 const axios = require('axios');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
