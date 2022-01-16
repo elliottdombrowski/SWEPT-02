@@ -42,6 +42,10 @@
   color: var(--text);
 }
 
+body {
+  background: var(--darkerblue);
+}
+
 a {
   text-decoration: none;
 }
