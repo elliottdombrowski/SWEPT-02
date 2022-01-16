@@ -53,8 +53,8 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     savedWard(input: UserInput): User
-    savedZip(: ): User
-    savedSnow(: ): User
+    savedZip(input: UserInput ): User
+    savedSnow(input: UserInput ): User
   }
   `;
 
