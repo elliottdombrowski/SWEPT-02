@@ -188,6 +188,9 @@ const resolvers = {
 
     saveSweeper: async (parent, { ward, section, month_name, dates, zipcode }) => {
       console.log(ward, section, month_name, dates, zipcode, user)
+      const newSweeper = newSweeper({
+        ward, section, month_name, dates, zipcode, user
+      });
     }
   }
 };
