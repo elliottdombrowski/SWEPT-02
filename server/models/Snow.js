@@ -15,6 +15,10 @@ const snowSchema = new Schema({
     to_street: {
         type: String,
         required: true
+    },
+    restrict_t: {
+        type: String,
+        required: true
     }
 })
 
