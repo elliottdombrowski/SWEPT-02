@@ -25,5 +25,7 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_SWEEPER = gql`
-
+mutation saveSweeper($ward: String!, $section: String!, $month_name: String!, $dates: String!, $zipcode: String!, $user: String!) {
+  
+}
 `;
