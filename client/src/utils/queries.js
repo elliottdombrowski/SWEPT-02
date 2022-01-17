@@ -29,6 +29,7 @@ export const GET_SNOW = gql`
       on_street
       from_stree
       to_street
+      restrict_t
     }
   }
 `;
