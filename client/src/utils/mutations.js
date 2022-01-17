@@ -50,3 +50,7 @@ export const SAVE_SWEEPER = gql`
     }
   }
 `;
+
+export const SAVE_SNOW = gql`
+
+`;
