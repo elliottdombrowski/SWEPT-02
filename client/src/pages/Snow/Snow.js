@@ -28,9 +28,13 @@ const Snow = () => {
     if (!snowInfo.length) {
       setErr('Please enter a valid Chicago Street Name');
     }
-
     return true;
   };
+
+  // save snow fx
+  const saveBtn = async (val) => {
+
+  }
 
   return (
     <div className='sweeper-wrapper'>
