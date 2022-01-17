@@ -25,7 +25,7 @@ const snowSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
 })
 
 const Snow = mongoose.model('Snow', snowSchema);
