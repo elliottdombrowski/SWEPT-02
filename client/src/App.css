@@ -42,6 +42,10 @@
   color: var(--text);
 }
 
+body {
+  background: var(--darkerblue);
+}
+
 a {
   text-decoration: none;
 }
@@ -325,7 +329,8 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  height: 85vh;
+  min-height: 85vh;
+  max-height: 100%;
   font-family: var(--link-font);
 }
 
@@ -354,6 +359,7 @@ h4 {
 
 .sweeper-data-output-wrapper {
   width: 50%;
+  margin-bottom: 3rem;
   margin-top: 2rem;
   border-radius: 10px;
 }
@@ -406,6 +412,12 @@ h4 {
 
 .zipform-btn:hover {
   background: var(--primary-lightorange);
+}
+
+.error-msg {
+  font-family: var(--link-font);
+  padding: 0.2rem 0;
+  margin-left: 5px;
 }
 
 ::placeholder {
@@ -492,6 +504,10 @@ h4 {
   .zipform-input,
   .street-input {
     font-size: 100%;
+  }
+
+  .sweeper-wrapper {
+    padding-top: 4rem;
   }
 }
 
@@ -618,5 +634,82 @@ h4 {
 @media all and (max-width: 415px) {
   .homepage-secondary-header {
     font-size: 130%;
+  }
+}
+
+/* PORTRAIT QUERIES  */
+
+@media all and (max-height: 620px) {
+  .sweeper-wrapper,
+  .login-signup-wrapper {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .homepage-bio-wrapper {
+    margin-top: 16rem;
+  }
+
+  img {
+    height: 25vh;
+  }
+}
+
+@media all and (max-height: 500px) {
+  .navbar-header,
+  .footer-wrapper {
+    height: 4rem;
+  }
+
+  .sweeper-wrapper {
+    height: 100%;
+    padding-top: 1rem;
+  }
+
+  .login-signup-wrapper {
+    height: 100%;
+    padding: 0rem 2rem 2rem 0;
+  }
+
+  .homepage-wrapper {
+    padding-top: 0;
+  }
+
+  .homepage-img {
+    top: 17rem;
+  }
+
+  img {
+    height: 30vh;
+  }
+}
+
+@media all and (max-height: 390px) {
+  .navbar-header,
+  .footer-wrapper {
+    height: 3.5rem;
+  }
+
+  .sweeper-wrapper {
+    height: 100%;
+    padding-top: 1rem;
+  }
+
+  .login-signup-wrapper {
+    height: 100%;
+    padding: 0rem 1rem 1rem 0;
+  }
+
+  .homepage-header {
+    padding: 0 3rem;
+    font-size: 160%;
+  }
+
+  .homepage-img {
+    top: 13rem;
+  }
+
+  .homepage-bio-wrapper {
+    margin-top: 12rem;
   }
 }

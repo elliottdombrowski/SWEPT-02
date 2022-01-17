@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
+import { validateEmail } from '../../utils/helpers';
 import Auth from '../../utils/auth';
 
 const LoginForm = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
+  const [err, setErr] = useState('');
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
@@ -14,7 +16,10 @@ const LoginForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    if (!validateEmail(loginData.email)) {
+      setErr('Please enter a valid Email!');
+      return false;
+    }
     try {
       const { data } = await login({
         variables: { ...loginData },
@@ -32,10 +37,12 @@ const LoginForm = () => {
       email: '',
       password: '',
     })
+    setErr('');
   };
 
   return (
     <form className='login-form' onSubmit={handleFormSubmit}>
+      <p className='error-msg'>{err}</p>
       <input
         type='text'
         name='email'

@@ -8,6 +8,7 @@ import './query.css';
 const Snow = () => {
   const snowNumber = useRef('');
   const [snow, setSnow] = useState('');
+  const [err, setErr] = useState('');
   const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //SNOW / STREET FORM USERQUERY
@@ -20,6 +21,11 @@ const Snow = () => {
   const snowNumberSubmit = async (event) => {
     event.preventDefault();
     setSnow(snowNumber.current.value);
+
+    if (!snowInfo.length) {
+      setErr('Please enter a valid Chicago Street Name');
+    }
+
     return true;
   };
 
@@ -43,6 +49,7 @@ const Snow = () => {
             >
               Find your schedule!
             </button>
+            <p className='error-msg'>{err}</p>
           </form>
         </div>
       </div>

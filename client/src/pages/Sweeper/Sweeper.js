@@ -11,6 +11,8 @@ const Sweeper = () => {
   const [ward, setWard] = useState('');
   const [saveSweeper] = useMutation(SAVE_SWEEPER);
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const [err, setErr] = useState('');
+
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -21,7 +23,21 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
+
+    if (wardNumber.current.value.length == 2 && wardNumber.current.value > 50) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
+
+    //TODO- CHECK ZIPCODE VAL
+
     setWard(wardNumber.current.value);
+
+    // if (!wardInfo.length) {
+    //   setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+    // }
+
+    setErr('');
     return true;
   };
 
@@ -101,6 +117,7 @@ const Sweeper = () => {
             >
               Find your schedule!
             </button>
+            <p className='error-msg'>{err}</p>
           </form>
         </div>
       </div>
