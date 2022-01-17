@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import { QUERY_SINGLE_USER } from '../../utils/queries';
+import Auth from '../../utils/auth';
 
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_USER, {
-    // variables: { userId: userId },
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
   });
 
-  const user = data?.user || {};
+  const user = data?.me || data?.user || {};
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to='/me' />
+  }
+
   return (
     <div className='profile-wrapper'>
         <div className='profile-info-wrapper'>
