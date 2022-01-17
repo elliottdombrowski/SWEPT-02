@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GET_WARD } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
+import { SAVE_SWEEPER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -21,17 +22,6 @@ const Sweeper = () => {
     setWard(wardNumber.current.value);
     return true;
   };
-
-  // function to save a sweeper
-  const saveBtn = (val) => {
-    const isLoggedIn = localStorage.getItem('id_token');
-    if (isLoggedIn) {
-      console.log(val)
-    } else {
-      alert("you are not logged in")
-      window.location.assign("/login")
-    }
-  }
 
   return (
     <div className='sweeper-wrapper'>
