@@ -58,6 +58,19 @@ mutation saveSnow(
   $to_street: String!
   $restrict_t: String!
   $user: String!
-)
+) {
+  saveSweeper(
+    on_street: $on_street
+    from_stree: $from_stree
+    to_street: $to_street
+    restrict_t: $restrict_t
+    user: $user
+  ) {
+    on_street
+    from_stree
+    to_street
+    restrict_t
+    user
+  }
 }
 `;
