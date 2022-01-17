@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
@@ -12,10 +12,6 @@ const Profile = () => {
   });
 
   const user = data?.me || data?.user || {};
-
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to='/me' />
-  }
 
   return (
     <div className='profile-wrapper'>
