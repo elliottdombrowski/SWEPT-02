@@ -315,6 +315,8 @@ h4 {
 }
 
 .profile-header {
+  all: unset;
+  font-family: var(--link-font);
   font-size: 200%;
   text-shadow: 3px 3px 2px var(--deep-darkblue);
 }
@@ -344,8 +346,13 @@ h4 {
   margin-bottom: 3rem;
 }
 
-.recent-search-header {
+.recent-search-wrapper {
   text-align: center;
+}
+
+.recent-searches {
+  font-size: 200%;
+  font-family: var(--link-font);
 }
 
 /* END PROFILE  */
