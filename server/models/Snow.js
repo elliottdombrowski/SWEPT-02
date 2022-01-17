@@ -19,6 +19,12 @@ const snowSchema = new Schema({
     restrict_t: {
         type: String,
         required: true
+    },
+    user: {
+        // set to ObjectId for db match
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 })
 
