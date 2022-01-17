@@ -39,8 +39,8 @@ const Sweeper = () => {
               month_name: val.month_name,
               section: val.section,
               dates: val.dates,
-              zipcode: userInputtedWardNumber,
-              user: uuid
+              // zipcode: userInputtedWardNumber,
+              // user: uuid
             }
           })
           alert('Saved successfully')
@@ -56,8 +56,8 @@ const Sweeper = () => {
               month_name: val.month_name,
               section: val.section,
               dates: val.dates,
-              zipcode: '',
-              user: uuid
+              // zipcode: '',
+              // user: uuid
             }
           })
           alert('Saved successfully')
