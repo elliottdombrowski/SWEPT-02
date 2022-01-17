@@ -76,9 +76,9 @@ const Sweeper = () => {
           });
         } catch (err) {
           toast({
-            title: 'Saved your Search to your Profile!',
+            title: 'Unable to save your Search!',
             position: 'bottom-left',
-            status: 'success',
+            status: 'error',
             duration: 2000,
             isClosable: false,
           });
