@@ -26,7 +26,7 @@ export const ADD_USER = gql`
 
 export const SAVE_SWEEPER = gql`
 mutation saveSweeper($ward: String!, $section: String!, $month_name: String!, $dates: String!, $zipcode: String!, $user: String!) {
-  saveSweeper(ward: $ward, section: $section, month_name: $month_name, dates: $dates, zipcode: $zipcode, user: $user) {
+  saveSweeper(ward: $ward, section: $section, monsth_name: $month_name, dates: $dates, zipcode: $zipcode, user: $user) {
     ward
     section
     month_name
