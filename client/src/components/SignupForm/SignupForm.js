@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { Input } from '@chakra-ui/react';
 import { ADD_USER } from '../../utils/mutations';
 import { validateEmail } from '../../utils/helpers';
 import Auth from '../../utils/auth';
@@ -35,7 +36,8 @@ const LoginForm = () => {
   return (
     <form className='login-form' onSubmit={handleFormSubmit}>
           <p className='error-msg'>{err}</p>
-          <input
+          <Input
+            size='xl'
             type='text'
             name='username'
             onChange={handleInputChange}
@@ -45,7 +47,8 @@ const LoginForm = () => {
             className='login-input'
           />
 
-          <input
+          <Input
+            size='xl'
             type='text'
             name='email'
             onChange={handleInputChange}
@@ -55,7 +58,8 @@ const LoginForm = () => {
             className='login-input'
           />
           
-          <input
+          <Input
+            size='xl'
             type='text'
             name='password'
             onChange={handleInputChange}
