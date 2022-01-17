@@ -80,6 +80,7 @@ button {
 }
 
 img {
+  all: unset;
   max-height: 20vh;
 }
 
@@ -663,7 +664,7 @@ h4 {
   }
 
   img {
-    height: 18vh;
+    max-height: 18vh;
   }
 }
 
@@ -676,7 +677,7 @@ h4 {
 
 @media all and (max-width: 438px) {
   img {
-    height: 18vh;
+    max-height: 18vh;
   }
 
   .homepage-bio-wrapper {
@@ -704,7 +705,7 @@ h4 {
   }
 
   img {
-    height: 25vh;
+    max-height: 25vh;
   }
 }
 
@@ -733,7 +734,7 @@ h4 {
   }
 
   img {
-    height: 30vh;
+    max-height: 30vh;
   }
 }
 
