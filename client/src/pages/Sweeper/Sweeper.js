@@ -40,7 +40,7 @@ const Sweeper = () => {
               section: val.section,
               dates: val.dates,
               zipcode: userInputtedWardNumber,
-              // user: uuid
+              user: uuid
             }
           })
           alert('Saved successfully')
@@ -57,7 +57,7 @@ const Sweeper = () => {
               section: val.section,
               dates: val.dates,
               zipcode: '',
-              // user: uuid
+              user: uuid
             }
           })
           alert('Saved successfully')
