@@ -294,6 +294,31 @@ h4 {
     var(--chi-blue) 20%
   );
   height: 85vh;
+  font-family: var(--link-font);
+  text-shadow: none;
+}
+
+.profile-welcome-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.profile-header {
+  font-size: 200%;
+  text-shadow: 3px 3px 2px var(--deep-darkblue);
+}
+
+.profile-username {
+  margin-left: 10px;
+  font-family: var(--logo-font);
+  font-style: italic;
+  font-size: 200%;
+  text-shadow: 3px 3px 2px var(--deep-darkblue);
+}
+
+.profile-email {
+  font-size: 120%;
 }
 
 .profile-info-wrapper,
@@ -309,9 +334,7 @@ h4 {
   margin-bottom: 3rem;
 }
 
-.profile-welcome-header,
 .recent-search-header {
-  text-shadow: var(--homepage-textshadow);
   text-align: center;
 }
 
@@ -465,6 +488,12 @@ h4 {
 /* END FOOTER  */
 
 /* FORM QUERIES  */
+
+@media all and (max-width: 1298px) {
+  .profile-username {
+    margin-left: 0;
+  }
+}
 
 @media all and (max-width: 768px) {
   .sweeper-form-wrapper,
