@@ -16,6 +16,7 @@ const Sweeper = () => {
   const [err, setErr] = useState('');
   
   const toast = useToast();
+  const id = 'toast';
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -48,6 +49,7 @@ const Sweeper = () => {
   const saveBtn = async (val) => {
     const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
+
     if (isLoggedIn) {
       const userInputtedWardNumber = wardNumber.current.value
       // if user kicks off second API call with 5+ digit then set equal 
@@ -66,22 +68,28 @@ const Sweeper = () => {
               user: uuid
             }
           })
-          // temp - can be changed to react modal!
-          toast({
-            title: 'Saved your Search to your Profile!',
-            position: 'bottom-left',
-            status: 'success',
-            duration: 2000,
-            isClosable: false,
-          });
+          //CALL CHAKRA UI TOAST ON SAVE SUCCESS
+          if (!toast.isActive(id)) {
+            toast({
+              id,
+              title: 'Saved your Search to your Profile!',
+              position: 'bottom-left',
+              status: 'success',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
         } catch (err) {
-          toast({
-            title: 'Unable to save your Search!',
-            position: 'bottom-left',
-            status: 'error',
-            duration: 2000,
-            isClosable: false,
-          });
+          //CALL CHAKRA UI TOAST ON SAVE FAILURE
+          if (!toast.isActive(id)) {
+            toast({
+              title: 'Unable to save your Search!',
+              position: 'bottom-left',
+              status: 'error',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
           console.log(err)
         }
       } else {
@@ -99,28 +107,42 @@ const Sweeper = () => {
             }
           })
           //CALL CHAKRA UI TOAST ON SAVE SUCCESS
-          toast({
-            title: 'Saved your Search to your Profile!',
-            position: 'bottom-left',
-            status: 'success',
-            duration: 2000,
-            isClosable: false,
-          });
+          if (!toast.isActive(id)) {
+            toast({
+              id,
+              title: 'Saved your Search to your Profile!',
+              position: 'bottom-left',
+              status: 'success',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
         } catch (err) {
-          toast({
-            title: 'Unable to save your Search!',
-            position: 'bottom-left',
-            status: 'error',
-            duration: 2000,
-            isClosable: false,
-          });
+          //CALL CHAKRA UI TOAST ON SAVE FAILURE
+          if (!toast.isActive(id)) {
+            toast({
+              title: 'Unable to save your Search!',
+              position: 'bottom-left',
+              status: 'error',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
           console.log(err)
         }
       }
     } else {
-      // temp - can be changed to react modal!
-      alert("you are not logged in")
-      window.location.assign("/login")
+      //CALL CHAKRA UI TOAST IF NOT LOGGED IN
+      if (!toast.isActive(id)) {
+        toast({
+          title: 'You must be logged in!',
+          position: 'bottom-left',
+          status: 'warning',
+          duration: 2000,
+          isClosable: false,
+        });
+      }
+      // window.location.assign("/login")
     }
   }
 

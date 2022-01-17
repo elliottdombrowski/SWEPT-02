@@ -69,7 +69,13 @@ const Snow = () => {
       }
     } else {
       // temp - can be changed to react modal!
-      alert("you are not logged in")
+      toast({
+        title: 'You must be logged in!',
+        position: 'bottom-left',
+        status: 'warning',
+        duration: 2000,
+        isClosable: false,
+      });
       window.location.assign("/login")
     }
   }
