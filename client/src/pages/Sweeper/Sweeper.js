@@ -26,7 +26,20 @@ const Sweeper = () => {
 
   // save sweeper fx
   const saveBtn = () => {
-
+    const userInputtedWardNumber = wardNumber.current.value
+    // greater than or equal to numbers starting in the 60000's (per zipcode rules)
+    if (userInputtedWardNumber >= 60000) {
+      try {
+        await saveSweeper({
+          variables: {
+            ward: val.ward,
+            month_name: val.month_name,
+            section: val.section,
+            dates: val.dates,
+            zipcode: "",
+            user: uuid
+          }
+    }
   }
 
   return (
