@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GET_WARD } from '../../utils/queries';
 import { useQuery, useMutation } from '@apollo/client';
-import { SAVE_SWEEPER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { SAVE_SWEEPER } from '../../utils/mutations';
+import { usePinInputDescendantsContext } from '@chakra-ui/react';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
