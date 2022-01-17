@@ -54,7 +54,7 @@ const typeDefs = gql`
     getWard(wardNumber: String): [Ward]
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
-    singleUser: User
+    me: User
   }
 
   type Mutation {

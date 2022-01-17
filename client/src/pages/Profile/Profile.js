@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_USER } from '../../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 const Profile = () => {
