@@ -56,7 +56,7 @@ const Sweeper = () => {
               month_name: val.month_name,
               section: val.section,
               dates: val.dates,
-              // zipcode: '12345',
+              // zipcode: '',
               // user: uuid
             }
           })
