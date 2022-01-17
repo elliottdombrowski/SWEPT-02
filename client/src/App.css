@@ -464,6 +464,7 @@ h4 {
 .sweeper-ward {
   font-family: var(--link-font);
   font-size: 150%;
+  text-transform: capitalize;
 }
 
 ::placeholder {

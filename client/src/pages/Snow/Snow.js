@@ -25,9 +25,9 @@ const Snow = () => {
     event.preventDefault();
     setSnow(snowNumber.current.value);
 
-    if (!snowInfo.length) {
-      setErr('Please enter a valid Chicago Street Name');
-    }
+    // if (!snowInfo.length) {
+    //   setErr('Please enter a valid Chicago Street Name');
+    // }
     return true;
   };
 
@@ -93,11 +93,13 @@ const Snow = () => {
             snowInfo.map((info, index) => {
               return (
                 <div className='sweeper-data-output' key={index}>
-                  <h2>Restricted on: {info.on_street}</h2>
+                  <span className='sweeper-date'>Parking Restricted on: {info.on_street}</span>
                   {/* INTENTIONAL TYPO- TO MATCH TYPO IN API  */}
-                  <h3>From: {info.from_stree}</h3>
-                  <h3>To: {info.to_street}</h3>
-                  <h3>Restriction on {info.restrict_t}S of snow.</h3>
+                  <span className='sweeper-ward'>From: {info.from_stree}</span>
+                  <span className='sweeper-ward'>To: {info.to_street}</span>
+                  {/* <h3>From: {info.from_stree}</h3>
+                  <h3>To: {info.to_street}</h3> */}
+                  <span className='sweeper-ward'>Restricted with {info.restrict_t}ES of snow.</span>
                   <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )
