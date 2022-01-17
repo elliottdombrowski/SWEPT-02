@@ -205,7 +205,13 @@ const resolvers = {
       var newSnow = new Snow({
         on_street, from_stree, to_street, restrict_t, user
       });
-      
+      newSnow.save()
+        .then((response) => {
+          return response;
+        })
+        .catch((err) => {
+          return err;
+        })
     }
   }
 };
