@@ -294,6 +294,22 @@ h4 {
     var(--chi-blue) 20%
   );
   height: 85vh;
+  font-family: var(--link-font);
+  text-shadow: none;
+}
+
+.profile-header {
+  font-size: 200%;
+  text-shadow: 3px 3px 2px var(--deep-darkblue);
+}
+
+.profile-email {
+}
+
+.profile-username {
+  font-family: var(--logo-font);
+  font-style: italic;
+  font-size: 200%;
 }
 
 .profile-info-wrapper,
@@ -309,9 +325,7 @@ h4 {
   margin-bottom: 3rem;
 }
 
-.profile-welcome-header,
 .recent-search-header {
-  text-shadow: var(--homepage-textshadow);
   text-align: center;
 }
 

@@ -15,22 +15,22 @@ const Profile = () => {
 
   return (
     <div className='profile-wrapper'>
-        <div className='profile-info-wrapper'>
-            <div className='profile-welcome-header'>
-              <h1>Welcome, {user.username}!</h1>
-            </div>
-            <p>{user.email}</p>
+      <div className='profile-info-wrapper'>
+        <div className='profile-welcome-header'>
+          <h1 className='profile-header'>Welcome,</h1><span className='profile-username'>{user.username}!</span>
+          <p className='profile-email'>{user.email}</p>
         </div>
-        <div className='recent-search-wrapper'>
-            <div className='recent-search-header'>
-              <h1>Recent Searches</h1>
-              <p>Placeholder</p>
-              <p>Placeholder</p>
-              <p>Placeholder</p>
-              <p>Placeholder</p>
-              <p>Placeholder</p>
-            </div>
+      </div>
+      <div className='recent-search-wrapper'>
+        <div className='recent-search-header'>
+          <h1>Recent Searches</h1>
+          <p>Placeholder</p>
+          <p>Placeholder</p>
+          <p>Placeholder</p>
+          <p>Placeholder</p>
+          <p>Placeholder</p>
         </div>
+      </div>
     </div>
   );
 };
