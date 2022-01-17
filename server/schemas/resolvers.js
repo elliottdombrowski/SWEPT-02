@@ -1,6 +1,6 @@
-const { User } = require('../models')
+const { User, Sweeper } = require('../models')
 const axios = require('axios');
-const { signToken } = require('../utils/auth');
+const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 const { DateTime } = require('luxon');
 
@@ -132,7 +132,7 @@ const resolvers = {
           }
         }
         const snowResponse = await axios.request(snowData);
-        
+
         //DECLARE RESPONSE ARRAY FOR MATCHES
         let responseArr = [];
         //FOR EACH RECORD IN FULL API RESPONSE, FIND WHERE USER INPUT MATCHES 
@@ -184,6 +184,20 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
+    },
+
+    saveSweeper: async (parent, { ward, section, month_name, dates, zipcode, user }) => {
+      console.log(ward, section, month_name, dates, zipcode, user)
+      var newSweeper = new Sweeper({
+        ward, section, month_name, dates, zipcode, user
+      });
+      newSweeper.save()
+        .then((response) => {
+          return response;
+        })
+        .catch((err) => {
+          return err;
+        })
     }
   }
 };

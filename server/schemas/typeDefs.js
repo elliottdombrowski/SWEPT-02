@@ -24,10 +24,20 @@ const typeDefs = gql`
     zipcode: String
   }
 
+  type SaveSweeper {
+    ward: String,
+    section: String,
+    month_name: String,
+    dates: String,
+    zipcode: String,
+    user: String
+  }
+
   type Snow {
     on_street: String,
     from_stree: String,
-    to_street: String
+    to_street: String,
+    restrict_t: String
   }
   
   type Query {
@@ -42,6 +52,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    saveSweeper(ward: String!, section: String!, month_name: String!, dates: String!, zipcode: String!, user: String!): SaveSweeper
   }
   `;
 

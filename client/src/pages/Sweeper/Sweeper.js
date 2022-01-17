@@ -1,14 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GET_WARD } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
+import { SAVE_SWEEPER } from '../../utils/mutations';
+import { usePinInputDescendantsContext } from '@chakra-ui/react';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
+  const [saveSweeper] = useMutation(SAVE_SWEEPER);
+  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
-  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -36,6 +40,62 @@ const Sweeper = () => {
     setErr('');
     return true;
   };
+
+  // save sweeper fx
+  const saveBtn = async (val) => {
+    const isLoggedIn = localStorage.getItem('id_token');
+    const uuid = localStorage.getItem('uuid');
+    if (isLoggedIn) {
+      const userInputtedWardNumber = wardNumber.current.value
+      // if user kicks off second API call with 5+ digit then set equal 
+      // or > to the 60000's (per zipcode rules)
+      if (userInputtedWardNumber >= 60000) {
+        try {
+          // save this to mongodb
+          await saveSweeper({
+            variables: {
+              ward: val.ward,
+              month_name: val.month_name,
+              section: val.section,
+              dates: val.dates,
+              zipcode: userInputtedWardNumber,
+              // local storage atm
+              user: uuid
+            }
+          })
+          // temp - can be changed to react modal!
+          alert("Saved successfully")
+        } catch (err) {
+          alert("Unable to save")
+          console.log(err)
+        }
+      } else {
+        try {
+          await saveSweeper({
+            variables: {
+              ward: val.ward,
+              month_name: val.month_name,
+              section: val.section,
+              dates: val.dates,
+              // empty string for when only sweeper api is kicked off
+              zipcode: "",
+              // local storage atm
+              user: uuid
+            }
+          })
+          // temp - can be changed to react modal!
+          alert("Saved successfully")
+        } catch (err) {
+          alert("Unable to save")
+          console.log(err)
+        }
+      }
+    } else {
+      // temp - can be changed to react modal!
+      alert("you are not logged in")
+      window.location.assign("/login")
+    }
+  }
 
   return (
     <div className='sweeper-wrapper'>
@@ -72,7 +132,7 @@ const Sweeper = () => {
                   <h4>Month: {info.month_name}</h4>
                   <h3>Dates: {info.dates}</h3>
                   <h2>Ward: {info.ward}</h2>
-                  <button className='login-btn save-btn'>{saveBtn}</button>
+                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )
             })

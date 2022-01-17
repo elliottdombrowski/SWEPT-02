@@ -65,7 +65,7 @@ const Snow = () => {
                   {/* INTENTIONAL TYPO- TO MATCH TYPO IN API  */}
                   <h3>From: {info.from_stree}</h3>
                   <h3>To: {info.to_street}</h3>
-                  <h3>Restricted with: {info.restrict_t} of snow.</h3>
+                  <h3>Restriction on {info.restrict_t}S of snow.</h3>
                   <button className='login-btn save-btn'>{saveBtn}</button>
                 </div>
               )

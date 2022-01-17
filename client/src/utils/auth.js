@@ -1,3 +1,4 @@
+import { Token } from 'graphql';
 import decode from 'jwt-decode';
 
 class AuthService {
@@ -6,8 +7,12 @@ class AuthService {
   };
 
   loggedIn() {
-    const token = this.getToken();
-    return !!token && !this.isTokenExpired(token);
+    const token = localStorage.getItem('id_token');
+    if (!token) {
+      return false;
+    } else {
+      return token;
+    }
   };
 
   isTokenExpired(token) {
