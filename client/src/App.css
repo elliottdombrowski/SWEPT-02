@@ -298,18 +298,27 @@ h4 {
   text-shadow: none;
 }
 
+.profile-welcome-header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .profile-header {
   font-size: 200%;
   text-shadow: 3px 3px 2px var(--deep-darkblue);
 }
 
-.profile-email {
-}
-
 .profile-username {
+  margin-left: 10px;
   font-family: var(--logo-font);
   font-style: italic;
   font-size: 200%;
+  text-shadow: 3px 3px 2px var(--deep-darkblue);
+}
+
+.profile-email {
+  font-size: 120%;
 }
 
 .profile-info-wrapper,
@@ -479,6 +488,12 @@ h4 {
 /* END FOOTER  */
 
 /* FORM QUERIES  */
+
+@media all and (max-width: 1298px) {
+  .profile-username {
+    margin-left: 0;
+  }
+}
 
 @media all and (max-width: 768px) {
   .sweeper-form-wrapper,
