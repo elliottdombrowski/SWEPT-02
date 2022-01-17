@@ -33,7 +33,32 @@ const Snow = () => {
 
   // save snow fx
   const saveBtn = async (val) => {
-
+    const isLoggedIn = localStorage.getItem('id_token');
+    const uuid = localStorage.getItem('uuid');
+    if (isLoggedIn) {
+      try {
+        // save this to mongodb
+        await saveSnow({
+          variables: {
+            on_street: val.snow,
+            from_stree: val.snow,
+            to_street: val.snow,
+            restrict_t: val.snow,
+            // local storage atm
+            user: uuid
+          }
+        })
+        // temp - can be changed to react modal!
+        alert("Saved successfully")
+      } catch (err) {
+        alert("Unable to save")
+        console.log(err)
+      }
+    } else {
+      // temp - can be changed to react modal!
+      alert("you are not logged in")
+      window.location.assign("/login")
+    }
   }
 
   return (
