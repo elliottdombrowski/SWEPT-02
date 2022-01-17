@@ -40,15 +40,14 @@ const Snow = () => {
         // save this to mongodb
         await saveSnow({
           variables: {
-            on_street: val.snow,
-            from_stree: val.snow,
-            to_street: val.snow,
-            restrict_t: val.snow,
+            on_street: val.on_street,
+            from_stree: val.from_stree,
+            to_street: val.to_street,
+            restrict_t: val.restrict_t,
             // local storage atm
             user: uuid
           }
         })
-        console.log(on_street)
         // temp - can be changed to react modal!
         alert("Saved successfully")
       } catch (err) {
