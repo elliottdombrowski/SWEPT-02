@@ -645,6 +645,14 @@ h4 {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
+
+  .homepage-bio-wrapper {
+    margin-top: 16rem;
+  }
+
+  img {
+    height: 25vh;
+  }
 }
 
 @media all and (max-height: 500px) {
@@ -662,9 +670,21 @@ h4 {
     height: 100%;
     padding: 0rem 2rem 2rem 0;
   }
+
+  .homepage-wrapper {
+    padding-top: 0;
+  }
+
+  .homepage-img {
+    top: 17rem;
+  }
+
+  img {
+    height: 30vh;
+  }
 }
 
-@media all and (max-height: 375px) {
+@media all and (max-height: 390px) {
   .navbar-header,
   .footer-wrapper {
     height: 3.5rem;
@@ -678,5 +698,18 @@ h4 {
   .login-signup-wrapper {
     height: 100%;
     padding: 0rem 1rem 1rem 0;
+  }
+
+  .homepage-header {
+    padding: 0 3rem;
+    font-size: 160%;
+  }
+
+  .homepage-img {
+    top: 13rem;
+  }
+
+  .homepage-bio-wrapper {
+    margin-top: 12rem;
   }
 }
