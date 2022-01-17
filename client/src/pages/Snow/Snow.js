@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { GET_SNOW } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
+import { SAVE_SNOW } from '../../utils/mutations'
+import { useQuery, useMutation } from '@apollo/client';
 
 import './query.css';
 
@@ -9,7 +11,8 @@ const Snow = () => {
   const snowNumber = useRef('');
   const [snow, setSnow] = useState('');
   const [err, setErr] = useState('');
-  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const [saveSnow] = useMutation(SAVE_SNOW);
+  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //SNOW / STREET FORM USERQUERY
   const { loading, data } = useQuery(GET_SNOW, {
@@ -25,9 +28,38 @@ const Snow = () => {
     if (!snowInfo.length) {
       setErr('Please enter a valid Chicago Street Name');
     }
-
     return true;
   };
+
+  // save snow fx
+  const saveBtn = async (val) => {
+    const isLoggedIn = localStorage.getItem('id_token');
+    const uuid = localStorage.getItem('uuid');
+    if (isLoggedIn) {
+      try {
+        // save this to mongodb
+        await saveSnow({
+          variables: {
+            on_street: val.on_street,
+            from_stree: val.from_stree,
+            to_street: val.to_street,
+            restrict_t: val.restrict_t,
+            // local storage atm
+            user: uuid
+          }
+        })
+        // temp - can be changed to react modal!
+        alert("Saved successfully")
+      } catch (err) {
+        alert("Unable to save")
+        console.log(err)
+      }
+    } else {
+      // temp - can be changed to react modal!
+      alert("you are not logged in")
+      window.location.assign("/login")
+    }
+  }
 
   return (
     <div className='sweeper-wrapper'>
@@ -66,7 +98,7 @@ const Snow = () => {
                   <h3>From: {info.from_stree}</h3>
                   <h3>To: {info.to_street}</h3>
                   <h3>Restriction on {info.restrict_t}S of snow.</h3>
-                  <button className='login-btn save-btn'>{saveBtn}</button>
+                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )
             })

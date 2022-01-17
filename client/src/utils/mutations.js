@@ -50,3 +50,27 @@ export const SAVE_SWEEPER = gql`
     }
   }
 `;
+
+export const SAVE_SNOW = gql`
+mutation saveSnow(
+  $on_street: String!
+  $from_stree: String!
+  $to_street: String!
+  $restrict_t: String!
+  $user: String!
+) {
+  saveSnow(
+    on_street: $on_street
+    from_stree: $from_stree
+    to_street: $to_street
+    restrict_t: $restrict_t
+    user: $user
+  ) {
+    on_street
+    from_stree
+    to_street
+    restrict_t
+    user
+  }
+}
+`;

@@ -1,4 +1,4 @@
-const { User, Sweeper } = require('../models')
+const { User, Sweeper, Snow } = require('../models')
 const axios = require('axios');
 const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
@@ -192,6 +192,20 @@ const resolvers = {
         ward, section, month_name, dates, zipcode, user
       });
       newSweeper.save()
+        .then((response) => {
+          return response;
+        })
+        .catch((err) => {
+          return err;
+        })
+    },
+
+    saveSnow: async (parent, { on_street, from_stree, to_street, restrict_t, user }) => {
+      console.log(on_street, from_stree, to_street, restrict_t, user)
+      var newSnow = new Snow({
+        on_street, from_stree, to_street, restrict_t, user
+      });
+      newSnow.save()
         .then((response) => {
           return response;
         })
