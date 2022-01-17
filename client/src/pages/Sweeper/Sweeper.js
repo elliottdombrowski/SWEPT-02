@@ -49,16 +49,6 @@ const Sweeper = () => {
           console.log(err)
         }
       } else {
-        try {
-          await saveSweeper({
-            variables: {
-              ward: val.ward,
-              month_name: val.month_name,
-              section: val.section,
-              dates: val.dates,
-              zipcode: '',
-              user: uuid
-            }
           })
           alert('Saved successfully')
         } catch (err) {
