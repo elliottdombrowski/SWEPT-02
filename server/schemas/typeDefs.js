@@ -39,6 +39,13 @@ const typeDefs = gql`
     to_street: String,
     restrict_t: String
   }
+
+  type SaveSnow {
+    on_street: String,
+    from_stree: String,
+    to_street: String,
+    restrict_t: String
+  }
   
   type Query {
     users: [User]
