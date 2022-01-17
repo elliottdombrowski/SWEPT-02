@@ -12,7 +12,7 @@ const Snow = () => {
   const [snow, setSnow] = useState('');
   const [err, setErr] = useState('');
   const [saveSnow] = useMutation(SAVE_SNOW);
-  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //SNOW / STREET FORM USERQUERY
   const { loading, data } = useQuery(GET_SNOW, {
@@ -69,7 +69,7 @@ const Snow = () => {
                   <h3>From: {info.from_stree}</h3>
                   <h3>To: {info.to_street}</h3>
                   <h3>Restriction on {info.restrict_t}S of snow.</h3>
-                  <button className='login-btn save-btn'>{saveBtn}</button>
+                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )
             })
