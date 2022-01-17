@@ -128,9 +128,8 @@ const Sweeper = () => {
             wardInfo.map((info, index) => {
               return (
                 <div className='sweeper-data-output' key={index}>
-                  <h4>Month: {info.month_name}</h4>
-                  <h3>Dates: {info.dates}</h3>
-                  <h2>Ward: {info.ward}</h2>
+                  <span className='sweeper-date'>{info.month_name} {info.dates}</span>
+                  <p className='sweeper-ward'>Ward {info.ward}</p>
                   <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )

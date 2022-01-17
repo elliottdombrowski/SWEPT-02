@@ -460,6 +460,12 @@ h4 {
   margin-left: 5px;
 }
 
+.sweeper-date,
+.sweeper-ward {
+  font-family: var(--link-font);
+  font-size: 150%;
+}
+
 ::placeholder {
   color: white;
 }
