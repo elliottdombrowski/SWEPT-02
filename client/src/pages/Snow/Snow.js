@@ -11,6 +11,7 @@ const Snow = () => {
   const snowNumber = useRef('');
   const [snow, setSnow] = useState('');
   const [err, setErr] = useState('');
+  const [saveSnow] = useMutation(SAVE_SNOW);
   const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //SNOW / STREET FORM USERQUERY
