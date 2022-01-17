@@ -9,7 +9,6 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
-
 import './App.css';
 
 const httpLink = createHttpLink({
