@@ -37,6 +37,7 @@ const LoginForm = () => {
     <form className='login-form' onSubmit={handleFormSubmit}>
           <p className='error-msg'>{err}</p>
           <Input
+            variant='Outline'
             size='xl'
             type='text'
             name='username'
@@ -48,6 +49,7 @@ const LoginForm = () => {
           />
 
           <Input
+            variant='Outline'
             size='xl'
             type='text'
             name='email'
@@ -59,6 +61,7 @@ const LoginForm = () => {
           />
           
           <Input
+            variant='Outline'
             size='xl'
             type='text'
             name='password'

@@ -139,7 +139,8 @@ const Sweeper = () => {
           position: 'bottom-left',
           status: 'warning',
           duration: 2000,
-          isClosable: false,
+          isClosable: true,
+          onCloseComplete: () => window.location.assign('/login')
         });
       }
       // window.location.assign("/login")
