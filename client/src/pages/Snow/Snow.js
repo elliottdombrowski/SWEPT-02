@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 import { GET_SNOW } from '../../utils/queries';
-import { useQuery } from '@apollo/client';
+import { SAVE_SNOW } from '../../utils/mutations'
+import { useQuery, useMutation } from '@apollo/client';
 
 import './query.css';
 
