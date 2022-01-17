@@ -10,7 +10,7 @@ const Homepage = () => {
       </div>
       <div className='homepage-text-wrapper'>
         <div className='homepage-header'>
-          <h1>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
+          <h1 className='homepage-welcome'>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
         </div>
 
         <div className='homepage-bio-wrapper'>
