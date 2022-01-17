@@ -20,7 +20,6 @@ const sweeperSchema = new Schema({
         required: true
     },
     user: {
-        // saving as ObjectId helps connect the user + saved items
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
