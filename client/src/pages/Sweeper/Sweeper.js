@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 import { GET_WARD } from '../../utils/queries';
+import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
-import { SAVE_SWEEPER } from '../../utils/mutations';
-import { usePinInputDescendantsContext } from '@chakra-ui/react';
+import reactDom from 'react-dom';
+
 
 const Sweeper = () => {
   const wardNumber = useRef('');
@@ -12,6 +14,8 @@ const Sweeper = () => {
   const [saveSweeper] = useMutation(SAVE_SWEEPER);
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
+  
+  const toast = useToast();
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -63,9 +67,21 @@ const Sweeper = () => {
             }
           })
           // temp - can be changed to react modal!
-          alert("Saved successfully")
+          toast({
+            title: 'Saved your Search to your Profile!',
+            position: 'bottom-left',
+            status: 'success',
+            duration: 2000,
+            isClosable: false,
+          });
         } catch (err) {
-          alert("Unable to save")
+          toast({
+            title: 'Saved your Search to your Profile!',
+            position: 'bottom-left',
+            status: 'success',
+            duration: 2000,
+            isClosable: false,
+          });
           console.log(err)
         }
       } else {
@@ -82,10 +98,22 @@ const Sweeper = () => {
               user: uuid
             }
           })
-          // temp - can be changed to react modal!
-          alert("Saved successfully")
+          //CALL CHAKRA UI TOAST ON SAVE SUCCESS
+          toast({
+            title: 'Saved your Search to your Profile!',
+            position: 'bottom-left',
+            status: 'success',
+            duration: 2000,
+            isClosable: false,
+          });
         } catch (err) {
-          alert("Unable to save")
+          toast({
+            title: 'Unable to save your Search!',
+            position: 'bottom-left',
+            status: 'error',
+            duration: 2000,
+            isClosable: false,
+          });
           console.log(err)
         }
       }
