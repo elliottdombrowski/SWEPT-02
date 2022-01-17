@@ -13,7 +13,6 @@ const Sweeper = () => {
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
 
-
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
     variables: { wardNumber: ward }
