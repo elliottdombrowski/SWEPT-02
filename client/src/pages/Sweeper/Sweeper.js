@@ -8,7 +8,8 @@ import Auth from '../../utils/auth';
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const [saveSweeper] = useMutation(SAVE_SWEEPER);
+  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
