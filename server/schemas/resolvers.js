@@ -198,7 +198,9 @@ const resolvers = {
         .catch((err) => {
           return err;
         })
-    }
+    },
+
+    saveSnow: async (parent, {on_street, from_stree, to_street, restrict_t, user})
   }
 };
 
