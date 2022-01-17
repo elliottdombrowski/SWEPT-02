@@ -43,50 +43,78 @@ const Sweeper = () => {
               user: uuid
             }
           })
-
-    return (
-      <div className='sweeper-wrapper'>
-        <div className='sweeper-form-wrapper'>
-          <div className='zip-form-wrapper'>
-            <form
-              onSubmit={(event) => wardNumberSubmit(event)}
-              className='zipform-wrapper'
-            >
-              <input
-                ref={wardNumber}
-                name='wardNumber'
-                placeholder='Enter your Ward Number or Zipcode!'
-                className='zipform-input'
-              />
-              <button
-                type='submit'
-                className='zipform-input zipform-btn'
-              >
-                Find your schedule!
-              </button>
-            </form>
-          </div>
-        </div>
-        {loading ? (
-          <div>loading...</div>
-        ) : (
-          <div className='sweeper-data-output-wrapper'>
-            {
-              wardInfo.map((info, index) => {
-                return (
-                  <div className='sweeper-data-output' key={index}>
-                    <h4>Month: {info.month_name}</h4>
-                    <h3>Dates: {info.dates}</h3>
-                    <h2>Ward: {info.ward}</h2>
-                    <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
-                  </div>
-                )
-              })
+          alert('Saved successfully')
+        } catch (err) {
+          alert('Unable to save')
+          console.log(err)
+        }
+      } else {
+        try {
+          await saveSweeper({
+            variables: {
+              ward: val.ward,
+              month_name: val.month_name,
+              section: val.section,
+              dates: val.dates,
+              zipcode: '',
+              user: uuid
             }
-          </div>
-        )}
-      </div >
-    );
-  };
+          })
+          alert('Saved successfully')
+        } catch (err) {
+          alert('Unable to save')
+          console.log(err)
+        }
+      }
+    } else {
+      alert('you are not logged in')
+      window.location.assign('/login')
+    }
+  }
 
-  export default Sweeper;
+  return (
+    <div className='sweeper-wrapper'>
+      <div className='sweeper-form-wrapper'>
+        <div className='zip-form-wrapper'>
+          <form
+            onSubmit={(event) => wardNumberSubmit(event)}
+            className='zipform-wrapper'
+          >
+            <input
+              ref={wardNumber}
+              name='wardNumber'
+              placeholder='Enter your Ward Number or Zipcode!'
+              className='zipform-input'
+            />
+            <button
+              type='submit'
+              className='zipform-input zipform-btn'
+            >
+              Find your schedule!
+            </button>
+          </form>
+        </div>
+      </div>
+      {loading ? (
+        <div>loading...</div>
+      ) : (
+        <div className='sweeper-data-output-wrapper'>
+          {
+            wardInfo.map((info, index) => {
+              return (
+                <div className='sweeper-data-output' key={index}>
+                  <h4>Month: {info.month_name}</h4>
+                  <h3>Dates: {info.dates}</h3>
+                  <h2>Ward: {info.ward}</h2>
+                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
+                </div>
+              )
+            })
+          }
+        </div>
+      )}
+    </div >
+  );
+};
+
+export default Sweeper;
