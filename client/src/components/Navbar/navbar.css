@@ -26,15 +26,6 @@
   --blue-gradient: linear-gradient(to right, var(--darkerblue), var(--darkblue))
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
 .navbar-header {
   display: flex;
   flex-direction: row;
@@ -75,6 +66,7 @@ a {
 .nav-right {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .nav-profile {
@@ -122,7 +114,12 @@ a {
   background: var(--text);
 }
 
+.switch > a {
+  margin-top: 2px;
+}
+
 .switch {
+  color: white;
   position: relative;
   background: var(--darkblue);
   border-radius: 10px;

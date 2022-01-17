@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import { setContext } from '@apollo/client/link/context';
 import Navbar from '../src/components/Navbar/Navbar';
 import Footer from '../src/components/Footer/Footer';
 import Homepage from '../src/pages/Homepage/Homepage';
@@ -35,17 +36,19 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <Router>
-          <Navbar />
-          <Route exact path='/' component={Homepage} />
-          <Route exact path='/sweeper' component={Sweeper} />
-          <Route exact path='/snow' component={Snow} />
-          <Route exact path='/me' component={Profile} />
-          <Route exact path='/login' component={LoginSignup} />
-          <Footer />
-        </Router>
-      </div>
+      <ChakraProvider>
+        <div className="App">
+          <Router>
+            <Navbar />
+            <Route exact path='/' component={Homepage} />
+            <Route exact path='/sweeper' component={Sweeper} />
+            <Route exact path='/snow' component={Snow} />
+            <Route exact path='/me' component={Profile} />
+            <Route exact path='/login' component={LoginSignup} />
+            <Footer />
+          </Router>
+        </div>
+      </ChakraProvider>
     </ApolloProvider>
   );
 }
