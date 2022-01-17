@@ -25,14 +25,16 @@ const Sweeper = () => {
   };
 
   // save sweeper fx
-  const saveBtn = () => {
+  const saveBtn = async (val) => {
     const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
     if (isLoggedIn) {
       const userInputtedWardNumber = wardNumber.current.value
-      // greater than or equal to numbers starting in the 60000's (per zipcode rules)
+      // if user kicks off second API call with 5+ digit then set equal 
+      // or > to the 60000's (per zipcode rules)
       if (userInputtedWardNumber >= 60000) {
         try {
+          // save this to mongodb
           await saveSweeper({
             variables: {
               ward: val.ward,
@@ -40,12 +42,14 @@ const Sweeper = () => {
               section: val.section,
               dates: val.dates,
               zipcode: userInputtedWardNumber,
+              // local storage atm
               user: uuid
             }
           })
-          alert('Saved successfully')
+          // temp - can be changed to react modal!
+          alert("Saved successfully")
         } catch (err) {
-          alert('Unable to save')
+          alert("Unable to save")
           console.log(err)
         }
       } else {
@@ -56,19 +60,23 @@ const Sweeper = () => {
               month_name: val.month_name,
               section: val.section,
               dates: val.dates,
-              zipcode: '',
+              // empty string for when only sweeper api is kicked off
+              zipcode: "",
+              // local storage atm
               user: uuid
             }
           })
-          alert('Saved successfully')
+          // temp - can be changed to react modal!
+          alert("Saved successfully")
         } catch (err) {
-          alert('Unable to save')
+          alert("Unable to save")
           console.log(err)
         }
       }
     } else {
-      alert('you are not logged in')
-      window.location.assign('/login')
+      // temp - can be changed to react modal!
+      alert("you are not logged in")
+      window.location.assign("/login")
     }
   }
 
