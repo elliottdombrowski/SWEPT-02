@@ -48,6 +48,7 @@ const Snow = () => {
             user: uuid
           }
         })
+        console.log(on_street)
         // temp - can be changed to react modal!
         alert("Saved successfully")
       } catch (err) {
