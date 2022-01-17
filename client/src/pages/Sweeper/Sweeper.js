@@ -27,25 +27,22 @@ const Sweeper = () => {
   // save sweeper fx
   const saveBtn = () => {
     const userInputtedWardNumber = wardNumber.current.value
-    // greater than or equal to numbers starting in the 60000's (per zipcode rules)
-    if (userInputtedWardNumber >= 60000) {
-      try {
-        await saveSweeper({
-          variables: {
-            ward: val.ward,
-            month_name: val.month_name,
-            section: val.section,
-            dates: val.dates,
-            zipcode: "",
-            user: uuid
-          }
-        }
-    alert("Saved successfully")
-  } catch (err) {
-        alert("Unable to save")
-        console.log(err)
-      }
-    }
+    const uuid = localStorage.getItem('uuid');
+    if (isLoggedIn) {
+      const userInputtedWardNumber = wardNumber.current.value
+      // greater than or equal to numbers starting in the 60000's (per zipcode rules)
+      if (userInputtedWardNumber >= 60000) {
+        try {
+          await saveSweeper({
+            variables: {
+              ward: val.ward,
+              month_name: val.month_name,
+              section: val.section,
+              dates: val.dates,
+              zipcode: userInputtedWardNumber,
+              user: uuid
+            }
+          })
 
     return (
       <div className='sweeper-wrapper'>
