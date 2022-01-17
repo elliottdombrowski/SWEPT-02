@@ -26,7 +26,7 @@ const Sweeper = () => {
 
   // save sweeper fx
   const saveBtn = () => {
-    const userInputtedWardNumber = wardNumber.current.value
+    const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
     if (isLoggedIn) {
       const userInputtedWardNumber = wardNumber.current.value
