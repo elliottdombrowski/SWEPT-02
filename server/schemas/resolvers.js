@@ -202,6 +202,10 @@ const resolvers = {
 
     saveSnow: async (parent, { on_street, from_stree, to_street, restrict_t, user }) => {
       console.log(on_street, from_stree, to_street, restrict_t, user)
+      var newSnow = new Snow({
+        on_street, from_stree, to_street, restrict_t, user
+      });
+      
     }
   }
 };
