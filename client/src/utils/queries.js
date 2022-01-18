@@ -56,6 +56,8 @@ export const QUERY_ME = gql`
 
 export const QUERY_USER_SWEEPERS = gql`
   query getUserSweepers($user: String!) {
-
+    getUserSweepers(user: $user) {
+     
+    }
   }
 `;
