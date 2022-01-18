@@ -13,8 +13,8 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
-  const { loading, snowData } = useQuery(QUERY_ME, {
-    variables: { username: userParam },
+  const { loading, data } = useQuery(QUERY_USER_SWEEPERS, {
+    variables: { user: userId },
   });
 
   const { loading, sweeperData } = useQuery(QUERY_USER_SWEEPERS, {
