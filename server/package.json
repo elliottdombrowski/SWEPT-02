@@ -24,7 +24,8 @@
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.3.0",
     "mongoose": "^5.9.7",
-    "stripe": "^8.197.0"
+    "stripe": "^8.67.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
