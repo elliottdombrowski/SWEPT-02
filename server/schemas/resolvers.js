@@ -161,6 +161,7 @@ const resolvers = {
     // for profile render
     getUserSweepers: async (parent, { user }) => {
       const sweeperResult = await Sweeper.find({ user: user })
+      return sweeperResult;
     },
   },
 
@@ -219,7 +220,7 @@ const resolvers = {
         })
     },
 
-    deleteSweepers: async (parent, { sweeper.findByIdAndDelete({_id: })})
+    deleteSweepers: async(parent, { sweeper.findByIdAndDelete({ _id: }) })
   }
 };
 
