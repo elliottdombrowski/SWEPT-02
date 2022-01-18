@@ -8,16 +8,17 @@ import LoginSignup from '../LoginSignup/LoginSignup';
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(QUERY_ME, {
-    variables: { username: userParam },
-  });
 
   const { loading, data } = useQuery(QUERY_ME, {
     variables: { username: userParam },
   });
 
-  const { loading, data } = useQuery(QUERY_ME, {
+  const { loading, snowData } = useQuery(QUERY_ME, {
     variables: { username: userParam },
+  });
+
+  const { loading, sweeperData } = useQuery(QUERY_USER_SWEEPERS, {
+    variables: { userId: userParam },
   });
 
   const user = data?.me || {};
