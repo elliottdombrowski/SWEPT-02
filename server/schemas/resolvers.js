@@ -158,6 +158,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You must be logged in.');
     },
+    // for profile render
+    getUserSweepers: async (parent, { user }) => {
+  
+    },
   },
 
   Mutation: {
