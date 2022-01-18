@@ -65,3 +65,15 @@ export const QUERY_USER_SWEEPERS = gql`
     }
   }
 `;
+
+export const QUERY_USER_SNOW = gql`
+  query getUserSnow($user: String!) {
+    getUserSnow(user: $user) {
+      on_street
+      from_stree
+      to_street
+      restrict_t
+      user
+    }
+  }
+`;
