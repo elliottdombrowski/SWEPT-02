@@ -26,8 +26,10 @@ const Navbar = () => {
   //CLOSE NAV MENU IF USER CLICKS ANYWHERE OUTSIDE OF NAV CONTAINER
   window.onclick = (event) => {
     if (event.target !== document.getElementById('hamburger') && event.target !== document.getElementById('bar1') && event.target !== document.getElementById('bar2') && event.target !== document.getElementById('bar3')) {
-      document.getElementById('hamburger').classList.remove('active');
-      document.getElementById('navbar-right').classList.remove('active');
+      setTimeout(() => {
+        document.getElementById('hamburger').classList.remove('active');
+        document.getElementById('navbar-right').classList.remove('active');
+      }, 300)
     }
   }
 
