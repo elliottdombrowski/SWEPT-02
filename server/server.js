@@ -1,8 +1,6 @@
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
-const cors = require('cors');
-const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server-express');
