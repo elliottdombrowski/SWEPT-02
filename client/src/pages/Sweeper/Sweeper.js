@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useToast } from '@chakra-ui/react';
+import { useToast, Spinner } from '@chakra-ui/react';
 import { GET_WARD } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
@@ -172,7 +172,14 @@ const Sweeper = () => {
         </div>
       </div>
       {loading ? (
-        <div>loading...</div>
+        <Spinner 
+          color='blue.500' 
+          emptyColor='gray.200'
+          size='xl' 
+          thickness='5px'
+          speed='0.6s'
+          className='loading-spinner'
+        />
       ) : (
         <div className='sweeper-data-output-wrapper'>
           {

@@ -14,17 +14,13 @@ const Profile = () => {
 
   const user = data?.me || {};
 
-  if (!Auth.loggedIn()) {
-    window.location.assign('/login');
-  }
-
   return (
     <div className='profile-wrapper'>
       <div className='profile-info-wrapper'>
         <div className='profile-welcome-header'>
           <h1 className='profile-header'>Welcome, </h1> <span className='profile-username'>{user.username}!</span>
         </div>
-          <p className='profile-email'>{user.email}</p>
+        <p className='profile-email'>{user.email}</p>
       </div>
       <div className='recent-search-wrapper'>
         <div className='recent-search-header'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useToast } from '@chakra-ui/react';
+import { useToast, Spinner } from '@chakra-ui/react';
 import Auth from '../../utils/auth';
 import { GET_SNOW } from '../../utils/queries';
 import { SAVE_SNOW } from '../../utils/mutations'
@@ -115,7 +115,14 @@ const Snow = () => {
         </div>
       </div>
       {loading ? (
-        <div>loading...</div>
+        <Spinner 
+          color='blue.500' 
+          emptyColor='gray.200'
+          size='xl' 
+          thickness='5px'
+          speed='0.6s'
+          className='loading-spinner'
+        />  
       ) : (
         <div className='sweeper-data-output-wrapper'>
           {

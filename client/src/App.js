@@ -33,7 +33,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [showItem, setShowItem] = useState(false);
 
   return (
     <ApolloProvider client={client}>
