@@ -9,7 +9,7 @@ const NotFound = () => {
   return (
     <div className='notfound-wrapper'>
       <div className='notfound-content'>
-        <img className='notfound-img' src={require('../../assets/ogsweeper2.png')}></img>
+        <img className='notfound-img' src={require('../../assets/ogsweeper3.png')}></img>
         <h1 className='notfound-header'>
           Whoops! The page you're looking for doesn't exist.
         </h1>

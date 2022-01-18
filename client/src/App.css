@@ -499,7 +499,7 @@ h4 {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  background: var(--blue-gradient);
+  background: linear-gradient(to bottom, var(--chi-blue), var(--darkblue));
 }
 
 .notfound-content {

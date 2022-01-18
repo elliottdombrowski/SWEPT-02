@@ -36,24 +36,24 @@ function App() {
   const [showItem, setShowItem] = useState(false);
 
   return (
-    <React.StrictMode>
-      <ApolloProvider client={client}>
-        <ChakraProvider>
-          <div className="App">
-            <Router>
-              <Navbar />
+    <ApolloProvider client={client}>
+      <ChakraProvider>
+        <div className="App">
+          <Router>
+            <Navbar />
+              <Switch>
                 <Route exact path='/' component={Homepage} />
                 <Route exact path='/sweeper' component={Sweeper} />
                 <Route exact path='/snow' component={Snow} />
                 <Route exact path='/me' component={Profile} />
                 <Route exact path='/login' component={LoginSignup} />
                 <Route component={NotFound} />
-              <Footer />
-            </Router>
-          </div>
-        </ChakraProvider>
-      </ApolloProvider>
-    </React.StrictMode>
+              </Switch>
+            <Footer />
+          </Router>
+        </div>
+      </ChakraProvider>
+    </ApolloProvider>
   );
 }
 
