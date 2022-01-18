@@ -69,21 +69,21 @@ const Homepage = () => {
                 <h4>Save money on parking tickets? Donate and buy the <i className='swept-header'>SWEPT</i> devs a coffee!</h4>
               </div>
               <div className='login-btn donate-btn'>
-                <Link to='/payments'>
-                  DONATE
-                </Link>
+                <StripeCheckout 
+                  stripeKey='pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE'
+                  token={handleStripeToken}
+                  billingAddress
+                  shippingAddress
+                  amount={donation.price * 100}
+                  name={donation.name}
+                  className='stripe-donate-btn'
+                >
+                  Donate!
+                </StripeCheckout>
               </div>
               <img 
                 className='og-sweeper'
                 src={require('../../assets/ogsweeper3.png')}
-              />
-              <StripeCheckout 
-                stripeKey='pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE'
-                token={handleStripeToken}
-                billingAddress
-                shippingAddress
-                amount={donation.price * 100}
-                name={donation.name}
               />
             </div>
           </div>
