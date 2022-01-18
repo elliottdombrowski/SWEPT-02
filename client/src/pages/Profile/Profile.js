@@ -14,10 +14,6 @@ const Profile = () => {
 
   const user = data?.me || {};
 
-  // if (!Auth.loggedIn()) {
-  //   window.location.assign('/login');
-  // }
-
   return (
     <div className='profile-wrapper'>
       <div className='profile-info-wrapper'>
