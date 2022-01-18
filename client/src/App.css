@@ -491,6 +491,10 @@ h4 {
   font-family: var(--link-font);
 }
 
+.loading-spinner {
+  margin-top: 5rem;
+}
+
 /* 404  */
 
 .notfound-wrapper {

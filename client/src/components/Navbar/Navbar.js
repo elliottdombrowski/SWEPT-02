@@ -29,7 +29,7 @@ const Navbar = () => {
       setTimeout(() => {
         document.getElementById('hamburger').classList.remove('active');
         document.getElementById('navbar-right').classList.remove('active');
-      }, 300)
+      }, 300);
     }
   }
 
