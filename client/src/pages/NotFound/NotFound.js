@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NotFound = () => {
   return (
-    hello
+    <div></div>
   );
 };
 

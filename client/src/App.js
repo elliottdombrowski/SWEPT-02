@@ -10,6 +10,7 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
+import NotFound from './pages/NotFound/NotFound';
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -45,6 +46,7 @@ function App() {
             <Route exact path='/snow' component={Snow} />
             <Route exact path='/me' component={Profile} />
             <Route exact path='/login' component={LoginSignup} />
+            <Route component={NotFound} />
             <Footer />
           </Router>
         </div>
