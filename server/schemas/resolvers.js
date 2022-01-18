@@ -163,6 +163,10 @@ const resolvers = {
       const sweeperResult = await Sweeper.find({ user: user })
       return sweeperResult;
     },
+    getUserSnow: async (parent, { user }) => {
+      const snowResult = await Snow.find({ user: user })
+      return snowResult;
+    }
   },
 
   Mutation: {
