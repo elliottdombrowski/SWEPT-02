@@ -217,7 +217,8 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  height: 85vh;
+  min-height: 90vh;
+  max-height: 100%;
   padding: 8rem 0;
 }
 
