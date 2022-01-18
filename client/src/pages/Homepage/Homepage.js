@@ -4,6 +4,15 @@ import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
 
 const Homepage = () => {
+  const [donation, setDonation] = useState({
+    name: 'Donation to the SWEPT! developers!',
+    price: 2
+  })
+
+  const handleStripeToken = (token, addresses) => {
+    console.log({ token, addresses });
+  };
+
   return (
     <div className='homepage-wrapper'>
       <div className='homepage-img'>
@@ -57,7 +66,14 @@ const Homepage = () => {
                 className='og-sweeper'
                 src={require('../../assets/ogsweeper3.png')}
               />
-              <StripeCheckout />
+              <StripeCheckout 
+                stripeKey='pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE'
+                token={handleStripeToken}
+                billingAddress
+                shippingAddress
+                amount={donation.price * 100}
+                name={donation.name}
+              />
             </div>
           </div>
         </div>
