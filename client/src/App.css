@@ -491,6 +491,22 @@ h4 {
   font-family: var(--link-font);
 }
 
+/* 404  */
+
+.notfound-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: var(--blue-gradient);
+}
+
+.notfound-img {
+  width: 170px;
+  height: auto;
+}
+
 @media all and (max-width: 915px) {
   .sweeper-form-wrapper,
   .sweeper-data-output-wrapper,
