@@ -12,7 +12,7 @@ const Profile = () => {
     variables: { userId: userParam },
   });
 
-  const { loading, data } = useQuery(QUERY_USER_SNOW, {
+  const { loading, snowdata } = useQuery(QUERY_USER_SNOW, {
     variables: { user: userId },
   });
 
