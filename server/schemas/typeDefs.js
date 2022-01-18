@@ -53,12 +53,13 @@ const typeDefs = gql`
   }
 
   input stripeCard {
-    name: String
-    address_line1: String
-    address_line2: String
     address_city: String
     address_country: String
+    address_line1: String
+    address_line2: String
+    address_state: String
     address_zip: String
+    name: String
   }
 
   input stripeToken {
