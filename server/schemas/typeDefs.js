@@ -47,14 +47,19 @@ const typeDefs = gql`
     restrict_t: String,
     user: String
   }
+
+  type Checkout {
+    session: ID
+  }
   
   type Query {
+    me: User
     users: [User]
     user(userId: ID!): User
+    checkout(donation: ID!): Checkout
     getWard(wardNumber: String): [Ward]
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
-    me: User
   }
 
   type Mutation {
