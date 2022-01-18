@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
+import StripeCheckout from 'react-stripe-checkout';
 
 const Homepage = () => {
   return (
@@ -56,6 +57,7 @@ const Homepage = () => {
                 className='og-sweeper'
                 src={require('../../assets/ogsweeper3.png')}
               />
+              <StripeCheckout />
             </div>
           </div>
         </div>
