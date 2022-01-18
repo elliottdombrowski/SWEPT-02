@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
+import LoginSignup from '../LoginSignup/LoginSignup';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -11,6 +13,10 @@ const Profile = () => {
   });
 
   const user = data?.me || {};
+
+  if (!Auth.loggedIn()) {
+    window.location.assign('/login');
+  }
 
   return (
     <div className='profile-wrapper'>
