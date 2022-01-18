@@ -12,7 +12,7 @@ const Homepage = () => {
 
   const handleStripeToken = async (token) => {
     // console.log({ token, addresses });
-    const res = await axios.post('http://localhost:3000/', {
+    const res = await axios.post('http://localhost:3001/', {
       token,
       donation
     });

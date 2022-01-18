@@ -3,7 +3,7 @@ const path = require('path');
 const db = require('./config/connection');
 const cors = require('cors');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
-const uuid = require('uuid/v4');
+const { v4: uuidv4 } = require('uuid'); 
 require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server-express');
@@ -47,7 +47,7 @@ app.post('/checkout', async (req, res) => {
       source: token.id
     });
 
-    const idempotency_key = uuid();
+    const idempotency_key = uuidv4();
     const charge = await stripe.charges.create(
       {
         amount: donation.price * 100,
