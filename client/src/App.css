@@ -370,7 +370,7 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  min-height: 85vh;
+  min-height: 90vh;
   max-height: 100%;
   font-family: var(--link-font);
 }
