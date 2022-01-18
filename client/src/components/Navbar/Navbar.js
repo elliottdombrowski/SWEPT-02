@@ -10,6 +10,8 @@ import './query.css';
 const profile = <FontAwesomeIcon icon={faUserCircle} className='fa-lg' />
 
 const Navbar = () => {
+  const [moveSlider, setMoveSlider] = useState(false);
+
   const mobile = window.matchMedia("(max-width: 768px)");
   const mobileMenu = () => {
     document.getElementById('hamburger').classList.toggle('active');
@@ -27,20 +29,6 @@ const Navbar = () => {
       document.getElementById('hamburger').classList.remove('active');
       document.getElementById('navbar-right').classList.remove('active');
     }
-  }
-
-  //trying to get heroku to re-run build
-  
-  // let switchOverlay = document.getElementsByClassName('switch-overlay');
-
-  const setOverlayLeft = () => {
-    // switchOverlay.style.left = '0';
-    // switchOverlay.style.right = '50%';
-  }
-  
-  const setOverlayRight = () => {
-    // switchOverlay.style.left = '50%';
-    // switchOverlay.style.right = '0';
   }
 
   return (
@@ -61,7 +49,7 @@ const Navbar = () => {
               to='/sweeper'
               className='slider slider-one nav-item nav-links'
               id='sweeper-link'
-              onClick={setOverlayLeft}
+              onClick={() => setMoveSlider(false)}
             >
               SWEEPER
             </Link>
@@ -70,15 +58,15 @@ const Navbar = () => {
               to='/snow'
               className='slider slider-two nav-item nav-links'
               id='snow-link'
-              onClick={setOverlayRight}
+              onClick={() => setMoveSlider(true)}
             >
               SNOW
             </Link>
-            <div className='switch-overlay' id='switch-overlay' />
+            <div className={moveSlider ? 'switch-overlay-right' : 'switch-overlay-left'} id='switcher' />
           </label>
 
           {mobile.matches ? (
-            <Link to='/me' className='nav-item nav-links profile-icon'>
+            <Link to={Auth.loggedIn() ? ('/me') : ('/login')} className='nav-item nav-links profile-icon'>
               <div className='login-btn'>
                 {profile} PROFILE
               </div>
