@@ -33,6 +33,16 @@ const typeDefs = gql`
     user: String
   }
 
+  type FetchSweeper {
+    _id
+    ward: String,
+    section: String,
+    month_name: String,
+    dates: String,
+    zipcode: String,
+    user: String
+  }
+
   type Snow {
     on_street: String,
     from_stree: String,
