@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
 
 const Homepage = () => {
   const [donation, setDonation] = useState({
-    name: 'Donation to the SWEPT! developers!',
+    name: 'donation to the SWEPT! developers!',
     price: 2
   })
 
