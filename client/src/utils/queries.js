@@ -55,12 +55,24 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_USER_SWEEPERS = gql`
-  query getUserSweepers($user: String!) {
-    getUserSweepers(user: $user) {
+  query getUserSweepers($userId: String!) {
+    getUserSweepers(userId: $userId) {
       ward
       section
       month_name
       dates
+      user
+    }
+  }
+`;
+
+export const QUERY_USER_SNOW = gql`
+  query getUserSnow($userId: String!) {
+    getUserSnow(userId: $userId) {
+      on_street
+      from_stree
+      to_street
+      restrict_t
       user
     }
   }
