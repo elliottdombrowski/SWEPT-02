@@ -519,8 +519,13 @@ h4 {
   margin: 0 auto;
 }
 
+.notfound-numbers {
+  margin: 2rem 0 0;
+  font-size: 5rem;
+}
+
 .notfound-header {
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   font-family: var(--link-font);
   font-size: 170%;
 }
@@ -534,6 +539,16 @@ h4 {
 
 .notfound-link {
   all: unset;
+}
+
+@media all and (max-width: 768px) {
+  .notfound-numbers {
+    font-size: 4rem;
+  }
+  
+  .notfound-header {
+    font-size: 150%;
+  }
 }
 
 @media all and (max-width: 1600px) {
@@ -736,12 +751,37 @@ h4 {
   img {
     max-height: 18vh;
   }
+
+  .notfound-numbers {
+    font-size: 3rem;
+  }
+
+  .notfound-header {
+    font-size: 130%;
+  }
+
+  .notfound-btn {
+    font-size: 120%;
+  }
 }
 
 @media all and (max-width: 470px) {
   .homepage-secondary-header {
     padding: 1rem 1rem;
     font-size: 135%;
+  }
+
+  .notfound-numbers {
+    font-size: 2.5rem;
+  }
+  
+  .notfound-header {
+    font-size: 100%;
+  }
+  
+  .notfound-btn {
+    width: 200px;
+    font-size: 100%;
   }
 }
 
@@ -758,6 +798,21 @@ h4 {
 @media all and (max-width: 415px) {
   .homepage-secondary-header {
     font-size: 130%;
+  }
+}
+
+@media all and (max-width: 368px) {
+  .notfound-numbers {
+    font-size: 2rem;
+  }
+
+  .notfound-header {
+    font-size: 90%;
+  }
+
+  .notfound-btn {
+    width: 180px;
+    font-size: 90%;
   }
 }
 
