@@ -20,12 +20,12 @@ const snowSchema = new Schema({
         type: String,
         required: true
     },
-    // user: {
-    //     // set to ObjectId for db match
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User',
-    //     required: true
-    // },
+    user: {
+        // set to ObjectId for db match
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
 })
 
 const Snow = mongoose.model('Snow', snowSchema);
