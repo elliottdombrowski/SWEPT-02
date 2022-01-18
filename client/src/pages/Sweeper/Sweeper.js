@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 import { GET_WARD } from '../../utils/queries';
+import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client';
 import Auth from '../../utils/auth';
-import { SAVE_SWEEPER } from '../../utils/mutations';
-import { usePinInputDescendantsContext } from '@chakra-ui/react';
+import reactDom from 'react-dom';
+
 
 const Sweeper = () => {
   const wardNumber = useRef('');
@@ -12,6 +14,9 @@ const Sweeper = () => {
   const [saveSweeper] = useMutation(SAVE_SWEEPER);
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
+  
+  const toast = useToast();
+  const id = 'toast';
 
   //WARD FORM USEQUERY
   const { loading, data } = useQuery(GET_WARD, {
@@ -44,6 +49,7 @@ const Sweeper = () => {
   const saveBtn = async (val) => {
     const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
+
     if (isLoggedIn) {
       const userInputtedWardNumber = wardNumber.current.value
       // if user kicks off second API call with 5+ digit then set equal 
@@ -62,10 +68,28 @@ const Sweeper = () => {
               user: uuid
             }
           })
-          // temp - can be changed to react modal!
-          alert("Saved successfully")
+          //CALL CHAKRA UI TOAST ON SAVE SUCCESS
+          if (!toast.isActive(id)) {
+            toast({
+              id,
+              title: 'Saved your Search to your Profile!',
+              position: 'bottom-left',
+              status: 'success',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
         } catch (err) {
-          alert("Unable to save")
+          //CALL CHAKRA UI TOAST ON SAVE FAILURE
+          if (!toast.isActive(id)) {
+            toast({
+              title: 'Unable to save your Search!',
+              position: 'bottom-left',
+              status: 'error',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
           console.log(err)
         }
       } else {
@@ -82,17 +106,44 @@ const Sweeper = () => {
               user: uuid
             }
           })
-          // temp - can be changed to react modal!
-          alert("Saved successfully")
+          //CALL CHAKRA UI TOAST ON SAVE SUCCESS
+          if (!toast.isActive(id)) {
+            toast({
+              id,
+              title: 'Saved your Search to your Profile!',
+              position: 'bottom-left',
+              status: 'success',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
         } catch (err) {
-          alert("Unable to save")
+          //CALL CHAKRA UI TOAST ON SAVE FAILURE
+          if (!toast.isActive(id)) {
+            toast({
+              title: 'Unable to save your Search!',
+              position: 'bottom-left',
+              status: 'error',
+              duration: 2000,
+              isClosable: false,
+            });
+          }
           console.log(err)
         }
       }
     } else {
-      // temp - can be changed to react modal!
-      alert("you are not logged in")
-      window.location.assign("/login")
+      //CALL CHAKRA UI TOAST IF NOT LOGGED IN
+      if (!toast.isActive(id)) {
+        toast({
+          title: 'You must be logged in!',
+          position: 'bottom-left',
+          status: 'warning',
+          duration: 2000,
+          isClosable: true,
+          onCloseComplete: () => window.location.assign('/login')
+        });
+      }
+      // window.location.assign("/login")
     }
   }
 
@@ -128,9 +179,8 @@ const Sweeper = () => {
             wardInfo.map((info, index) => {
               return (
                 <div className='sweeper-data-output' key={index}>
-                  <h4>Month: {info.month_name}</h4>
-                  <h3>Dates: {info.dates}</h3>
-                  <h2>Ward: {info.ward}</h2>
+                  <span className='sweeper-date'>{info.month_name} {info.dates}</span>
+                  <p className='sweeper-ward'>Ward {info.ward}</p>
                   <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )

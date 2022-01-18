@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 import Auth from '../../utils/auth';
 import { GET_SNOW } from '../../utils/queries';
 import { SAVE_SNOW } from '../../utils/mutations'
@@ -12,6 +13,9 @@ const Snow = () => {
   const [snow, setSnow] = useState('');
   const [err, setErr] = useState('');
   const [saveSnow] = useMutation(SAVE_SNOW);
+
+  const toast = useToast();
+  const id = 'toast';
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
 
   //SNOW / STREET FORM USERQUERY
@@ -25,9 +29,9 @@ const Snow = () => {
     event.preventDefault();
     setSnow(snowNumber.current.value);
 
-    if (!snowInfo.length) {
-      setErr('Please enter a valid Chicago Street Name');
-    }
+    // if (!snowInfo.length) {
+    //   setErr('Please enter a valid Chicago Street Name');
+    // }
     return true;
   };
 
@@ -48,16 +52,41 @@ const Snow = () => {
             user: uuid
           }
         })
-        // temp - can be changed to react modal!
-        alert("Saved successfully")
+        if (!toast.isActive(id)) {
+          toast({
+            id,
+            title: 'Saved your Search to your Profile!',
+            position: 'bottom-left',
+            status: 'success',
+            duration: 2000,
+            isClosable: false,
+          });
+        }
       } catch (err) {
-        alert("Unable to save")
+        if (!toast.isActive(id)) {
+          toast({
+            id,
+            title: 'Unable to save your Search!',
+            position: 'bottom-left',
+            status: 'error',
+            duration: 2000,
+            isClosable: false,
+          });
+        }
         console.log(err)
       }
     } else {
-      // temp - can be changed to react modal!
-      alert("you are not logged in")
-      window.location.assign("/login")
+      if (!toast.isActive(id)) {
+        toast({
+          id,
+          title: 'You must be logged in!',
+          position: 'bottom-left',
+          status: 'warning',
+          duration: 2000,
+          isClosable: true,
+          onCloseComplete: () => window.location.assign('/login')
+        });
+      }
     }
   }
 
@@ -93,11 +122,13 @@ const Snow = () => {
             snowInfo.map((info, index) => {
               return (
                 <div className='sweeper-data-output' key={index}>
-                  <h2>Restricted on: {info.on_street}</h2>
+                  <span className='sweeper-date'>Parking Restricted on: {info.on_street}</span>
                   {/* INTENTIONAL TYPO- TO MATCH TYPO IN API  */}
-                  <h3>From: {info.from_stree}</h3>
-                  <h3>To: {info.to_street}</h3>
-                  <h3>Restriction on {info.restrict_t}S of snow.</h3>
+                  <span className='sweeper-ward'>From: {info.from_stree}</span>
+                  <span className='sweeper-ward'>To: {info.to_street}</span>
+                  {/* <h3>From: {info.from_stree}</h3>
+                  <h3>To: {info.to_street}</h3> */}
+                  <span className='sweeper-ward'>Restricted with {info.restrict_t}ES of snow.</span>
                   <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
                 </div>
               )

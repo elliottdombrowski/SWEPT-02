@@ -47,6 +47,9 @@ body {
 }
 
 a {
+  all: initial;
+  /* all: unset; */
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -77,7 +80,8 @@ button {
 }
 
 img {
-  height: 20vh;
+  all: unset;
+  max-height: 20vh;
 }
 
 .homepage-text-wrapper {
@@ -95,7 +99,8 @@ img {
 }
 
 .homepage-header,
-.homepage-bio-wrapper {
+.homepage-bio-wrapper,
+.homepage-welcome {
   font-family: var(--logo-font);
   font-size: 180%;
 }
@@ -166,6 +171,8 @@ h4 {
 }
 
 .chicago-link {
+  /* font-family: var(--link-font); */
+  all: unset;
   text-decoration: underline;
   transition: 0.2s ease-in-out;
 }
@@ -187,6 +194,10 @@ h4 {
   padding: 0.2rem 0;
   margin: 1rem 0;
   font-family: var(--link-font);
+}
+
+.donate-btn > a {
+  all: unset;
 }
 
 .chicago-link:hover {
@@ -305,6 +316,8 @@ h4 {
 }
 
 .profile-header {
+  all: unset;
+  font-family: var(--link-font);
   font-size: 200%;
   text-shadow: 3px 3px 2px var(--deep-darkblue);
 }
@@ -334,8 +347,13 @@ h4 {
   margin-bottom: 3rem;
 }
 
-.recent-search-header {
+.recent-search-wrapper {
   text-align: center;
+}
+
+.recent-searches {
+  font-size: 200%;
+  font-family: var(--link-font);
 }
 
 /* END PROFILE  */
@@ -352,7 +370,7 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  min-height: 85vh;
+  min-height: 90vh;
   max-height: 100%;
   font-family: var(--link-font);
 }
@@ -441,6 +459,13 @@ h4 {
   font-family: var(--link-font);
   padding: 0.2rem 0;
   margin-left: 5px;
+}
+
+.sweeper-date,
+.sweeper-ward {
+  font-family: var(--link-font);
+  font-size: 150%;
+  text-transform: capitalize;
 }
 
 ::placeholder {
@@ -639,7 +664,7 @@ h4 {
   }
 
   img {
-    height: 18vh;
+    max-height: 18vh;
   }
 }
 
@@ -652,7 +677,7 @@ h4 {
 
 @media all and (max-width: 438px) {
   img {
-    height: 18vh;
+    max-height: 18vh;
   }
 
   .homepage-bio-wrapper {
@@ -680,7 +705,7 @@ h4 {
   }
 
   img {
-    height: 25vh;
+    max-height: 25vh;
   }
 }
 
@@ -709,7 +734,7 @@ h4 {
   }
 
   img {
-    height: 30vh;
+    max-height: 30vh;
   }
 }
 
