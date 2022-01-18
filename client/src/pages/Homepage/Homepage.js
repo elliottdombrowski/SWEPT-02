@@ -10,8 +10,18 @@ const Homepage = () => {
     price: 2
   })
 
-  const handleStripeToken = (token, addresses) => {
-    console.log({ token, addresses });
+  const handleStripeToken = async (token) => {
+    // console.log({ token, addresses });
+    const res = await axios.post('http://localhost:3000/', {
+      token,
+      donation
+    });
+    const { status } = res.data;
+    if (status === 'success') {
+      console.log('congrats');
+    } else {
+      console.log('nah fam');
+    }
   };
 
   return (
