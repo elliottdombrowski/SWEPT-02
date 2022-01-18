@@ -74,3 +74,15 @@ mutation saveSnow(
   }
 }
 `;
+
+export const MAKE_DONATION = gql `
+  mutation makeDonation(
+    $input: StripeInfo
+  ) {
+    makeDonation(
+      input: $input
+    ) {
+      status
+    }
+  }
+`;
