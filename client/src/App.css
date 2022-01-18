@@ -491,6 +491,46 @@ h4 {
   font-family: var(--link-font);
 }
 
+/* 404  */
+
+.notfound-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background: linear-gradient(to bottom, var(--chi-blue), var(--darkblue));
+}
+
+.notfound-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound-img {
+  width: 170px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.notfound-header {
+  margin: 2rem 0;
+  font-family: var(--link-font);
+  font-size: 170%;
+}
+
+.notfound-btn {
+  width: 250px;
+  padding: 0.5rem 0rem;
+  font-family: var(--link-font);
+  font-size: 150%;
+}
+
+.notfound-link {
+  all: unset;
+}
+
 @media all and (max-width: 915px) {
   .sweeper-form-wrapper,
   .sweeper-data-output-wrapper,

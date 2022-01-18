@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
 import { setContext } from '@apollo/client/link/context';
@@ -10,6 +10,7 @@ import Sweeper from '../src/pages/Sweeper/Sweeper';
 import Snow from '../src/pages/Snow/Snow';
 import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
+import NotFound from './pages/NotFound/NotFound';
 import './App.css';
 
 const httpLink = createHttpLink({
@@ -40,11 +41,14 @@ function App() {
         <div className="App">
           <Router>
             <Navbar />
-            <Route exact path='/' component={Homepage} />
-            <Route exact path='/sweeper' component={Sweeper} />
-            <Route exact path='/snow' component={Snow} />
-            <Route exact path='/me' component={Profile} />
-            <Route exact path='/login' component={LoginSignup} />
+              <Switch>
+                <Route exact path='/' component={Homepage} />
+                <Route exact path='/sweeper' component={Sweeper} />
+                <Route exact path='/snow' component={Snow} />
+                <Route exact path='/me' component={Profile} />
+                <Route exact path='/login' component={LoginSignup} />
+                <Route component={NotFound} />
+              </Switch>
             <Footer />
           </Router>
         </div>
