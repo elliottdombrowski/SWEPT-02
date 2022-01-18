@@ -160,7 +160,7 @@ const resolvers = {
     },
     // for profile render
     getUserSweepers: async (parent, { user }) => {
-  
+      const sweeperResult = await Sweeper.find({ user: user })
     },
   },
 
