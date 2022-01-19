@@ -4,19 +4,17 @@ import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER_SWEEPERS, QUERY_USER_SNOW } from '../../utils/queries';
 import Auth from '../../utils/auth';
 import LoginSignup from '../LoginSignup/LoginSignup';
+import SavedSweepers from "./SavedSweepers"
+import SavedSnow from "./SavedSnow"
 
 const Profile = () => {
   const { username: userParam } = useParams();
 
-  const { loading, sweeperData } = useQuery(QUERY_USER_SWEEPERS, {
-    variables: { userId: userParam },
+  const { loading, data } = useQuery(QUERY_ME, {
+    variables: { username: userParam },
   });
 
-  const { loading, snowdata } = useQuery(QUERY_USER_SNOW, {
-    variables: { user: userId },
-  });
-
-  const user = data?.me || [];
+  const user = data?.me || {};
 
   return (
     <div className='profile-wrapper'>
@@ -26,14 +24,12 @@ const Profile = () => {
         </div>
         <p className='profile-email'>{user.email}</p>
       </div>
-      <div className='recent-search-wrapper'>
-        <div className='recent-search-header'>
-          <h1 className='recent-searches'>Recent Searches</h1>
-          <p>Placeholder</p>
-          <p>Placeholder</p>
-          <p>Placeholder</p>
-          <p>Placeholder</p>
-          <p>Placeholder</p>
+      <div>
+        <div>
+          <SavedSweepers />
+        </div>
+        <div>
+          <SavedSnow />
         </div>
       </div>
     </div>
