@@ -11,7 +11,12 @@ import reactDom from 'react-dom';
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  
+  const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
+  const [getSweepers] = useLazyQuery(QUERY_USER_SWEEPERS)
+  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const [err, setErr] = useState('');
+  const [updatedSweepers, setUpdatedSweepers] = useState();
+
   const toast = useToast();
   const id = 'toast';
 
