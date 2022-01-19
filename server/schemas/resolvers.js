@@ -249,7 +249,7 @@ const resolvers = {
             receipt_email: args.email,
             description: `Thank you for your ${args.name}`,
             shipping: {
-              name: token.card.name,
+              name: args.card.name,
               address: {
                 line1: args.card.address_line1,
                 line2: args.card.address_line2,

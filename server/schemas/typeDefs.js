@@ -86,7 +86,6 @@ const typeDefs = gql`
     getWard(wardNumber: String): [Ward]
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
-    me: User
     getUserSnow(user: String!): [SaveSnow]
     getUserSweepers(user: String!): [SaveSweeper]
   }
