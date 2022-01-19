@@ -11,7 +11,7 @@ import { MAKE_DONATION } from '../../utils/mutations';
 const Homepage = () => {
   const [donation, setDonation] = useState({
     name: 'donation to the SWEPT! developers!',
-    price: 2
+    price: 2.0,
   });
 
   const [makeDonation, { error, data }] = useMutation(MAKE_DONATION);
