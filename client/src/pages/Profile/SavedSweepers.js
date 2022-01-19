@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import { QUERY_USER_SWEEPERS } from '../../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { QUERY_USER_SWEEPERS, MUTATION_DELETE_SWEEPER } from '../../utils/queries';
 
 const SavedSweepers = () => {
     const [userId, setUserId] = useState(localStorage.getItem('uuid'));
