@@ -80,6 +80,12 @@ export const QUERY_USER_SNOW = gql`
   }
 `;
 
+export const MUTATION_DELETE_SWEEPER = gql`
+  mutation deleteSweeper($id: String!){
+    deleteSweeper(id: $id)
+  }
+`
+
 export const MUTATION_DELETE_SNOW = gql`
   mutation deleteSnow($id: String!){
     deleteSnow(id: $id)
