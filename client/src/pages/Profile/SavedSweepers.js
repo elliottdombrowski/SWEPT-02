@@ -35,7 +35,6 @@ const SavedSweepers = () => {
                     {
                         userSweepers.map((singleSweeper) => {
                             return (
-
                                 <div key={singleSweeper._id}>
                                     <h2>Ward: {singleSweeper.ward}</h2>
                                     <h3>{singleSweeper.month_name}</h3>
