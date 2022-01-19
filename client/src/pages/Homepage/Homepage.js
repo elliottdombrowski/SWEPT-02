@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
+import { useToast } from '@chakra-ui/react';
 
 import { useMutation } from '@apollo/client';
 import { MAKE_DONATION } from '../../utils/mutations';
@@ -11,6 +12,9 @@ const Homepage = () => {
     name: 'donation to the SWEPT! developers!',
     price: 3.0,
   });
+
+  const toast = useToast();
+  const id = 'toast';
 
   const [makeDonation, { error, data }] = useMutation(MAKE_DONATION);
 
@@ -31,7 +35,18 @@ const Homepage = () => {
       };
       const { data } = await makeDonation({
           variables: { input: { token: token2, donation }}
-      });
+      })
+
+      if (!toast.isActive(id)) {
+        toast({
+          id,
+          title: `Thank you for your $${donation.price} ${donation.name}`,
+          position: 'bottom-left',
+          status: 'success',
+          duration: 3000,
+          isClosable: false,
+        });
+      }
     } catch (error) {
       console.log(error);
     }
