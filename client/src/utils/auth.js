@@ -1,4 +1,3 @@
-import { Token } from 'graphql';
 import decode from 'jwt-decode';
 
 class AuthService {

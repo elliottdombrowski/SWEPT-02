@@ -21,10 +21,12 @@ const LoginForm = () => {
       setErr('Please enter a valid Email!');
       return false;
     }
+
     try {
       const { data } = await login({
         variables: { ...loginData },
       });
+
       // save user id to local storage for db match + store
       localStorage.setItem('uuid', data.login.user._id)
 

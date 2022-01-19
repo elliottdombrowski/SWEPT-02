@@ -29,8 +29,16 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-
+    console.log(typeof(wardNumber.current.value))
     if (wardNumber.current.value.length == 2 && wardNumber.current.value > 50) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
+    if (wardNumber.current.value.length == 3 || wardNumber.current.value.length == 4 || wardNumber.current.value.length > 5) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
+    if (!parseInt(wardNumber.current.value)) {
       setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
       return false;
     }
@@ -38,10 +46,6 @@ const Sweeper = () => {
     //TODO- CHECK ZIPCODE VAL
 
     setWard(wardNumber.current.value);
-
-    // if (!wardInfo.length) {
-    //   setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
-    // }
 
     setErr('');
     return true;
