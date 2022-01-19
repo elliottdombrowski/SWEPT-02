@@ -18,7 +18,6 @@ const Homepage = () => {
 
   const handleStripeToken = async (token) => {
     try {
-      console.log(token);
       const token2 = {
         email: token.email,
         id: token.id,
@@ -32,26 +31,12 @@ const Homepage = () => {
           name: token.card.name
         }
       };
-      console.log('second token ', token2);
-      console.log(donation);
       const { data } = await makeDonation({
           variables: { input: { token: token2, donation }}
       });
     } catch (error) {
-      console.log(error);      
+      console.log(error);
     }
-    //token is big ol object
-    // console.log({ token });
-    // const res = await axios.post('http://localhost:3001/', {
-    //   token,
-    //   donation
-    // });
-    // const { status } = res.data;
-    // if (status === 'success') {
-    //   console.log('congrats');
-    // } else {
-    //   console.log('nah fam');
-    // }
   };
 
 
