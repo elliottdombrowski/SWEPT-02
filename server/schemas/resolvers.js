@@ -224,7 +224,6 @@ const resolvers = {
         })
     },
 
-    deleteSweepers: async(parent, { sweeper.findByIdAndDelete({ _id: }) })
   }
 };
 
