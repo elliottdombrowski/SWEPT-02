@@ -32,7 +32,7 @@ const SavedSnow = () => {
                         <div className='recent-search-wrapper'>
                             <div className='recent-search-header'>
                                 <h1 className='recent-searches'>Recent Searches</h1>
-                                <div key={singleSnow.user}>
+                                <div key={singleSnow._id}>
                                     <h2>On {singleSnow.on_street}</h2>
                                     <h3>From {singleSnow.from_stree}</h3>
                                     <h4>To {singleSnow.to_street}</h4>
