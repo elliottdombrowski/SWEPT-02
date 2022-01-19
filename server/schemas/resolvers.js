@@ -1,4 +1,4 @@
-const { User, Sweeper, Snow, Profile } = require('../models')
+const { User, Sweeper, Snow } = require('../models')
 const axios = require('axios');
 const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
@@ -153,12 +153,22 @@ const resolvers = {
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You must be logged in.');
     },
+    // for profile render
+    getUserSweepers: async (parent, { user }) => {
+      const sweeperResult = await Sweeper.find({ user: user })
+      return sweeperResult;
+    },
+    getUserSnow: async (parent, { user }) => {
+      const snowResult = await Snow.find({ user: user })
+      return snowResult;
+    }
   },
 
   Mutation: {
@@ -215,6 +225,7 @@ const resolvers = {
           return err;
         })
     },
+    
     makeDonation: async (parent, args, context) => {
       console.log('request- ', args);
 
