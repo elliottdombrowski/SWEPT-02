@@ -9,14 +9,15 @@ const SavedSweepers = () => {
 
     const { loading, data } = useQuery(QUERY_USER_SWEEPERS, {
         variables: { user: userId },
+        fetchPolicy:"network-only"
     });
 
     const userSweepers = data?.getUserSweepers || [];
     // setUpdatedSweepers(userSweepers);
-    const [deleteSweeper, { data: deletedSweeper, loading: deletedSweeperLoading}] = useMutation(MUTATION_DELETE_SWEEPER)
+    const [deleteSweeper, { data: deletedSweeperData, loading: deletedSweeperLoading }] = useMutation(MUTATION_DELETE_SWEEPER)
 
-    const handleDeleteSweeper= (id) => {
-        deleteSnow({ variables: { id } })
+    const handleDeleteSweeper = (id) => {
+        deleteSweeper({ variables: { id } })
     }
     // setUpdatedSnow(userSnow);
     useEffect(() => {
@@ -36,7 +37,6 @@ const SavedSweepers = () => {
                             return (
 
                                 <div key={singleSweeper._id}>
-                                    <p>{singleSweeper._id}</p>
                                     <h2>Ward: {singleSweeper.ward}</h2>
                                     <h3>{singleSweeper.month_name}</h3>
                                     <h4>on dates: {singleSweeper.dates}</h4>
