@@ -14,7 +14,7 @@ const Sweeper = () => {
   const [saveSweeper] = useMutation(SAVE_SWEEPER);
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
-  
+
   const toast = useToast();
   const id = 'toast';
 
@@ -50,8 +50,10 @@ const Sweeper = () => {
     const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
 
-    if (isLoggedIn) {
+    if (localStorage.getItem('id_token')) {
+      alert("I am logged in")
       const userInputtedWardNumber = wardNumber.current.value
+      console.log(uuid)
       // if user kicks off second API call with 5+ digit then set equal 
       // or > to the 60000's (per zipcode rules)
       if (userInputtedWardNumber >= 60000) {
@@ -132,6 +134,7 @@ const Sweeper = () => {
         }
       }
     } else {
+      alert("I am not logged in")
       //CALL CHAKRA UI TOAST IF NOT LOGGED IN
       if (!toast.isActive(id)) {
         toast({
@@ -172,10 +175,10 @@ const Sweeper = () => {
         </div>
       </div>
       {loading ? (
-        <Spinner 
-          color='blue.500' 
+        <Spinner
+          color='blue.500'
           emptyColor='gray.200'
-          size='xl' 
+          size='xl'
           thickness='5px'
           speed='0.6s'
           className='loading-spinner'
