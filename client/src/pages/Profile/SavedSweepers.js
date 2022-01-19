@@ -12,6 +12,8 @@ const SavedSweepers = () => {
         variables: { user: userId },
     });
 
+    const userSweepers = data?.getUserSweepers || [];
+    console.log(userSweepers)
 
 }
 
