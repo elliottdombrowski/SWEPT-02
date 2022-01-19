@@ -6,6 +6,7 @@ import Auth from '../../utils/auth';
 import LoginSignup from '../LoginSignup/LoginSignup';
 
 const SavedSweepers = () => {
+    const [userId, setUserId] = useState(localStorage.getItem('uuid'));
 
     const { loading_sweeper, sweeperData } = useQuery(QUERY_USER_SWEEPERS, {
         variables: { user: userId },
