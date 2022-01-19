@@ -55,6 +55,8 @@ const typeDefs = gql`
     getZip(zipNumber: String): [Zip]
     getSnow(snowNumber: String): [Snow]
     me: User
+    getUserSnow(user: String!): [SaveSnow]
+    getUserSweepers(user: String!): [SaveSweeper]
   }
 
   type Mutation {
