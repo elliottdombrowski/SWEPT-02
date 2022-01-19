@@ -9,7 +9,7 @@ const SavedSweepers = () => {
 
     const { loading, data } = useQuery(QUERY_USER_SWEEPERS, {
         variables: { user: userId },
-        fetchPolicy:"network-only"
+        fetchPolicy: 'network-only'
     });
 
     const userSweepers = data?.getUserSweepers || [];
@@ -22,7 +22,7 @@ const SavedSweepers = () => {
     // setUpdatedSnow(userSnow);
     useEffect(() => {
         if (deletedSweeperData) {
-            alert("sweeper deleted")
+            alert('sweeper deleted')
         }
     }, [deletedSweeperData])
 
