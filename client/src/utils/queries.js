@@ -54,9 +54,11 @@ export const QUERY_ME = gql`
   }
 `;
 
+// save to db
 export const QUERY_USER_SWEEPERS = gql`
   query getUserSweepers($user: String!) {
     getUserSweepers(user: $user) {
+      _id
       ward
       section
       month_name
@@ -66,9 +68,11 @@ export const QUERY_USER_SWEEPERS = gql`
   }
 `;
 
+// save to db
 export const QUERY_USER_SNOW = gql`
   query getUserSnow($user: String!) {
     getUserSnow(user: $user) {
+      _id
       on_street
       from_stree
       to_street
@@ -77,3 +81,16 @@ export const QUERY_USER_SNOW = gql`
     }
   }
 `;
+
+// delete from db
+export const MUTATION_DELETE_SNOW = gql`
+  mutation deleteSnow($id: String!){
+    deleteSnow(id: $id)
+  }
+`
+// delete from db
+export const MUTATION_DELETE_SWEEPER = gql`
+  mutation deleteSweeper($id: String!){
+    deleteSweeper(id: $id)
+  }
+`

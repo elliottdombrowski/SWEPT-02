@@ -225,7 +225,15 @@ const resolvers = {
           return err;
         })
     },
-    
+    deleteSweeper: async (parent, { id }, context) => {
+      await Sweeper.deleteOne({ _id: id, user: context.user._id  }).catch(err => { return false })
+      return true
+    },
+    deleteSnow: async (parent, { id }, context) => {
+      await Snow.deleteOne({ _id: id, user:  context.user._id  }).catch(err => { return false })
+      return true
+    },
+
     makeDonation: async (parent, args, context) => {
       console.log('request- ', args);
 

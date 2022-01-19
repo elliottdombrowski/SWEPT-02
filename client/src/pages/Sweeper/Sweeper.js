@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useToast, Spinner } from '@chakra-ui/react';
-import { GET_WARD } from '../../utils/queries';
+import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
 import reactDom from 'react-dom';
 
@@ -11,9 +11,11 @@ import reactDom from 'react-dom';
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  const [saveSweeper] = useMutation(SAVE_SWEEPER);
+  const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
+  const [getSweepers] = useLazyQuery(QUERY_USER_SWEEPERS)
   // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
+  const [updatedSweepers, setUpdatedSweepers] = useState();
 
   const toast = useToast();
   const id = 'toast';
@@ -51,7 +53,6 @@ const Sweeper = () => {
     const uuid = localStorage.getItem('uuid');
 
     if (localStorage.getItem('id_token')) {
-      alert("I am logged in")
       const userInputtedWardNumber = wardNumber.current.value
       console.log(uuid)
       // if user kicks off second API call with 5+ digit then set equal 
@@ -108,6 +109,8 @@ const Sweeper = () => {
               user: uuid
             }
           })
+          console.log(saveSweeper)
+          setUpdatedSweepers(saveSweeper);
           //CALL CHAKRA UI TOAST ON SAVE SUCCESS
           if (!toast.isActive(id)) {
             toast({
@@ -134,7 +137,6 @@ const Sweeper = () => {
         }
       }
     } else {
-      alert("I am not logged in")
       //CALL CHAKRA UI TOAST IF NOT LOGGED IN
       if (!toast.isActive(id)) {
         toast({
@@ -149,6 +151,12 @@ const Sweeper = () => {
       // window.location.assign("/login")
     }
   }
+  useEffect(() => {
+    if (saveSweeperData) {
+      getSweepers()
+    }
+
+  }, [saveSweeperData])
 
   return (
     <div className='sweeper-wrapper'>
