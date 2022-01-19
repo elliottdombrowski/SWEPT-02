@@ -53,6 +53,7 @@ const typeDefs = gql`
   }
 
   input stripeCard {
+    id: ID
     address_city: String
     address_country: String
     address_line1: String
