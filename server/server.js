@@ -2,8 +2,6 @@ const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
 const cors = require('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
-const { v4: uuidv4 } = require('uuid'); 
 require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server-express');
