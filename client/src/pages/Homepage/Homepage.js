@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
 
 import { useMutation } from '@apollo/client';
 import { MAKE_DONATION } from '../../utils/mutations';
@@ -11,7 +9,7 @@ import { MAKE_DONATION } from '../../utils/mutations';
 const Homepage = () => {
   const [donation, setDonation] = useState({
     name: 'donation to the SWEPT! developers!',
-    price: 2.0,
+    price: 3.0,
   });
 
   const [makeDonation, { error, data }] = useMutation(MAKE_DONATION);
@@ -43,7 +41,10 @@ const Homepage = () => {
   return (
     <div className='homepage-wrapper'>
       <div className='homepage-img'>
-        <img src={require('../../assets/minchi.png')}></img>
+        <img 
+          src={require('../../assets/minchi.png')}
+          alt='Chicago Flag'
+        ></img>
       </div>
       <div className='homepage-text-wrapper'>
         <div className='homepage-header'>
@@ -100,6 +101,7 @@ const Homepage = () => {
               <img 
                 className='og-sweeper'
                 src={require('../../assets/ogsweeper3.png')}
+                alt='Street sweeper SVG'
               />
             </div>
           </div>
