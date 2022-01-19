@@ -14,7 +14,8 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
-  const user = data?.me || {};
+  const user = data?.me || [];
+
 
   return (
     <div className='profile-wrapper'>
