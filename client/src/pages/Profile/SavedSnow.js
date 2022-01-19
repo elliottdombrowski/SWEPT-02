@@ -28,7 +28,6 @@ const SavedSnow = () => {
         <>
             {
                 userSnow.map((singleSnow) => {
-                    console.log(userSnow)
                     return (
                         <div className='recent-search-wrapper'>
                             <div className='recent-search-header'>
@@ -38,7 +37,6 @@ const SavedSnow = () => {
                                     <h3>From {singleSnow.from_stree}</h3>
                                     <h4>To {singleSnow.to_street}</h4>
                                 </div>
-                                {console.log("snow id", singleSnow._id)}
                                 <button onClick={() => handleDeleteSnow(singleSnow._id)}>Delete</button>
                             </div>
                         </div>
