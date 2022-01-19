@@ -4,25 +4,56 @@ import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 
+import { useMutation } from '@apollo/client';
+import { MAKE_DONATION } from '../../utils/mutations';
+
+
 const Homepage = () => {
   const [donation, setDonation] = useState({
     name: 'donation to the SWEPT! developers!',
     price: 2
-  })
+  });
+
+  const [makeDonation, { error, data }] = useMutation(MAKE_DONATION);
 
   const handleStripeToken = async (token) => {
-    // console.log({ token, addresses });
-    const res = await axios.post('http://localhost:3001/', {
-      token,
-      donation
-    });
-    const { status } = res.data;
-    if (status === 'success') {
-      console.log('congrats');
-    } else {
-      console.log('nah fam');
+    try {
+      console.log(token);
+      const token2 = {
+        email: token.email,
+        id: token.id,
+        card: {
+          address_city: token.card.address_city,
+          address_country: token.card.address_country,
+          address_line1: token.card.address_line1,
+          address_line2: token.card.address_line2,
+          address_state: token.card.address_state,
+          address_zip: token.card.address_zip,
+          name: token.card.name
+        }
+      };
+      console.log('second token ', token2);
+      console.log(donation);
+      const { data } = await makeDonation({
+          variables: { input: { token: token2, donation }}
+      });
+    } catch (error) {
+      console.log(error);      
     }
+    //token is big ol object
+    // console.log({ token });
+    // const res = await axios.post('http://localhost:3001/', {
+    //   token,
+    //   donation
+    // });
+    // const { status } = res.data;
+    // if (status === 'success') {
+    //   console.log('congrats');
+    // } else {
+    //   console.log('nah fam');
+    // }
   };
+
 
   return (
     <div className='homepage-wrapper'>

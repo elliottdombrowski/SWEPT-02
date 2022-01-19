@@ -3,6 +3,8 @@ const axios = require('axios');
 const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 const { DateTime } = require('luxon');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
+const { v4: uuidv4 } = require('uuid');
 
 //HANDLE ZIPCODE LOOKUP FROM WARD FORM
 //TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
@@ -212,7 +214,52 @@ const resolvers = {
         .catch((err) => {
           return err;
         })
-    }
+    },
+    makeDonation: async (parent, args, context) => {
+      console.log('request- ', args);
+
+      let error;
+      let status;
+
+      try {
+        const { donation, token } = args;
+        const customer = await
+          stripe.customers.create({
+            email: token.email,
+            source: token.id
+          });
+
+        const idempotency_key = uuidv4();
+        const charge = await stripe.charges.create(
+          {
+            amount: donation.price * 100,
+            currency: 'usd',
+            customer: customer.id,
+            receipt_email: token.email,
+            description: `Thank you for your ${donation.name}`,
+            shipping: {
+              name: token.card.name,
+              address: {
+                line1: token.card.address_line1,
+                line2: token.card.address_line2,
+                city: token.card.address_city,
+                country: token.card.address_country,
+                postal_code: token.card.address_zip
+              }
+            }
+          },
+          {
+            idempotency_key
+          }
+        );
+        console.log("Charge- ", { charge });
+        status = 'success';
+      } catch (error) {
+        console.error('Error- ', error);
+        status = 'failure';
+      }
+      return { status };
+    },
   }
 };
 
