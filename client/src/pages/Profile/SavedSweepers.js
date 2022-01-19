@@ -15,6 +15,31 @@ const SavedSweepers = () => {
     const userSweepers = data?.getUserSweepers || [];
     console.log(userSweepers)
 
+    return (
+        <>
+            <div className='recent-search-wrapper'>
+                <div className='recent-search-header'>
+                    <h1 className='recent-searches'>Recent Searches</h1>
+                    {
+                        userSweepers.map((singleSweeper) => {
+                            return (
+
+                                <div >
+                                    <p>{singleSweeper._id}</p>
+                                    <h2>Ward: {singleSweeper.ward}</h2>
+                                    <h3>{singleSweeper.month_name}</h3>
+                                    <h4>on dates: {singleSweeper.dates}</h4>
+                                    <button onClick={() => alert(singleSweeper._id)}>Delete</button>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+        </>
+    )
+
+
 }
 
 export default SavedSweepers;
