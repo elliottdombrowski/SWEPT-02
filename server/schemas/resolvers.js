@@ -198,7 +198,6 @@ const resolvers = {
       return { token, user };
     },
 
-    // save to mongo
     saveSweeper: async (parent, { ward, section, month_name, dates, zipcode, user }) => {
       console.log(ward, section, month_name, dates, zipcode, user)
       var newSweeper = new Sweeper({
@@ -213,7 +212,6 @@ const resolvers = {
         })
     },
 
-    // save to mongo
     saveSnow: async (parent, { on_street, from_stree, to_street, restrict_t, user }) => {
       console.log(on_street, from_stree, to_street, restrict_t, user)
       var newSnow = new Snow({
@@ -227,18 +225,15 @@ const resolvers = {
           return err;
         })
     },
-
     deleteSweeper: async (parent, { id }, context) => {
-      await Sweeper.deleteOne({ _id: id, user: { _id: context.user._id } }).catch(err => { return false })
+      await Sweeper.deleteOne({ _id: id, user: context.user._id  }).catch(err => { return false })
       return true
     },
-
     deleteSnow: async (parent, { id }, context) => {
-      await Snow.deleteOne({ _id: id, user: { _id: context.user._id } }).catch(err => false)
+      await Snow.deleteOne({ _id: id, user:  context.user._id  }).catch(err => { return false })
       return true
     },
 
-    // stripe
     makeDonation: async (parent, args, context) => {
       console.log('request- ', args);
 

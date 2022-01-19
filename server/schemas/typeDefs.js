@@ -98,8 +98,8 @@ const typeDefs = gql`
     saveSweeper(ward: String!, section: String!, month_name: String!, dates: String!, zipcode: String!, user: String!): SaveSweeper
     saveSnow(on_street: String!, from_stree: String!, to_street: String!, restrict_t: String!, user: String!): SaveSnow
     makeDonation(input: StripeInfo): Status
-    deleteSweeper(id: String!):Boolean  
-    deleteSnow(id:String!):Boolean
+    deleteSweeper(id: String!): Boolean  
+    deleteSnow(id:String!): Boolean
   }
   `;
 
