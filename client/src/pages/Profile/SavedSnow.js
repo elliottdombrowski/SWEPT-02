@@ -28,6 +28,7 @@ const SavedSnow = () => {
     <>
       <div className='recent-search-wrapper'>
         <div className='recent-search-header'>
+          <h1 className='recent-searches'>Saved Snow Searches</h1>
           <h1 className='recent-searches'>Recent Snow Searches</h1>
           {
             userSnow.map((singleSnow) => {
