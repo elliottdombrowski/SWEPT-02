@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import SignUpButton from '../../components/SignUpButton/SignUpButton';
 import StripeCheckout from 'react-stripe-checkout';
-import axios from 'axios';
+import { useToast } from '@chakra-ui/react';
 
 import { useMutation } from '@apollo/client';
 import { MAKE_DONATION } from '../../utils/mutations';
@@ -11,14 +10,16 @@ import { MAKE_DONATION } from '../../utils/mutations';
 const Homepage = () => {
   const [donation, setDonation] = useState({
     name: 'donation to the SWEPT! developers!',
-    price: 2.0,
+    price: 3.0,
   });
+
+  const toast = useToast();
+  const id = 'toast';
 
   const [makeDonation, { error, data }] = useMutation(MAKE_DONATION);
 
   const handleStripeToken = async (token) => {
     try {
-      console.log(token);
       const token2 = {
         email: token.email,
         id: token.id,
@@ -32,33 +33,33 @@ const Homepage = () => {
           name: token.card.name
         }
       };
-      console.log('second token ', token2);
-      console.log(donation);
       const { data } = await makeDonation({
           variables: { input: { token: token2, donation }}
-      });
+      })
+
+      if (!toast.isActive(id)) {
+        toast({
+          id,
+          title: `Thank you for your $${donation.price} ${donation.name}`,
+          position: 'bottom-left',
+          status: 'success',
+          duration: 3000,
+          isClosable: false,
+        });
+      }
     } catch (error) {
-      console.log(error);      
+      console.log(error);
     }
-    //token is big ol object
-    // console.log({ token });
-    // const res = await axios.post('http://localhost:3001/', {
-    //   token,
-    //   donation
-    // });
-    // const { status } = res.data;
-    // if (status === 'success') {
-    //   console.log('congrats');
-    // } else {
-    //   console.log('nah fam');
-    // }
   };
 
 
   return (
     <div className='homepage-wrapper'>
       <div className='homepage-img'>
-        <img src={require('../../assets/minchi.png')}></img>
+        <img 
+          src={require('../../assets/minchi.png')}
+          alt='Chicago Flag'
+        ></img>
       </div>
       <div className='homepage-text-wrapper'>
         <div className='homepage-header'>
@@ -115,6 +116,7 @@ const Homepage = () => {
               <img 
                 className='og-sweeper'
                 src={require('../../assets/ogsweeper3.png')}
+                alt='Street sweeper SVG'
               />
             </div>
           </div>

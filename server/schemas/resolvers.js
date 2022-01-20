@@ -205,6 +205,7 @@ const resolvers = {
       });
       newSweeper.save()
         .then((response) => {
+          console.log('res ', response);
           return response;
         })
         .catch((err) => {
@@ -235,8 +236,6 @@ const resolvers = {
     },
 
     makeDonation: async (parent, args, context) => {
-      console.log('request- ', args);
-
       let error;
       let status;
 
@@ -271,10 +270,8 @@ const resolvers = {
             idempotency_key
           }
         );
-        console.log("Charge- ", { charge });
         status = 'success';
       } catch (error) {
-        console.error('Error- ', error);
         status = 'failure';
       }
       return { status };

@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useToast, Spinner } from '@chakra-ui/react';
 import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
-import Auth from '../../utils/auth';
-import reactDom from 'react-dom';
 
 
 const Sweeper = () => {
@@ -13,7 +10,6 @@ const Sweeper = () => {
   const [ward, setWard] = useState('');
   const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
   const [getSweepers] = useLazyQuery(QUERY_USER_SWEEPERS)
-  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
   const [updatedSweepers, setUpdatedSweepers] = useState();
 
@@ -29,19 +25,20 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-
     if (wardNumber.current.value.length == 2 && wardNumber.current.value > 50) {
       setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
       return false;
     }
-
-    //TODO- CHECK ZIPCODE VAL
+    if (wardNumber.current.value.length == 3 || wardNumber.current.value.length == 4 || wardNumber.current.value.length > 5) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
+    if (!parseInt(wardNumber.current.value)) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
 
     setWard(wardNumber.current.value);
-
-    // if (!wardInfo.length) {
-    //   setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
-    // }
 
     setErr('');
     return true;
@@ -193,6 +190,7 @@ const Sweeper = () => {
         />
       ) : (
         <div className='sweeper-data-output-wrapper'>
+          <span className='form-warning'>{!wardInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (
