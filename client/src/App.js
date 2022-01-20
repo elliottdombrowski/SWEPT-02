@@ -13,8 +13,6 @@ import LoginSignup from './pages/LoginSignup/LoginSignup';
 import NotFound from './pages/NotFound/NotFound';
 import './App.css';
 
-// mapbox
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
