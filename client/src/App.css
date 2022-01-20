@@ -305,7 +305,8 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  height: 85vh;
+  min-height: 85vh;
+  max-height: 100%;
   font-family: var(--link-font);
   text-shadow: none;
 }
@@ -353,8 +354,15 @@ h4 {
 }
 
 .recent-searches {
-  font-size: 200%;
+  font-size: 150%;
   font-family: var(--link-font);
+  margin-bottom: 5px;
+}
+
+.recent-searches-date {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--text);
 }
 
 /* END PROFILE  */
