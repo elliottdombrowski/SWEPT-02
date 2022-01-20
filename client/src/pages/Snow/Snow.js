@@ -129,10 +129,6 @@ const Snow = () => {
   return (
     <div className='sweeper-wrapper'>
 
-      {/* Mapbox */}
-      <div className='outer-map-container'>
-        <div ref={mapContainer} className="map-container" />
-      </div>
 
       <div className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
@@ -186,6 +182,10 @@ const Snow = () => {
           }
         </div>
       )}
+      {/* Mapbox */}
+      <div className='outer-map-container'>
+        <div ref={mapContainer} className="map-container" />
+      </div>
     </div >
   );
 };

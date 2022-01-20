@@ -546,7 +546,7 @@ h4 {
 .map-container {
   height: 400px;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   box-shadow: 0 0 10px #00293c;
@@ -554,6 +554,7 @@ h4 {
 
 .outer-map-container {
   padding-bottom: 2rem;
+  width: 50%;
 }
 .form-warning {
   font-size: 120%;
@@ -584,7 +585,8 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container {
     width: 60%;
   }
 
@@ -619,7 +621,8 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container {
     width: 70%;
   }
 
@@ -637,7 +640,8 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container {
     width: 85%;
   }
 
@@ -664,7 +668,8 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container {
     padding: 3rem 1.5rem;
     width: 95%;
   }
