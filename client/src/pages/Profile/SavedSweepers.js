@@ -32,7 +32,7 @@ const SavedSweepers = () => {
       <div className='recent-search-wrapper'>
         <div className='recent-search-header'>
           <h1 className='recent-searches'>Saved Sweeper Searches</h1>
-          <h1 className='recent-searches'>(April 1st - November 30th)</h1>
+          <h1 className='recent-searches'>| April 1st - November 30th |</h1>
           {
             userSweepers.map((singleSweeper) => {
               return (
