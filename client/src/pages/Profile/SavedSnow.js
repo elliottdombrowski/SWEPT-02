@@ -18,7 +18,7 @@ const SavedSnow = () => {
     deleteSnow({ variables: { id } })
     window.location.reload('/snow');
   }
-  // setUpdatedSnow(userSnow);
+
   useEffect(() => {
     if (deletedSnowData) {
       console.log('deleted save');
