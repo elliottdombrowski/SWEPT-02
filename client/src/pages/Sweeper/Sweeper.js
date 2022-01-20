@@ -192,6 +192,9 @@ const Sweeper = () => {
 
   return (
     <div className='sweeper-wrapper'>
+      <div className='sweeper-header'>
+        <label className='sweeper-header-label'>Find your StreetSweeper Schedule!</label>
+      </div>
 
       <div className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>

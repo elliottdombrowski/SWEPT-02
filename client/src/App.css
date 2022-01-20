@@ -378,7 +378,8 @@ h4 {
 }
 
 .sweeper-form-wrapper,
-.sweeper-data-output-wrapper {
+.sweeper-data-output-wrapper,
+.sweeper-header {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -387,6 +388,17 @@ h4 {
   border: 2px solid var(--text);
   border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.sweeper-header {
+  display: none;
+  font-size: 120%;
+  padding: 1rem 3rem;
+  margin-bottom: 1rem;
+}
+
+.sweeper-header-label {
+  margin-left: 5px;
 }
 
 .find-ward {
@@ -556,6 +568,7 @@ h4 {
   padding-bottom: 2rem;
   width: 50%;
 }
+
 .form-warning {
   font-size: 120%;
   text-align: center;
@@ -586,7 +599,8 @@ h4 {
   .login-signup-inner,
   .profile-info-wrapper,
   .recent-search-wrapper,
-  .outer-map-container {
+  .outer-map-container,
+  .sweeper-header {
     width: 60%;
   }
 
@@ -622,8 +636,13 @@ h4 {
   .login-signup-inner,
   .profile-info-wrapper,
   .recent-search-wrapper,
-  .outer-map-container {
+  .outer-map-container,
+  .sweeper-header {
     width: 70%;
+  }
+
+  .sweeper-header {
+    display: block;
   }
 
   .save-btn {
@@ -641,7 +660,8 @@ h4 {
   .login-signup-inner,
   .profile-info-wrapper,
   .recent-search-wrapper,
-  .outer-map-container {
+  .outer-map-container,
+  .sweeper-header {
     width: 85%;
   }
 
@@ -668,10 +688,18 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper,
-  .outer-map-container {
+  .recent-search-wrapper {
     padding: 3rem 1.5rem;
     width: 95%;
+  }
+
+  .outer-map-container,
+  .sweeper-header {
+    width: 95%;
+  }
+
+  .sweeper-header {
+    padding: 1rem 1.5rem;
   }
 }
 
