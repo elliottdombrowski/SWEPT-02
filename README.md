@@ -80,7 +80,51 @@ v 1.0 Desktop Display
 
 | Results Display |
 | :------: |
-| ![Screenshot-desktop-2](client/src/assets/swept1-0_full_screenshot2.png) | 
+| ![Screenshot-desktop-2](client/src/assets/swept1-0_full_screenshot2.png) |   
+    
+
+
+[SWEPT - v 2.0 Deployed App](http://swept.herokuapp.com/)   
+
+
+```
+v 2.0 Mobile Display
+```
+
+|               Homepage             |                Homepage               |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_home_mobile.png) | ![Screenshot-mobile-2](client/src/assets/swept_home2_mobile.png) |   
+
+|               Mobile Menu             |                Sweeper Search               |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_menu_mobile.png) | ![Screenshot-mobile-2](client/src/assets/swept_sweeper_mobile.png) |
+
+|               Snow Search             |                Profile                |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_snow_mobile.png) | ![Screenshot-mobile-2](client/src/assets/swept_profile_mobile.png) |
+
+|               Login             |                Sign Up               |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_login_mobile.png) | ![Screenshot-mobile-2](client/src/assets/swept_signup_mobile.png) |
+
+   
+   
+```
+v 2.0 Desktop Display
+```
+
+|               Homepage             |                Sweeper Search                |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-homepage](client/src/assets/swept_home_desktop.png) | ![Screenshot-sweeper](client/src/assets/swept_sweeper_desktop.png) |       
+
+
+|               Snow Search             |                Profile                |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_snow_desktop.png) | ![Screenshot-mobile-2](client/src/assets/swept_profile_desktop.png) |
+
+|               Login             |                Sign Up               |
+| :-----------------------------------------: | :-------------------------------------------: |
+| ![Screenshot-mobile-1](client/src/assets/swept_login_desktop.png) | ![Screenshot-mobile-2](client/src/assets/swept_signup_desktop.png) |
 
 
 <br>
