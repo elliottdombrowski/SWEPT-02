@@ -192,9 +192,8 @@ const Sweeper = () => {
 
   return (
     <div className='sweeper-wrapper'>
-      {/* Mapbox */}
-      <div className='outer-map-container'>
-        <div ref={mapContainer} className="map-container" />
+      <div className='sweeper-header'>
+        <label className='sweeper-header-label'>Find your StreetSweeper Schedule!</label>
       </div>
 
       <div className='sweeper-form-wrapper'>
@@ -230,7 +229,7 @@ const Sweeper = () => {
         />
       ) : (
         <div className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!wardInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
+          <span className='form-warning'>{!wardInfo.length ? 'No results yet!' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (
@@ -244,6 +243,10 @@ const Sweeper = () => {
           }
         </div>
       )}
+      {/* Mapbox */}
+      <div className='outer-map-container'>
+        <div ref={mapContainer} className="map-container" />
+      </div>
     </div >
   );
 };

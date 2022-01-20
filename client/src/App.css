@@ -180,7 +180,6 @@ h4 {
 .homepage-signup {
   margin: 1rem 0 0;
   width: 50%;
-  text-align: center;
   font-size: 70%;
 }
 
@@ -306,7 +305,8 @@ h4 {
     var(--med-lightblue),
     var(--chi-blue) 20%
   );
-  height: 85vh;
+  min-height: 85vh;
+  max-height: 100%;
   font-family: var(--link-font);
   text-shadow: none;
 }
@@ -354,8 +354,15 @@ h4 {
 }
 
 .recent-searches {
-  font-size: 200%;
+  font-size: 150%;
   font-family: var(--link-font);
+  margin-bottom: 5px;
+}
+
+.recent-searches-date {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--text);
 }
 
 /* END PROFILE  */
@@ -378,7 +385,8 @@ h4 {
 }
 
 .sweeper-form-wrapper,
-.sweeper-data-output-wrapper {
+.sweeper-data-output-wrapper,
+.sweeper-header {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -387,6 +395,17 @@ h4 {
   border: 2px solid var(--text);
   border-radius: 10px;
   box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.sweeper-header {
+  display: none;
+  font-size: 120%;
+  padding: 1rem 3rem;
+  margin-bottom: 1rem;
+}
+
+.sweeper-header-label {
+  margin-left: 5px;
 }
 
 .find-ward {
@@ -493,7 +512,7 @@ h4 {
 }
 
 .loading-spinner {
-  margin-top: 5rem;
+  margin: 5rem 0;
 }
 
 /* 404  */
@@ -546,7 +565,7 @@ h4 {
 .map-container {
   height: 400px;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   box-shadow: 0 0 10px #00293c;
@@ -554,7 +573,9 @@ h4 {
 
 .outer-map-container {
   padding-bottom: 2rem;
+  width: 50%;
 }
+
 .form-warning {
   font-size: 120%;
   text-align: center;
@@ -584,7 +605,10 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container,
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 60%;
   }
 
@@ -619,8 +643,15 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container,
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 70%;
+  }
+
+  .sweeper-header {
+    display: block;
   }
 
   .save-btn {
@@ -637,7 +668,10 @@ h4 {
   .snow-data-output-wrapper,
   .login-signup-inner,
   .profile-info-wrapper,
-  .recent-search-wrapper {
+  .recent-search-wrapper,
+  .outer-map-container,
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 85%;
   }
 
@@ -667,6 +701,15 @@ h4 {
   .recent-search-wrapper {
     padding: 3rem 1.5rem;
     width: 95%;
+  }
+
+  .outer-map-container,
+  .sweeper-header {
+    width: 95%;
+  }
+
+  .sweeper-header {
+    padding: 1rem 1.5rem;
   }
 }
 

@@ -13,16 +13,16 @@ const SavedSweepers = () => {
   });
 
   const userSweepers = data?.getUserSweepers || [];
-  // setUpdatedSweepers(userSweepers);
   const [deleteSweeper, { data: deletedSweeperData, loading: deletedSweeperLoading }] = useMutation(MUTATION_DELETE_SWEEPER)
 
   const handleDeleteSweeper = (id) => {
     deleteSweeper({ variables: { id } })
+    window.location.reload('/sweeper')
   }
-  // setUpdatedSnow(userSnow);
+
   useEffect(() => {
     if (deletedSweeperData) {
-      alert('sweeper deleted')
+      console.log('sweeper deleted')
     }
   }, [deletedSweeperData])
 
@@ -32,14 +32,13 @@ const SavedSweepers = () => {
       <div className='recent-search-wrapper'>
         <div className='recent-search-header'>
           <h1 className='recent-searches'>Saved Sweeper Searches</h1>
-          <h1 className='recent-searches'>| April 1st - November 30th |</h1>
+          <h1 className='recent-searches recent-searches-date'>| April 1st - November 30th |</h1>
           {
             userSweepers.map((singleSweeper) => {
               return (
                 <div className='sweeper-data-output' key={singleSweeper._id}>
-                  <h2 className='sweeper-ward'>Ward: {singleSweeper.ward}</h2>
-                  <h3 className='sweeper-ward'>{singleSweeper.month_name}</h3>
-                  <h4 className='sweeper-ward'> on dates: {singleSweeper.dates}</h4>
+                  <h2 className='sweeper-ward'>Ward {singleSweeper.ward}</h2>
+                  <h4 className='sweeper-ward'> on dates: <br /> {singleSweeper.month_name} <br /> {singleSweeper.dates}</h4>
                   <button className='login-btn save-btn' onClick={() => handleDeleteSweeper(singleSweeper._id)}>Delete</button>
                 </div>
               )

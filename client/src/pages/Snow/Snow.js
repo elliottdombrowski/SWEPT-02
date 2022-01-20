@@ -109,10 +109,10 @@ const Snow = () => {
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
-    container: mapContainer.current,
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [lng, lat],
-    zoom: zoom
+      container: mapContainer.current,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [lng, lat],
+      zoom: zoom
     });
   });
 
@@ -120,18 +120,16 @@ const Snow = () => {
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on('move', () => {
-    setLng(map.current.getCenter().lng.toFixed(4));
-    setLat(map.current.getCenter().lat.toFixed(4));
-    setZoom(map.current.getZoom().toFixed(2));
+      setLng(map.current.getCenter().lng.toFixed(4));
+      setLat(map.current.getCenter().lat.toFixed(4));
+      setZoom(map.current.getZoom().toFixed(2));
     });
   });
 
   return (
     <div className='sweeper-wrapper'>
-
-      {/* Mapbox */}
-      <div className='outer-map-container'>
-        <div ref={mapContainer} className="map-container" />
+      <div className='sweeper-header'>
+        <label className='sweeper-header-label'>Find your Snow Parking Restrictions!</label>
       </div>
 
       <div className='sweeper-form-wrapper'>
@@ -157,17 +155,17 @@ const Snow = () => {
         </div>
       </div>
       {loading ? (
-        <Spinner 
-          color='blue.500' 
+        <Spinner
+          color='blue.500'
           emptyColor='gray.200'
-          size='xl' 
+          size='xl'
           thickness='5px'
           speed='0.6s'
           className='loading-spinner'
-        />  
+        />
       ) : (
         <div className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!snowInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
+          <span className='form-warning'>{!snowInfo.length ? 'No results yet!' : ''}</span>
           {
             snowInfo.map((info, index) => {
               return (
@@ -186,6 +184,10 @@ const Snow = () => {
           }
         </div>
       )}
+      {/* Mapbox */}
+      <div className='outer-map-container'>
+        <div ref={mapContainer} className="map-container" />
+      </div>
     </div >
   );
 };
