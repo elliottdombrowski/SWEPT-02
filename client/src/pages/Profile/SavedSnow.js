@@ -26,25 +26,27 @@ const SavedSnow = () => {
 
   return (
     <>
-      {
-        userSnow.map((singleSnow) => {
-          return (
-            <div className='recent-search-wrapper'>
-              <div className='recent-search-header'>
-                <h1 className='recent-searches'>Recent Snow Searches</h1>
-                <div key={singleSnow._id}>
-                  <h2>On {singleSnow.on_street}</h2>
-                  <h3>From {singleSnow.from_stree}</h3>
-                  <h4>To {singleSnow.to_street}</h4>
+      <div className='recent-search-wrapper'>
+        <div className='recent-search-header'>
+          <h1 className='recent-searches'>Saved Snow Searches</h1>
+          <h1 className='recent-searches'>| Dec 1st - April 1 |</h1>
+          {
+            userSnow.map((singleSnow) => {
+              return (
+                <div className='sweeper-data-output' key={singleSnow._id}>
+                  <span className='sweeper-date'>On {singleSnow.on_street}</span>
+                  <span className='sweeper-ward'>From {singleSnow.from_stree}</span>
+                  <span className='sweeper-ward'>To {singleSnow.to_street}</span>
+                  <button className='login-btn save-btn' onClick={() => handleDeleteSnow(singleSnow._id)}>Delete</button>
                 </div>
-                <button onClick={() => handleDeleteSnow(singleSnow._id)}>Delete</button>
-              </div>
-            </div>
-
-          )
-        })
-      }
+              )
+            })
+          }
+        </div>
+      </div>
     </>
+
+
   )
 
 }
