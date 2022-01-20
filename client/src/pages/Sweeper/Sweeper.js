@@ -226,7 +226,7 @@ const Sweeper = () => {
         />
       ) : (
         <div className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!wardInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
+          <span className='form-warning'>{!wardInfo.length ? 'No results yet!' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (
