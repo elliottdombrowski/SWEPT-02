@@ -25,14 +25,8 @@ const Profile = () => {
         </div>
         <p className='profile-email'>{user.email}</p>
       </div>
-      <div>
-        <div>
           <SavedSweepers />
-        </div>
-        <div>
           <SavedSnow />
-        </div>
-      </div>
     </div>
   );
 };
