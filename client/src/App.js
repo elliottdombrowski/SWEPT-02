@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -12,6 +12,8 @@ import Profile from './pages/Profile/Profile';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import NotFound from './pages/NotFound/NotFound';
 import './App.css';
+
+// mapbox
 
 const httpLink = createHttpLink({
   uri: '/graphql',

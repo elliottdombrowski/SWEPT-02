@@ -4,6 +4,10 @@ import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
 
+// Import mapbox - must add exclamation point to exclude from transpilation and disable esline rule 
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+// set the access token
+mapboxgl.accessToken = 'pk.eyJ1IjoianVzdGlua2VtcDEwIiwiYSI6ImNreWt2ejV4MjJ6eHYydnBtcmVnZmNzejYifQ.LwzcX603o5VIt1PDFd-9CA';
 
 const Sweeper = () => {
   const wardNumber = useRef('');
@@ -148,6 +152,36 @@ const Sweeper = () => {
       // window.location.assign("/login")
     }
   }
+
+  // MAPBOX
+  // set default lat, long, and zoom for map - Chicago
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(-87.62);
+  const [lat, setLat] = useState(41.88);
+  const [zoom, setZoom] = useState(8);
+
+  // initialize the map, code will be invoked right after app is inserted in DOM tree of html page
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+    container: mapContainer.current,
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [lng, lat],
+    zoom: zoom
+    });
+  });
+
+  // function that stores the lat, lng, and zoom from user input
+  useEffect(() => {
+    if (!map.current) return; // wait for map to initialize
+    map.current.on('move', () => {
+    setLng(map.current.getCenter().lng.toFixed(4));
+    setLat(map.current.getCenter().lat.toFixed(4));
+    setZoom(map.current.getZoom().toFixed(2));
+    });
+  });
+
   useEffect(() => {
     if (saveSweeperData) {
       getSweepers()
@@ -155,8 +189,14 @@ const Sweeper = () => {
 
   }, [saveSweeperData])
 
+
   return (
     <div className='sweeper-wrapper'>
+      {/* Mapbox */}
+      <div className='outer-map-container'>
+        <div ref={mapContainer} className="map-container" />
+      </div>
+
       <div className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
           <form
