@@ -39,8 +39,6 @@ const Sweeper = () => {
       return false;
     }
 
-    //TODO- CHECK ZIPCODE VAL
-
     setWard(wardNumber.current.value);
 
     setErr('');
