@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useToast, Spinner } from '@chakra-ui/react';
 import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
-import Auth from '../../utils/auth';
-import reactDom from 'react-dom';
 
 
 const Sweeper = () => {
@@ -13,7 +10,6 @@ const Sweeper = () => {
   const [ward, setWard] = useState('');
   const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
   const [getSweepers] = useLazyQuery(QUERY_USER_SWEEPERS)
-  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
   const [err, setErr] = useState('');
   const [updatedSweepers, setUpdatedSweepers] = useState();
 

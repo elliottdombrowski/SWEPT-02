@@ -27,11 +27,14 @@ const Snow = () => {
   //SNOW / STREET FORM SUBMIT
   const snowNumberSubmit = async (event) => {
     event.preventDefault();
-    setSnow(snowNumber.current.value);
 
-    // if (!snowInfo.length) {
-    //   setErr('Please enter a valid Chicago Street Name');
-    // }
+    if (parseInt(snowNumber.current.value)) {
+      setErr('Please enter a valid City of Chicago Street Name!');
+      return false;
+    }
+
+    setSnow(snowNumber.current.value);
+    setErr('');
     return true;
   };
 
