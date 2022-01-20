@@ -541,6 +541,7 @@ h4 {
   all: unset;
 }
 
+
 /* mapbox */
 .map-container {
   height: 400px;
@@ -553,6 +554,11 @@ h4 {
 
 .outer-map-container {
   padding-bottom: 2rem;
+
+.form-warning {
+  font-size: 120%;
+  text-align: center;
+
 }
 
 @media all and (max-width: 768px) {

@@ -30,57 +30,61 @@ const LoginForm = () => {
     const { data } = await addUser({
       variables: { ...signupData },
     });
+
+    // save user id to local storage for db match + store
+    localStorage.setItem('uuid', data.addUser.user._id)
+
     console.log(data);
     Auth.login(data.addUser.token);
   };
-  
+
   return (
     <form className='login-form' onSubmit={handleFormSubmit}>
-          <p className='error-msg'>{err}</p>
-          <Input
-            variant='Outline'
-            size='xl'
-            type='text'
-            name='username'
-            onChange={handleInputChange}
-            value={signupData.username}
-            required
-            placeholder='Your Name'
-            className='login-input'
-          />
+      <p className='error-msg'>{err}</p>
+      <Input
+        variant='Outline'
+        size='xl'
+        type='text'
+        name='username'
+        onChange={handleInputChange}
+        value={signupData.username}
+        required
+        placeholder='Your Name'
+        className='login-input'
+      />
 
-          <Input
-            variant='Outline'
-            size='xl'
-            type='text'
-            name='email'
-            onChange={handleInputChange}
-            value={signupData.email}
-            required
-            placeholder='Your Email'
-            className='login-input'
-          />
-          
-          <Input
-            variant='Outline'
-            size='xl'
-            type='text'
-            name='password'
-            onChange={handleInputChange}
-            value={signupData.password}
-            required
-            placeholder='Your Password'
-            className='login-input'
-          />
+      <Input
+        variant='Outline'
+        size='xl'
+        type='text'
+        name='email'
+        onChange={handleInputChange}
+        value={signupData.email}
+        required
+        placeholder='Your Email'
+        className='login-input'
+      />
 
-          <button
-            disabled={!(signupData.username && signupData.email && signupData.password)}
-            type='submit'
-            className='login-input login-submit-btn'
-          >
-            Sign Up
-          </button>
-        </form>
+      <Input
+        variant='Outline'
+        size='xl'
+        type='text'
+        name='password'
+        onChange={handleInputChange}
+        value={signupData.password}
+        required
+        placeholder='Your Password'
+        className='login-input'
+      />
+
+      <button
+        disabled={!(signupData.username && signupData.email && signupData.password)}
+        type='submit'
+        className='login-input login-submit-btn'
+      >
+        Sign Up
+      </button>
+    </form>
   );
 }
 

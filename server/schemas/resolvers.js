@@ -1,8 +1,10 @@
-const { User, Sweeper, Snow, Profile } = require('../models')
+const { User, Sweeper, Snow } = require('../models')
 const axios = require('axios');
 const { signToken, authMiddleware } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 const { DateTime } = require('luxon');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_TEST);
+const { v4: uuidv4 } = require('uuid');
 
 //HANDLE ZIPCODE LOOKUP FROM WARD FORM
 //TAKES IN A WARD INPUT OF 5 CHARACTERS AS PARAMETER
@@ -151,12 +153,22 @@ const resolvers = {
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },
+
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You must be logged in.');
     },
+    // for profile render
+    getUserSweepers: async (parent, { user }) => {
+      const sweeperResult = await Sweeper.find({ user: user })
+      return sweeperResult;
+    },
+    getUserSnow: async (parent, { user }) => {
+      const snowResult = await Snow.find({ user: user })
+      return snowResult;
+    }
   },
 
   Mutation: {
@@ -193,6 +205,7 @@ const resolvers = {
       });
       newSweeper.save()
         .then((response) => {
+          console.log('res ', response);
           return response;
         })
         .catch((err) => {
@@ -212,7 +225,57 @@ const resolvers = {
         .catch((err) => {
           return err;
         })
-    }
+    },
+    deleteSweeper: async (parent, { id }, context) => {
+      await Sweeper.deleteOne({ _id: id, user: context.user._id  }).catch(err => { return false })
+      return true
+    },
+    deleteSnow: async (parent, { id }, context) => {
+      await Snow.deleteOne({ _id: id, user:  context.user._id  }).catch(err => { return false })
+      return true
+    },
+
+    makeDonation: async (parent, args, context) => {
+      let error;
+      let status;
+
+      try {
+        const { donation, token } = args;
+        const customer = await
+          stripe.customers.create({
+            email: args.email,
+            source: args.id
+          });
+
+        const idempotency_key = uuidv4();
+        const charge = await stripe.charges.create(
+          {
+            amount: args.price * 100,
+            currency: 'usd',
+            customer: customer.id,
+            receipt_email: args.email,
+            description: `Thank you for your ${args.name}`,
+            shipping: {
+              name: args.card.name,
+              address: {
+                line1: args.card.address_line1,
+                line2: args.card.address_line2,
+                city: args.card.address_city,
+                country: args.card.address_country,
+                postal_code: args.card.address_zip
+              }
+            }
+          },
+          {
+            idempotency_key
+          }
+        );
+        status = 'success';
+      } catch (error) {
+        status = 'failure';
+      }
+      return { status };
+    },
   }
 };
 

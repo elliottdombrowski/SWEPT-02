@@ -1,11 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useToast, Spinner } from '@chakra-ui/react';
-import { GET_WARD } from '../../utils/queries';
+import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
-import { useQuery, useMutation } from '@apollo/client';
-import Auth from '../../utils/auth';
-import reactDom from 'react-dom';
+import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
 
 // Import mapbox - must add exclamation point to exclude from transpilation and disable esline rule 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
@@ -15,10 +12,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoianVzdGlua2VtcDEwIiwiYSI6ImNreWt2ejV4MjJ6eHYyd
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
-  const [saveSweeper] = useMutation(SAVE_SWEEPER);
-  // const saveBtn = Auth.loggedIn ? 'SAVE' : 'LOG IN TO SAVE YOUR RESULTS';
+  const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
+  const [getSweepers] = useLazyQuery(QUERY_USER_SWEEPERS)
   const [err, setErr] = useState('');
-  
+  const [updatedSweepers, setUpdatedSweepers] = useState();
+
   const toast = useToast();
   const id = 'toast';
 
@@ -31,19 +29,20 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-
     if (wardNumber.current.value.length == 2 && wardNumber.current.value > 50) {
       setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
       return false;
     }
-
-    //TODO- CHECK ZIPCODE VAL
+    if (wardNumber.current.value.length == 3 || wardNumber.current.value.length == 4 || wardNumber.current.value.length > 5) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
+    if (!parseInt(wardNumber.current.value)) {
+      setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
+      return false;
+    }
 
     setWard(wardNumber.current.value);
-
-    // if (!wardInfo.length) {
-    //   setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
-    // }
 
     setErr('');
     return true;
@@ -54,8 +53,9 @@ const Sweeper = () => {
     const isLoggedIn = localStorage.getItem('id_token');
     const uuid = localStorage.getItem('uuid');
 
-    if (isLoggedIn) {
+    if (localStorage.getItem('id_token')) {
       const userInputtedWardNumber = wardNumber.current.value
+      console.log(uuid)
       // if user kicks off second API call with 5+ digit then set equal 
       // or > to the 60000's (per zipcode rules)
       if (userInputtedWardNumber >= 60000) {
@@ -110,6 +110,8 @@ const Sweeper = () => {
               user: uuid
             }
           })
+          console.log(saveSweeper)
+          setUpdatedSweepers(saveSweeper);
           //CALL CHAKRA UI TOAST ON SAVE SUCCESS
           if (!toast.isActive(id)) {
             toast({
@@ -150,6 +152,7 @@ const Sweeper = () => {
       // window.location.assign("/login")
     }
   }
+
   // MAPBOX
   // set default lat, long, and zoom for map - Chicago
   const mapContainer = useRef(null);
@@ -178,6 +181,14 @@ const Sweeper = () => {
     setZoom(map.current.getZoom().toFixed(2));
     });
   });
+
+  useEffect(() => {
+    if (saveSweeperData) {
+      getSweepers()
+    }
+
+  }, [saveSweeperData])
+
 
   return (
     <div className='sweeper-wrapper'>
@@ -209,16 +220,17 @@ const Sweeper = () => {
         </div>
       </div>
       {loading ? (
-        <Spinner 
-          color='blue.500' 
+        <Spinner
+          color='blue.500'
           emptyColor='gray.200'
-          size='xl' 
+          size='xl'
           thickness='5px'
           speed='0.6s'
           className='loading-spinner'
         />
       ) : (
         <div className='sweeper-data-output-wrapper'>
+          <span className='form-warning'>{!wardInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (

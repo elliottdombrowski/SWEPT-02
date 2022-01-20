@@ -1,8 +1,9 @@
-import { Token } from 'graphql';
 import decode from 'jwt-decode';
 
 class AuthService {
-  getProfile() {
+  getProfile(idToken) {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/snow');
     return decode(this.getToken());
   };
 
@@ -38,6 +39,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('uuid');
     window.location.assign('/');
   };
 };
