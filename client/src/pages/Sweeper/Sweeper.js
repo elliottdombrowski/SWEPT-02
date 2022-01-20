@@ -192,10 +192,6 @@ const Sweeper = () => {
 
   return (
     <div className='sweeper-wrapper'>
-      {/* Mapbox */}
-      <div className='outer-map-container'>
-        <div ref={mapContainer} className="map-container" />
-      </div>
 
       <div className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
@@ -244,6 +240,10 @@ const Sweeper = () => {
           }
         </div>
       )}
+      {/* Mapbox */}
+      <div className='outer-map-container'>
+        <div ref={mapContainer} className="map-container" />
+      </div>
     </div >
   );
 };
