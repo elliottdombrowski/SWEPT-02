@@ -607,7 +607,8 @@ h4 {
   .profile-info-wrapper,
   .recent-search-wrapper,
   .outer-map-container,
-  .sweeper-header {
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 60%;
   }
 
@@ -644,7 +645,8 @@ h4 {
   .profile-info-wrapper,
   .recent-search-wrapper,
   .outer-map-container,
-  .sweeper-header {
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 70%;
   }
 
@@ -668,7 +670,8 @@ h4 {
   .profile-info-wrapper,
   .recent-search-wrapper,
   .outer-map-container,
-  .sweeper-header {
+  .sweeper-header,
+  .profile-info-wrapper {
     width: 85%;
   }
 
