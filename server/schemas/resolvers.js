@@ -205,6 +205,7 @@ const resolvers = {
       });
       newSweeper.save()
         .then((response) => {
+          console.log('res ', response);
           return response;
         })
         .catch((err) => {

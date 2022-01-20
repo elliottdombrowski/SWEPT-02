@@ -25,7 +25,6 @@ const Sweeper = () => {
   //WARD FORM SUBMIT
   const wardNumberSubmit = async (event, i) => {
     event.preventDefault();
-    console.log(typeof(wardNumber.current.value))
     if (wardNumber.current.value.length == 2 && wardNumber.current.value > 50) {
       setErr('Please enter a valid Chicago Zipcode or Ward Number (1-50)');
       return false;
@@ -191,6 +190,7 @@ const Sweeper = () => {
         />
       ) : (
         <div className='sweeper-data-output-wrapper'>
+          <span className='form-warning'>{!wardInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (

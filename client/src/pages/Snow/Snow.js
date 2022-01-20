@@ -128,6 +128,7 @@ const Snow = () => {
         />  
       ) : (
         <div className='sweeper-data-output-wrapper'>
+          <span className='form-warning'>{!snowInfo.length ? 'No results! Make sure your info is correct.' : ''}</span>
           {
             snowInfo.map((info, index) => {
               return (

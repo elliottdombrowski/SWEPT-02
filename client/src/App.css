@@ -541,6 +541,11 @@ h4 {
   all: unset;
 }
 
+.form-warning {
+  font-size: 120%;
+  text-align: center;
+}
+
 @media all and (max-width: 768px) {
   .notfound-numbers {
     font-size: 4rem;
