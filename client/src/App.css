@@ -366,7 +366,7 @@ h4 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 8rem;
+  padding-top: 2rem;
   background: linear-gradient(
     to top,
     var(--med-lightblue),
@@ -539,6 +539,20 @@ h4 {
 
 .notfound-link {
   all: unset;
+}
+
+/* mapbox */
+.map-container {
+  height: 400px;
+  position: absolute;
+  width: 100vw;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  box-shadow: 0 0 10px #00293c;
+}
+
+.outer-map-container {
+  padding-bottom: 2rem;
 }
 
 @media all and (max-width: 768px) {
