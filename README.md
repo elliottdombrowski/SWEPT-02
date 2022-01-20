@@ -42,10 +42,15 @@ The application was built using the MERN stack using MongoDB, Express.js, React,
    
 ## Installing
 
-- How & where to download the program
-- any modifications needed to be made to files or folders
+1. Copy the link above and clone the repository to your local machine   
+    - Run `git clone https://github.com/elliottdombrowski/SWEPT-02`
 
-## Executing program
+2. Install package dependencies   
+    - Run `npm install` in the root directory
+
+3. Start development server   
+    - To start the app, run `npm run develop` in the root directory
+
 
 ## Links
 
