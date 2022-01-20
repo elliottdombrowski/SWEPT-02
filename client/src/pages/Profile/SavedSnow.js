@@ -32,11 +32,11 @@ const SavedSnow = () => {
           {
             userSnow.map((singleSnow) => {
               return (
-                <div key={singleSnow._id}>
-                  <h2>On {singleSnow.on_street}</h2>
-                  <h3>From {singleSnow.from_stree}</h3>
-                  <h4>To {singleSnow.to_street}</h4>
-                  <button onClick={() => handleDeleteSnow(singleSnow._id)}>Delete</button>
+                <div className='sweeper-data-output' key={singleSnow._id}>
+                  <span className='sweeper-date'>On {singleSnow.on_street}</span>
+                  <span className='sweeper-ward'>From {singleSnow.from_stree}</span>
+                  <span className='sweeper-ward'>To {singleSnow.to_street}</span>
+                  <button className='login-btn save-btn' onClick={() => handleDeleteSnow(singleSnow._id)}>Delete</button>
                 </div>
               )
             })
