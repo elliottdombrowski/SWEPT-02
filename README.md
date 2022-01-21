@@ -38,7 +38,7 @@ The application was built using the MERN stack using MongoDB, Express.js, React,
 | react-router-dom: ^5.2.0  | mongoose: ^5.9.7               |
 | react-scripts: 5.0.0      | stripe: ^8.197.0               |
 | web-vitals: ^2.1.3        |                                |
-   
+| mapbox-gl: ^2.6.1         |                                |   
    
 ## Installing
 
