@@ -56,7 +56,7 @@ The application was built using the MERN stack using MongoDB, Express.js, React,
 
 - Heroku deployed site: [SWEPT](http://swept.herokuapp.com/)
 - GitHub repository: [GitHub - SWEPT](https://github.com/elliottdombrowski/SWEPT-02) 
-- Presentation link: [Presentation]()
+- Presentation link: [Presentation](https://docs.google.com/presentation/d/12hg9P6nvWxK_n2TzjzKU79cAG8nRA2_XzrPrARD9HhI/edit?usp=sharing)
 
 ## Version History
 
