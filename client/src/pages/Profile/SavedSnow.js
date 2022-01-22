@@ -27,7 +27,7 @@ const SavedSnow = () => {
 
   return (
     <>
-      <div className='recent-search-wrapper'>
+      <section className='recent-search-wrapper'>
         <div className='recent-search-header'>
           <h1 className='recent-searches'>Saved Snow Searches</h1>
           <h1 className='recent-searches recent-searches-date'>| Dec 1st - April 1st |</h1>
@@ -44,7 +44,7 @@ const SavedSnow = () => {
             })
           }
         </div>
-      </div>
+      </section>
     </>
 
 
