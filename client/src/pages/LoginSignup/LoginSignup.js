@@ -8,8 +8,8 @@ const LoginSignup = () => {
   const [switchAuthForm, setSwitchAuthForm] = useState(false);
 
   return (
-    <div className='login-signup-wrapper'>
-      <div className='login-signup-inner'>
+    <main className='login-signup-wrapper'>
+      <section className='login-signup-inner'>
         {!switchAuthForm ? <SignupForm /> : <LoginForm />}
         <a
           href='#'
@@ -19,8 +19,8 @@ const LoginSignup = () => {
         >
           {!switchAuthForm ? 'Already have an account? Log in!' : "Don't have an account? Sign up!"}
         </a>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

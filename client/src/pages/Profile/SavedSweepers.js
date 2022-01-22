@@ -29,7 +29,7 @@ const SavedSweepers = () => {
 
   return (
     <>
-      <div className='recent-search-wrapper'>
+      <section className='recent-search-wrapper'>
         <div className='recent-search-header'>
           <h1 className='recent-searches'>Saved Sweeper Searches</h1>
           <h1 className='recent-searches recent-searches-date'>| April 1st - November 30th |</h1>
@@ -45,7 +45,7 @@ const SavedSweepers = () => {
             })
           }
         </div>
-      </div>
+      </section>
     </>
   )
 }

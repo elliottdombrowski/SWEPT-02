@@ -55,25 +55,25 @@ const Homepage = () => {
 
 
   return (
-    <div className='homepage-wrapper'>
+    <main className='homepage-wrapper'>
       <div className='homepage-img'>
         <img 
           src={require('../../assets/minchi.png')}
           alt='Chicago Flag'
         ></img>
       </div>
-      <div className='homepage-text-wrapper'>
-        <div className='homepage-header'>
+      <section className='homepage-text-wrapper'>
+        <header className='homepage-header'>
           <h1 className='homepage-welcome'>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
-        </div>
+        </header>
 
-        <div className='homepage-bio-wrapper'>
+        <article className='homepage-bio-wrapper'>
           <h3 className='homepage-secondary-header'>
             <i className='swept-header'>SWEPT</i> is a tool for Chicagoans, built by Chicagoans.
           </h3>
 
           <div className='homepage-bio'>
-            <div className='bio-col-left'>
+            <section className='bio-col-left'>
               <h4>
                 If you live in the third largest Metropolitan areas in the U.S, you're no stranger
                 to parking tickets; and <i className='swept-header'>SWEPT</i> is here to help!
@@ -100,12 +100,12 @@ const Homepage = () => {
                   GET STARTED
                 </Link>
               </div>
-            </div>
+            </section>
 
-            <div className='bio-col-right'>
-              <div className='col-right-inner'>
+            <section className='bio-col-right'>
+              <header className='col-right-inner'>
                 <h4>Save money on parking tickets? Donate and buy the <i className='swept-header'>SWEPT</i> devs a coffee!</h4>
-              </div>
+              </header>
               <div className='login-btn donate-btn'>
                 <StripeCheckout 
                   stripeKey='pk_test_51KHYhgClOt2kJmiDPmidphPbalsnQh3IER3uhYKamBl1tZmeBwGC8lfGDsfAg1Pw0easHAUVHZ3l2AUeKyaiG7hr009TLK7LxE'
@@ -124,11 +124,11 @@ const Homepage = () => {
                 src={require('../../assets/ogsweeper3.png')}
                 alt='Street sweeper SVG'
               />
-            </div>
+            </section>
           </div>
-        </div>
-      </div>
-    </div>
+        </article>
+      </section>
+    </main>
   );
 };
 

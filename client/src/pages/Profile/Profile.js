@@ -16,7 +16,7 @@ const Profile = () => {
 
 
   return (
-    <div className='profile-wrapper'>
+    <main className='profile-wrapper'>
       <div className='profile-info-wrapper'>
         <div className='profile-welcome-header'>
           <h1 className='profile-header'>Welcome, </h1> <span className='profile-username'>{user.username}!</span>
@@ -25,7 +25,7 @@ const Profile = () => {
       </div>
       <SavedSweepers />
       <SavedSnow />
-    </div>
+    </main>
   );
 };
 
