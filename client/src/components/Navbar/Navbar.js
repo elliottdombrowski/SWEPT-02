@@ -34,17 +34,17 @@ const Navbar = () => {
   }
 
   return (
-    <div className='navbar-wrapper'>
+    <main className='navbar-wrapper'>
       <header className='navbar-header' id='navbar-header' >
         {/* NAV LEFT */}
-        <div className='nav-left'>
+        <nav className='nav-left'>
           <Link to='/' className='nav-item nav-logo'>
             SWEPT!!!
           </Link>
-        </div>
+        </nav>
 
         {/* NAV RIGHT */}
-        <div className='nav-right' id='navbar-right'>
+        <nav className='nav-right' id='navbar-right'>
           <label className='switch' id='link-switcher'>
             <input type='checkbox' />
             <Link
@@ -92,7 +92,7 @@ const Navbar = () => {
           ) : (
             <SignUpButton />
           )}
-        </div>
+        </nav>
         <div
           className='hamburger'
           id="hamburger"
@@ -106,7 +106,7 @@ const Navbar = () => {
       <div className='deco'>
         <div className='deco-inner'></div>
       </div>
-    </div>
+    </main>
   );
 };
 

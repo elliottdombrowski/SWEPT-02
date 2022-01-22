@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer-wrapper"></div>
+    <footer className="footer-wrapper"></footer>
   );
 }
 
