@@ -55,14 +55,14 @@ const Homepage = () => {
 
 
   return (
-    <section className='homepage-wrapper'>
+    <main className='homepage-wrapper'>
       <div className='homepage-img'>
         <img 
           src={require('../../assets/minchi.png')}
           alt='Chicago Flag'
         ></img>
       </div>
-      <main className='homepage-text-wrapper'>
+      <section className='homepage-text-wrapper'>
         <header className='homepage-header'>
           <h1 className='homepage-welcome'>Welcome to <span className='swept-header'>SWEPT!!!</span></h1>
         </header>
@@ -127,8 +127,8 @@ const Homepage = () => {
             </section>
           </div>
         </article>
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

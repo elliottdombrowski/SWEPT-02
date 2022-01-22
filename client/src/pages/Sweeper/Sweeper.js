@@ -191,12 +191,12 @@ const Sweeper = () => {
 
 
   return (
-    <div className='sweeper-wrapper'>
-      <div className='sweeper-header'>
+    <main className='sweeper-wrapper'>
+      <header className='sweeper-header'>
         <label className='sweeper-header-label'>Find your StreetSweeper Schedule!</label>
-      </div>
+      </header>
 
-      <div className='sweeper-form-wrapper'>
+      <section className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
           <form
             onSubmit={(event) => wardNumberSubmit(event)}
@@ -217,7 +217,7 @@ const Sweeper = () => {
             <p className='error-msg'>{err}</p>
           </form>
         </div>
-      </div>
+      </section>
       {loading ? (
         <Spinner
           color='blue.500'
@@ -228,7 +228,7 @@ const Sweeper = () => {
           className='loading-spinner'
         />
       ) : (
-        <div className='sweeper-data-output-wrapper'>
+        <section className='sweeper-data-output-wrapper'>
           <span className='form-warning'>{!wardInfo.length ? 'No results yet!' : ''}</span>
           {
             wardInfo.map((info, index) => {
@@ -241,13 +241,13 @@ const Sweeper = () => {
               )
             })
           }
-        </div>
+        </section>
       )}
       {/* Mapbox */}
       <div className='outer-map-container'>
         <div ref={mapContainer} className="map-container" />
       </div>
-    </div >
+    </main >
   );
 };
 

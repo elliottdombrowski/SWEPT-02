@@ -127,12 +127,12 @@ const Snow = () => {
   });
 
   return (
-    <div className='sweeper-wrapper'>
-      <div className='sweeper-header'>
+    <main className='sweeper-wrapper'>
+      <header className='sweeper-header'>
         <label className='sweeper-header-label'>Find your Snow Parking Restrictions!</label>
-      </div>
+      </header>
 
-      <div className='sweeper-form-wrapper'>
+      <section className='sweeper-form-wrapper'>
         <div className='zip-form-wrapper'>
           <form
             onSubmit={(event) => snowNumberSubmit(event)}
@@ -153,7 +153,7 @@ const Snow = () => {
             <p className='error-msg'>{err}</p>
           </form>
         </div>
-      </div>
+      </section>
       {loading ? (
         <Spinner
           color='blue.500'
@@ -164,7 +164,7 @@ const Snow = () => {
           className='loading-spinner'
         />
       ) : (
-        <div className='sweeper-data-output-wrapper'>
+        <section className='sweeper-data-output-wrapper'>
           <span className='form-warning'>{!snowInfo.length ? 'No results yet!' : ''}</span>
           {
             snowInfo.map((info, index) => {
@@ -182,13 +182,13 @@ const Snow = () => {
               )
             })
           }
-        </div>
+        </section>
       )}
       {/* Mapbox */}
       <div className='outer-map-container'>
         <div ref={mapContainer} className="map-container" />
       </div>
-    </div >
+    </main >
   );
 };
 
