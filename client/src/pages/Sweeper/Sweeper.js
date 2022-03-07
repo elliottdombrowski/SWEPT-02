@@ -4,12 +4,17 @@ import { GET_WARD, QUERY_USER_SWEEPERS } from '../../utils/queries';
 import { SAVE_SWEEPER } from '../../utils/mutations';
 import { useQuery, useMutation, useLazyQuery } from '@apollo/client';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+
 // Import mapbox - must add exclamation point to exclude from transpilation and disable esline rule 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 // set the access token
 mapboxgl.accessToken = 'pk.eyJ1IjoianVzdGlua2VtcDEwIiwiYSI6ImNreWt2ejV4MjJ6eHYydnBtcmVnZmNzejYifQ.LwzcX603o5VIt1PDFd-9CA';
 
 const Sweeper = () => {
+  const saveIcon = <FontAwesomeIcon icon={faBookmark} className='save-icon' />
+
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
   const [saveSweeper, { data: saveSweeperData }] = useMutation(SAVE_SWEEPER);
@@ -43,7 +48,6 @@ const Sweeper = () => {
     }
 
     setWard(wardNumber.current.value);
-
     setErr('');
     return true;
   };
@@ -229,14 +233,17 @@ const Sweeper = () => {
         />
       ) : (
         <section className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!wardInfo.length ? 'No results yet!' : ''}</span>
+           <span className={!wardInfo.length ? 'form-warning' : ''}>{!wardInfo.length ? 'No results yet! Street Sweepers operate from April 1 - November 30.' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (
                 <div className='sweeper-data-output' key={index}>
                   <span className='sweeper-date'>{info.month_name} {info.dates}</span>
                   <p className='sweeper-ward'>Ward {info.ward}</p>
-                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>Save</button>
+                  <button className='login-btn save-btn' onClick={() => saveBtn(info)}>
+                    {saveIcon}
+                    Save
+                  </button>
                 </div>
               )
             })
