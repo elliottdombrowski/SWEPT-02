@@ -165,7 +165,7 @@ const Snow = () => {
         />
       ) : (
         <section className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!snowInfo.length ? 'No results yet!' : ''}</span>
+          <span className={!snowInfo.length ? 'form-warning' : ''}>{!snowInfo.length ? 'No results yet!' : ''}</span>
           {
             snowInfo.map((info, index) => {
               return (
