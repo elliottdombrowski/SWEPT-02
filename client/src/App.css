@@ -396,17 +396,6 @@ h4 {
   box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
-.sweeper-data-output {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding: 2rem 3rem;
-  background: var(--blue-gradient);
-  border: 2px solid var(--text);
-  border-radius: 10px;
-  box-shadow: 2px 2px 3px var(--deep-darkblue);
-}
-
 .sweeper-header {
   display: none;
   font-size: 120%;
@@ -444,6 +433,26 @@ h4 {
   width: 100%;
   margin-bottom: 1rem;
   border-bottom: 2px solid var(--text);
+  padding: 2rem 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
+}
+
+.form-warning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--text);
+  padding: 2rem 3rem;
+  background: var(--blue-gradient);
+  border: 2px solid var(--text);
+  border-radius: 10px;
+  box-shadow: 2px 2px 3px var(--deep-darkblue);
 }
 
 .save-btn {
@@ -456,7 +465,7 @@ h4 {
 }
 
 .save-icon {
-  margin-right: 8px;
+  margin-right: 1rem;
 }
 
 /* END SWEEPER  */

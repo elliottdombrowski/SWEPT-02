@@ -48,7 +48,6 @@ const Sweeper = () => {
     }
 
     setWard(wardNumber.current.value);
-
     setErr('');
     return true;
   };
@@ -234,7 +233,7 @@ const Sweeper = () => {
         />
       ) : (
         <section className='sweeper-data-output-wrapper'>
-          <span className='form-warning'>{!wardInfo.length ? 'No results yet!' : ''}</span>
+           <span className={!wardInfo.length ? 'form-warning' : ''}>{!wardInfo.length ? 'No results yet! Street Sweepers operate from April 1 - November 30.' : ''}</span>
           {
             wardInfo.map((info, index) => {
               return (
