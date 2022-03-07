@@ -9,6 +9,8 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 // set the access token
 mapboxgl.accessToken = 'pk.eyJ1IjoianVzdGlua2VtcDEwIiwiYSI6ImNreWt2ejV4MjJ6eHYydnBtcmVnZmNzejYifQ.LwzcX603o5VIt1PDFd-9CA';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 const Sweeper = () => {
   const wardNumber = useRef('');
   const [ward, setWard] = useState('');
